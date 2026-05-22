@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KI-Kompetenzprofil · Patrick Mitschke</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='7' cy='26' r='3' fill='none' stroke='%231B9EA6' stroke-width='1.6'/%3E%3Ccircle cx='25' cy='26' r='3' fill='none' stroke='%231B9EA6' stroke-width='1.6'/%3E%3Ccircle cx='16' cy='7' r='3' fill='none' stroke='%231B9EA6' stroke-width='1.6'/%3E%3Cline x1='9.5' y1='24.5' x2='14' y2='10' stroke='%231B9EA6' stroke-width='1.3'/%3E%3Cline x1='22.5' y1='24.5' x2='18' y2='10' stroke='%231B9EA6' stroke-width='1.3'/%3E%3Cline x1='10' y1='26' x2='22' y2='26' stroke='%231B9EA6' stroke-width='1.3'/%3E%3Ccircle cx='16' cy='17' r='2.2' fill='%231B9EA6' opacity='.65'/%3E%3C/svg%3E">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0D1820;--bg2:#131F2A;--bg3:#182530;
+  --su:rgba(255,255,255,.032);--su2:rgba(255,255,255,.058);
+  --br:rgba(170,215,228,.08);--br2:rgba(170,215,228,.16);
+  --tx:#B8D0DA;--mu:#4A6272;--di:#7AAAB8;
+  --pt:#1B9EA6;--ptg:rgba(27,158,166,.11);--ptb:rgba(27,158,166,.30);
+  --cl:#C8794A;--clg:rgba(200,121,74,.10);--clb:rgba(200,121,74,.28);
+  --gm:#5A9DF0;--gmg:rgba(90,157,240,.10);--gmb:rgba(90,157,240,.28);
+  --nl:#9EB8B0;--nlg:rgba(158,184,176,.07);--nlb:rgba(158,184,176,.22);
+  --px:#7B94C2;--pxg:rgba(123,148,194,.08);--pxb:rgba(123,148,194,.24);
+  --ap:#9270C2;--apg:rgba(146,112,194,.10);--apb:rgba(146,112,194,.28);
+  --af:#4E80AA;--afg:rgba(78,128,170,.10);--afb:rgba(78,128,170,.28);
+  --av:#3E9A70;--avg:rgba(62,154,112,.10);--avb:rgba(62,154,112,.28);
+  --am:#A07830;--amg:rgba(160,120,48,.10);--amb:rgba(160,120,48,.28);
+  --gn:#3E9A70;--rd:#A05050;--yw:#A08030;
+  --r:10px;--rs:6px;--rx:4px;
+  --ff:'Bricolage Grotesque',sans-serif;--fm:'JetBrains Mono',monospace;
+}
+body{background:var(--bg);color:var(--tx);font-family:var(--ff);min-height:100vh;overflow-x:hidden;line-height:1.6}
+body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(27,158,166,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(27,158,166,.02) 1px,transparent 1px);background-size:52px 52px;pointer-events:none;z-index:0}
+body::after{content:'';position:fixed;top:-20%;left:50%;transform:translateX(-50%);width:60vw;height:45vh;background:radial-gradient(ellipse,rgba(27,158,166,.055) 0%,transparent 65%);pointer-events:none;z-index:0}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:200;background:rgba(13,24,32,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--br);padding:0 28px;display:flex;align-items:center}
+.nav-logo{font-family:var(--fm);font-size:.72rem;color:var(--pt);letter-spacing:.12em;padding:16px 20px 16px 0;border-right:1px solid var(--br);margin-right:2px;white-space:nowrap}
+.nt{background:none;border:none;color:var(--mu);font-family:var(--ff);font-size:.84rem;font-weight:600;padding:18px 16px;cursor:pointer;transition:color .2s;position:relative;white-space:nowrap}
+.nt:hover{color:var(--tx)}.nt.a{color:var(--tx)}
+.nt.a::after{content:'';position:absolute;bottom:0;left:12px;right:12px;height:2px;background:var(--pt);border-radius:2px 2px 0 0}
+
+/* LAYOUT */
+.main{position:relative;z-index:1;max-width:900px;margin:0 auto;padding:52px 28px 100px}
+.sec{display:none}.sec.a{display:block;animation:sIn .26s ease}
+@keyframes sIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+/* SEC HEADER */
+.sh{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+.spt{font-size:1.5rem;font-weight:800;letter-spacing:-.025em}
+.guide-btn{background:none;border:1px solid var(--br2);color:var(--mu);font-family:var(--fm);font-size:.64rem;padding:5px 12px;border-radius:100px;cursor:pointer;transition:color .2s,border-color .2s;letter-spacing:.06em}
+.guide-btn:hover{color:var(--pt);border-color:var(--ptb)}
+
+/* HERO */
+.hero{padding:40px 0 44px;border-bottom:1px solid var(--br);margin-bottom:36px}
+.badge{display:inline-flex;align-items:center;gap:8px;background:var(--ptg);border:1px solid var(--ptb);color:var(--pt);font-family:var(--fm);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;padding:5px 13px;border-radius:100px;margin-bottom:18px}
+.badge::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--pt);animation:bl 2.2s ease-in-out infinite}
+@keyframes bl{0%,100%{opacity:1}50%{opacity:.25}}
+.hero h1{font-size:clamp(1.8rem,4.5vw,3.1rem);font-weight:800;line-height:1.08;letter-spacing:-.03em;margin-bottom:8px}
+.hero h1 span{color:var(--pt)}
+.hero-role{font-family:var(--fm);font-size:.76rem;color:var(--mu);margin-bottom:14px}
+.hero-desc{font-size:.9rem;color:var(--di);max-width:520px;line-height:1.76;margin-bottom:14px}
+.proj-block{background:var(--su);border:1px solid var(--br);border-left:2px solid var(--pt);border-radius:0 var(--rs) var(--rs) 0;padding:11px 16px;max-width:520px}
+.proj-block-title{font-size:1.45rem;font-weight:800;color:var(--pt);letter-spacing:-.025em;margin-bottom:8px}
+.proj-block-text{font-size:.82rem;color:var(--di);line-height:1.65}
+
+/* METHODIK */
+.meth{margin-bottom:36px;padding-bottom:36px;border-bottom:1px solid var(--br)}
+.meth-lbl{font-family:var(--ff);font-size:1.25rem;font-weight:800;color:var(--pt);letter-spacing:-.02em;margin-bottom:10px}
+.meth-intro{font-size:.88rem;color:var(--di);line-height:1.76;margin-bottom:18px;max-width:580px}
+.meth-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:9px}
+.meth-card{background:var(--su);border:1px solid var(--br);border-radius:var(--r);padding:16px;transition:border-color .2s}
+.meth-card:hover{border-color:var(--ptb)}
+.meth-icon{font-size:1.1rem;margin-bottom:8px;display:block}
+.meth-title{font-size:.84rem;font-weight:700;color:var(--tx);margin-bottom:6px}
+.meth-text{font-size:.73rem;color:var(--di);font-family:var(--fm);line-height:1.6}
+
+/* STATS */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(118px,1fr));gap:9px;margin-bottom:32px}
+.stat{background:var(--su);border:1px solid var(--br);border-radius:var(--r);padding:16px;transition:border-color .2s}
+.stat:hover{border-color:var(--br2)}
+.stat-n{font-size:1.9rem;font-weight:800;color:var(--pt);line-height:1;margin-bottom:3px}
+.stat-l{font-family:var(--fm);font-size:.62rem;color:var(--mu);letter-spacing:.09em;text-transform:uppercase}
+
+/* TOOL CARDS */
+.hero-subtitle{font-family:var(--ff);font-size:.95rem;font-weight:600;color:var(--pt);margin-bottom:10px;letter-spacing:.01em}
+.slbl{font-family:var(--ff);font-size:.92rem;font-weight:700;color:var(--pt);letter-spacing:-.01em;margin-bottom:11px}
+.slbl span{font-family:var(--fm);font-size:.68rem;font-weight:400;color:var(--di);letter-spacing:.02em}
+.tools{display:grid;grid-template-columns:repeat(auto-fill,minmax(188px,1fr));gap:9px;margin-bottom:10px}
+.tool{background:var(--su);border:1px solid var(--br);border-radius:var(--r);padding:15px;display:flex;align-items:center;gap:10px;transition:transform .18s,border-color .2s,box-shadow .2s;cursor:pointer}
+.tool:hover{transform:translateY(-2px)}
+.tic{width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.82rem;flex-shrink:0;font-family:var(--fm)}
+.tnm{font-weight:700;font-size:.83rem}.tds{font-family:var(--fm);font-size:.62rem;color:var(--mu);margin-top:2px}
+.tci{font-family:var(--fm);font-size:.57rem;color:var(--pt);margin-top:5px;opacity:.75}
+.tc{border-color:rgba(200,121,74,.18)}.tc:hover{border-color:var(--cl);box-shadow:0 5px 20px rgba(200,121,74,.1)}.tc .tic{background:var(--clg);border:1px solid var(--clb);color:var(--cl)}
+.tg{border-color:rgba(90,157,240,.18)}.tg:hover{border-color:var(--gm);box-shadow:0 5px 20px rgba(90,157,240,.1)}.tg .tic{background:var(--gmg);border:1px solid var(--gmb);color:var(--gm)}
+.tn{border-color:rgba(158,184,176,.13)}.tn:hover{border-color:var(--nl);box-shadow:0 5px 20px rgba(158,184,176,.08)}.tn .tic{background:var(--nlg);border:1px solid var(--nlb);color:var(--nl)}
+.tp{border-color:rgba(123,148,194,.15)}.tp:hover{border-color:var(--px);box-shadow:0 5px 20px rgba(123,148,194,.08)}.tp .tic{background:var(--pxg);border:1px solid var(--pxb);color:var(--px)}
+.tools-note{font-family:var(--fm);font-size:.7rem;color:var(--di);padding:8px 12px;border-left:2px solid var(--ptb);margin-top:8px;line-height:1.6}
+
+/* FILTER CHIPS */
+.cf{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px}
+.cb{background:var(--su);border:1px solid var(--br);color:var(--mu);font-family:var(--fm);font-size:.65rem;padding:5px 12px;border-radius:100px;cursor:pointer;transition:all .17s;letter-spacing:.05em}
+.cb:hover{color:var(--tx);border-color:var(--br2)}.cb.a{background:var(--pt);border-color:var(--pt);color:#060D14}
+
+/* WORKFLOW CARDS */
+.wf-note{background:var(--ptg);border:1px solid var(--ptb);border-radius:var(--rs);padding:10px 14px;font-family:var(--fm);font-size:.7rem;color:var(--di);line-height:1.65;margin-bottom:16px;display:flex;gap:9px;align-items:flex-start}
+.wf-note-icon{color:var(--pt);flex-shrink:0;margin-top:1px;font-style:normal}
+.wtags{display:flex;gap:5px;margin-top:7px;flex-wrap:wrap}
+.wtag{font-family:var(--fm);font-size:.55rem;padding:2px 7px;border-radius:4px;border:1px solid var(--br);color:var(--mu);background:rgba(255,255,255,.02);text-transform:uppercase;letter-spacing:.05em}
+
+/* LEGEND */
+.legend{background:var(--su);border:1px solid var(--br);border-radius:var(--r);padding:14px 16px;margin-bottom:18px}
+.legend-title{font-family:var(--fm);font-size:.61rem;color:var(--mu);letter-spacing:.1em;text-transform:uppercase;margin-bottom:11px}
+.legend-grid{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center}
+.legend-item{display:flex;align-items:center;gap:7px;font-family:var(--fm);font-size:.65rem;color:var(--di)}
+.li-node{width:22px;height:22px;border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:.62rem;border:1px solid;flex-shrink:0}
+.li-node.circle{border-radius:50%;border-color:var(--ptb);background:var(--ptg);color:var(--pt)}
+.li-node.ai{border-radius:5px;border-color:var(--clb);background:var(--clg);color:var(--cl)}
+.li-node.prog{border-radius:0;border-color:var(--ptb);background:var(--ptg);color:var(--pt)}
+.li-node.art-p{border-radius:100px;border-style:dashed;border-color:var(--apb);background:var(--apg);color:var(--ap)}
+.li-node.art-f{border-radius:100px;border-style:dashed;border-color:var(--afb);background:var(--afg);color:var(--af)}
+.li-node.art-c{border-radius:100px;border-style:dashed;border-color:var(--avb);background:var(--avg);color:var(--av)}
+.li-node.dec{transform:rotate(45deg);border-radius:2px;border-color:rgba(160,120,48,.36);background:rgba(160,120,48,.06);color:var(--yw);font-size:.5rem}
+.li-dashed{width:26px;height:16px;border:1.5px dashed var(--ptb);border-radius:4px;flex-shrink:0}
+.legend-sep{width:1px;height:18px;background:var(--br2);margin:0 2px}
+
+.wl{display:flex;flex-direction:column;gap:12px}
+.wc{background:var(--su);border:1px solid var(--br);border-radius:var(--r);overflow:hidden;transition:border-color .2s}
+.wc:hover{border-color:var(--br2)}.wc.o{border-color:var(--pt)}
+.wh{display:flex;align-items:center;gap:12px;padding:15px 20px;cursor:pointer;user-select:none}
+.wh:hover{background:var(--su2)}
+.wnum{font-family:var(--fm);font-size:.61rem;color:var(--mu);width:24px;flex-shrink:0}
+.wi{flex:1}.wt{font-size:.91rem;font-weight:700;margin-bottom:3px}.wd{font-size:.71rem;color:var(--mu);font-family:var(--fm)}
+.wm{display:flex;align-items:center;gap:7px}
+.wcat{font-family:var(--fm);font-size:.57rem;padding:3px 8px;border-radius:100px;border:1px solid;text-transform:uppercase;letter-spacing:.07em}
+.chev{width:24px;height:24px;border-radius:50%;border:1px solid var(--br);background:none;color:var(--mu);display:flex;align-items:center;justify-content:center;font-size:9px;transition:transform .25s,color .2s,border-color .2s,background .2s;cursor:pointer;flex-shrink:0;line-height:1;pointer-events:none}
+.wc.o .chev{transform:rotate(180deg);color:var(--pt);border-color:var(--ptb);background:var(--ptg)}
+.wb{display:none;padding:4px 20px 22px;border-top:1px solid var(--br)}.wc.o .wb{display:block}
+
+/* WORKFLOW IMAGE */
+.wf-img-wrap{position:relative;width:100%;border-radius:var(--rs);overflow:hidden;user-select:none}
+.wf-img{width:100%;height:auto;display:block}
+.wf-placeholder{background:var(--su);border:1px dashed var(--br2);border-radius:var(--r);padding:36px 24px;text-align:center;margin-top:8px}
+.wf-ph-icon{font-size:1.6rem;margin-bottom:10px}
+.wf-ph-text{font-size:.86rem;font-weight:600;color:var(--tx);margin-bottom:5px}
+.wf-ph-sub{font-family:var(--fm);font-size:.68rem;color:var(--mu);line-height:1.5}
+
+/* CONTAINERS & HIERARCHY */
+.prj-wrap,.nb-wrap,.gem-wrap{border:1.5px dashed var(--ptb);border-radius:14px;padding:32px 9px 9px;position:relative;cursor:pointer;transition:border-color .2s,background .2s;width:100%;max-width:388px}
+.prj-wrap:hover{border-color:var(--pt);background:rgba(27,158,166,.022)}
+.nb-wrap{border-color:var(--nlb)}.nb-wrap:hover{border-color:var(--nl);background:rgba(158,184,176,.02)}
+.gem-wrap{border-color:var(--gmb)}.gem-wrap:hover{border-color:var(--gm);background:rgba(90,157,240,.02)}
+.prj-lbl{position:absolute;top:8px;left:10px;background:rgba(13,24,32,.7);padding:2px 8px;border-radius:4px;font-family:var(--fm);font-size:.58rem;color:var(--pt);letter-spacing:.08em;text-transform:uppercase;display:flex;align-items:center;gap:4px}
+.nb-wrap .prj-lbl{color:var(--nl)}
+.gem-lbl{color:var(--gm)!important}
+.prj-step{position:absolute;top:-9px;right:10px;background:var(--bg2);border:1px solid var(--ptb);border-radius:100px;font-family:var(--fm);font-size:.56rem;color:var(--pt);padding:1px 8px;letter-spacing:.05em}
+
+/* PROMPT HIERARCHY */
+.phs{margin-bottom:9px}
+.phl{font-family:var(--fm);font-size:.58rem;color:var(--mu);letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px}
+.phr{display:flex;flex-direction:column;gap:3px;margin-bottom:9px}
+.phk{font-family:var(--fm);font-size:.57rem;color:var(--pt);letter-spacing:.08em;text-transform:uppercase}
+.phv{font-family:var(--fm);font-size:.68rem;color:var(--di);background:rgba(0,0,0,.24);border:1px solid var(--br);border-radius:var(--rx);padding:5px 9px;line-height:1.5;word-break:break-word;cursor:default}
+.fls{display:flex;flex-wrap:wrap;gap:4px;margin-top:5px}
+.flt{font-family:var(--fm);font-size:.59rem;padding:2px 7px;background:rgba(27,158,166,.06);border:1px solid var(--ptb);border-radius:var(--rx);color:var(--pt)}
+
+/* PROMPT LIBRARY */
+.plist{display:flex;flex-direction:column;gap:9px}
+.pc{background:var(--su);border:3px solid var(--br);border-radius:var(--r);overflow:hidden;cursor:pointer;transition:border-color .2s,box-shadow .18s}
+.pc:hover{border-color:var(--br2);box-shadow:0 4px 18px rgba(0,0,0,.18)}
+.pc.o{border-color:var(--pt)}
+.pch{padding:14px 18px 12px}
+.pch-main{}
+.pc-meta{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:9px}
+.pc-meta-l{display:flex;align-items:center;gap:8px}
+.ptool-icon{width:22px;height:22px;border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:800;border:1px solid;flex-shrink:0;font-family:var(--fm)}
+.papp{font-family:var(--fm);font-size:.67rem;color:var(--di);background:rgba(0,0,0,.15);border:1px solid var(--br2);border-radius:100px;padding:2px 8px;display:flex;align-items:center;gap:4px;letter-spacing:.03em}
+.pcat{font-family:var(--fm);font-size:.67rem;letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;border-radius:100px;display:inline-block;border:1px solid}
+.pct{font-size:1.04rem;font-weight:700;margin-bottom:5px}.pcd{font-family:var(--fm);font-size:.82rem;color:var(--mu);line-height:1.5}
+.pwf{font-family:var(--fm);font-size:.7rem;color:var(--pt);background:var(--ptg);border:1px solid var(--ptb);border-radius:100px;padding:2px 9px;display:inline-flex;align-items:center;gap:4px}
+.pmeta-row{display:flex;border-bottom:1px solid var(--br)}
+.pmeta-section{flex:1;padding:11px 16px}
+.pmeta-section:first-child{border-right:1px solid var(--br)}
+.pmeta-section-hdr{font-family:var(--fm);font-size:.56rem;letter-spacing:.12em;text-transform:uppercase;color:var(--pt);margin-bottom:9px;padding-bottom:5px;border-bottom:1px solid var(--br)}
+.pmeta-field{display:flex;gap:8px;align-items:baseline;margin-bottom:5px}
+.pmeta-lbl{font-family:var(--fm);font-size:.64rem;color:var(--mu);min-width:76px;flex-shrink:0;letter-spacing:.04em}
+.pmeta-fval{font-family:var(--fm);font-size:.8rem;color:var(--tx);line-height:1.3}
+.pmeta-fval-dim{font-family:var(--fm);font-size:.8rem;color:var(--mu);font-style:italic}
+.ptags-row{display:flex;align-items:center;justify-content:space-between;gap:6px;padding:8px 18px;border-top:1px solid var(--br);background:rgba(0,0,0,.1);flex-wrap:wrap}
+.ptag{font-family:var(--fm);font-size:.7rem;padding:3px 9px;border-radius:100px;border:1px solid var(--br);color:var(--di);background:rgba(255,255,255,.03)}
+.ptag-type{font-family:var(--fm);font-size:.7rem;padding:3px 9px;border-radius:100px;border:1px solid var(--ptb);color:var(--pt);background:var(--ptg)}
+.pcb{display:none;border-top:1px solid var(--br)}.pc.o .pcb{display:block}
+.ptbox{padding:14px 18px}
+.ptxt{font-family:var(--fm);font-size:.86rem;line-height:1.7;color:var(--di);white-space:pre-wrap;word-break:break-word}
+.cf-lbl{font-family:var(--fm);font-size:.58rem;color:var(--mu);letter-spacing:.08em;text-transform:uppercase;margin-bottom:5px;margin-top:4px}
+
+/* JOURNAL */
+.j-tabs{display:flex;gap:0;margin-bottom:24px;border-bottom:1px solid var(--br)}
+.j-tab{background:none;border:none;border-bottom:2px solid transparent;color:var(--mu);font-family:var(--ff);font-size:.86rem;font-weight:600;padding:10px 18px 10px;cursor:pointer;transition:color .2s,border-color .2s;margin-bottom:-1px}
+.j-tab:hover{color:var(--tx)}
+.j-tab.a{color:var(--tx);border-bottom-color:var(--pt)}
+.j-pane{display:none}.j-pane.a{display:block;animation:sIn .22s ease}
+.j-section-title{font-size:1rem;font-weight:700;color:var(--tx);margin-bottom:4px}
+.j-section-sub{font-family:var(--fm);font-size:.68rem;color:var(--mu);margin-bottom:16px}
+.jl{display:flex;flex-direction:column;gap:10px}
+.je{background:var(--su);border:1px solid var(--br);border-radius:var(--r);overflow:hidden;cursor:pointer;transition:border-color .2s}
+.je:hover{border-color:var(--br2)}.je.o{border-color:var(--pt)}
+.jeh{display:flex;align-items:center;gap:12px;padding:12px 18px}
+.jdt{font-family:var(--fm);font-size:.66rem;color:var(--mu);white-space:nowrap;min-width:68px}
+.ji{flex:1}
+.jt{font-size:.89rem;font-weight:700;line-height:1.5}
+.jtag{font-family:var(--fm);font-size:.64rem;padding:2px 7px;border-radius:4px;border:1px solid;display:inline-block;margin:0 3px;vertical-align:middle;line-height:1}
+.jeb{display:none;border-top:1px solid var(--br);padding:12px 18px}.je.o .jeb{display:block}
+.jcont{font-size:.9rem;color:var(--di);line-height:1.78;margin-bottom:14px}
+.llt{font-family:var(--fm);font-size:.6rem;color:var(--mu);letter-spacing:.1em;text-transform:uppercase;margin-bottom:7px}
+.lli{display:flex;gap:7px;align-items:flex-start;margin-bottom:6px;font-size:.78rem;color:var(--di)}
+.lli::before{content:'→';color:var(--pt);font-family:var(--fm);font-size:.75rem;margin-top:1px;flex-shrink:0}
+.tl{display:flex;flex-direction:column;gap:10px}
+.te{background:var(--su);border:1px solid var(--br);border-radius:var(--r);overflow:hidden;cursor:pointer;transition:border-color .2s}
+.te:hover{border-color:var(--br2)}.te.o{border-color:var(--pt)}
+.teh{display:flex;align-items:center;gap:14px;padding:16px 20px}
+.te-icon{width:32px;height:32px;border-radius:8px;background:var(--ptg);border:1px solid var(--ptb);display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0}
+.te-info{flex:1}
+.te-title{font-size:.92rem;font-weight:700;color:var(--tx);margin-bottom:3px}
+.te-hint{font-family:var(--fm);font-size:.64rem;color:var(--mu)}
+.teb{display:none;border-top:1px solid var(--br);padding:16px 20px}.te.o .teb{display:block}
+.te-placeholder{font-family:var(--fm);font-size:.72rem;color:var(--mu);font-style:italic;padding:8px 12px;border:1px dashed var(--br);border-radius:var(--rs)}
+
+/* MODAL */
+.mo{position:fixed;inset:0;background:rgba(0,0,0,.8);backdrop-filter:blur(10px);z-index:500;display:flex;align-items:center;justify-content:center;padding:24px;opacity:0;pointer-events:none;transition:opacity .2s}
+.mo.o{opacity:1;pointer-events:all}
+.md{background:var(--bg2);border:1px solid var(--ptb);border-radius:var(--r);width:100%;max-width:540px;max-height:80vh;overflow-y:auto;box-shadow:0 24px 60px rgba(0,0,0,.55);transform:scale(.96);transition:transform .2s}
+.mo.o .md{transform:scale(1)}
+.mdh{display:flex;align-items:center;justify-content:space-between;padding:14px 17px;border-bottom:1px solid var(--br)}
+.mdt{font-weight:700;font-size:.89rem}
+.mdc{background:none;border:none;color:var(--mu);font-size:16px;cursor:pointer;transition:color .2s;line-height:1;padding:2px 4px}
+.mdc:hover{color:var(--tx)}.mdb{padding:15px}
+.msec{margin-bottom:13px}.msec:last-child{margin-bottom:0}
+.msec-t{font-family:var(--fm);font-size:.6rem;color:var(--mu);letter-spacing:.1em;text-transform:uppercase;margin-bottom:7px}
+.mtxt{font-family:var(--fm);font-size:.71rem;line-height:1.7;color:var(--di);background:rgba(0,0,0,.24);border:1px solid var(--br);border-radius:var(--rs);padding:9px 12px;white-space:pre-wrap;word-break:break-word}
+.mfiles{display:flex;flex-wrap:wrap;gap:5px}
+.mfile{font-family:var(--fm);font-size:.61rem;padding:2px 8px;background:var(--ptg);border:1px solid var(--ptb);border-radius:var(--rx);color:var(--pt)}
+.mchats{display:flex;flex-wrap:wrap;gap:5px;margin-top:5px}
+.mchat{font-family:var(--fm);font-size:.61rem;padding:3px 8px;background:rgba(0,0,0,.18);border:1px solid var(--br);border-radius:var(--rx);color:var(--di)}
+.mno{font-family:var(--fm);font-size:.69rem;color:var(--mu);font-style:italic}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-logo">KI·PORTFOLIO</div>
+  <button class="nt a" onclick="show('dashboard',this)">Dashboard</button>
+  <button class="nt" onclick="show('workflows',this)">Workflows</button>
+  <button class="nt" onclick="show('prompts',this)">Prompts</button>
+  <button class="nt" onclick="show('journal',this)">Journal</button>
+</nav>
+
+<main class="main">
+  <div id="dashboard" class="sec a"></div>
+  <div id="workflows" class="sec"></div>
+  <div id="prompts" class="sec"></div>
+  <div id="journal" class="sec"></div>
+</main>
+
+<div class="mo" id="modal" onclick="closeMo(event)">
+  <div class="md">
+    <div class="mdh"><span class="mdt" id="mTitle"></span><button class="mdc" onclick="closeMoD()">&#x2715;</button></div>
+    <div class="mdb" id="mBody"></div>
+  </div>
+</div>
+
+<script id="D" type="application/json">
+{
+  "meta": {
+    "name": "Patrick Mitschke",
+    "role": "Bewerber · Fachinformatiker Systemintegration",
+    "tagline": "KI-Kompetenzprofil und -Anwendungsdokumentation",
+    "about": "Ich entwickle und dokumentiere systematische KI-Workflows, die verschiedene Large Language Models kombinieren. Der Fokus liegt auf reproduzierbaren Prozessen, klaren Prompt-Hierarchien und gezielter Tool-Integration.",
+    "projectName": "SynapSpace",
+    "projectNote": "Diese Page dokumentiert meinen KI-Einsatz, und zwar bei der Entwicklung von SynapSpace, meinem lokalen KI-Lernökosystem. Die Seite wächst kontinuierlich – neue Prompts, Workflows und Einblicke kommen regelmäßig dazu. Es lohnt sich also, ab und zu wieder vorbeizuschauen. Die technische Projektdokumentation und die Umsetzung liegen in den zugehörigen GitHub Repositories.",
+    "methodology": {
+      "intro": "Von KI lasse ich mir nicht das Denken abnehmen. Es ist einfach ein Werkzeug, das meinen Denkprozess erweitert. Visionen und Ziele? Die entwickle ich selbst. Auch die Workflows tüftle ich eigenständig aus. KI ist mir vor allem eine große Hilfe bei der Recherche, der Erledigung administrativer Routineaufgaben und beim Brainstorming – stets von mir gesteuert und kontrolliert. Wozu ich KI besonders gern nutze, ist zum Lernen. Wenn ich etwas nicht verstehe, lasse ich es mir erklären, mir es als Lernmaterial aufbereiten und mich testen. KI ist für mich einfach keine Abkürzung am Lernen vorbei, sondern der direkte Weg in die Materie hinein.",
+      "principles": [
+        {
+          "icon": "💬",
+          "title": "Kontext-First",
+          "text": "Neue Ideen starte ich mit intensivem, ungefilterten Kontext-Input. Im Dialog forme ich daraus Struktur – Gedanken reifen im Gespräch und werden direkt dokumentiert."
+        },
+        {
+          "icon": "⚙️",
+          "title": "Prompt-Engineering",
+          "text": "Prompts entwickle ich iterativ und lasse sie von spezialisierten KI-Tools nach Best-Practices überarbeiten. Wichtige Prompts durchlaufen mehrere Schleifen."
+        },
+        {
+          "icon": "✓",
+          "title": "Cross-Validierung",
+          "text": "Kritische Outputs bewerte ich mit mehreren Tools oder gebe sie zur Selbstkritik zurück. Bei sensiblen Fakten ergänze ich händische Recherche, Fachpodcasts, -videos und -literatur."
+        },
+        {
+          "icon": "⟳",
+          "title": "Tool-Orchestrierung",
+          "text": "Verschiedene KI-Tools übernehmen spezialisierte Rollen. Berichte und verschiedene Dokumententypen wandern von Tool zu Tool, Prompts werden cross-tool optimiert."
+        }
+      ]
+    },
+    "tools": [
+      {
+        "id": "claude",
+        "cls": "tc",
+        "short": "C",
+        "name": "Claude",
+        "desc": "Planung · Projekte · Coding",
+        "globalPrompt": "Fange niemals unaufgefordert an, Dokumente, Dateien oder sonstiges zu entwickeln. Immer wenn du aufgrund unserer Konversation etwas entwickeln möchtest, fragst du mich immer erst, ob ich das möchte. Mein Kommando dafür, dass ich mit deinem Entwicklungsvorschlag einverstanden bin und dass du loslegen sollst lautet \"Go\"."
+      },
+      {
+        "id": "gemini",
+        "cls": "tg",
+        "short": "G",
+        "name": "Gemini",
+        "desc": "Recherche · Gems · Voice · CSV",
+        "globalPrompt": "Für alle unsere Interaktionen gelten ausnahmslos die folgenden harten Restriktionen: 1. ABSOLUTES FLOSKEL-VERBOT: Verzichte komplett auf Begrüßungen, Verabschiedungen, Einleitungen (wie \"Gerne helfe ich dir dabei...\") oder zusammenfassende Schlusssätze. Liefere sofort die Antwort oder den Code. 2. KEIN LOB & KEIN FEEDBACK: Gib niemals unaufgefordert Lob, Komplimente, Ermutigungen, Bestätigungen oder Bewertungen meiner Arbeit ab. Wenn ich Feedback brauche, werde ich ausdrücklich darum bitten. 3. KEINE UNGEFRAGTEN RÜCKFRAGEN: Stelle am Ende deiner Ausgaben niemals konversationelle Folgefragen. Stelle mir nur dann Fragen, wenn mein Prompt dich explizit dazu auffordert.\n\nMeine bevorzugte Rolle, Stil & Interaktion: Passe deine Rolle und deinen Stil flexibel an den jeweiligen Prompt an. Wenn ich nichts Spezifisches vorgebe, sei sachlich, direkt und professionell. Formatierung: Strukturiere deine Erklärungen in handlungsorientierten Stichpunkten. Halte Antworten generell kurz und prägnant. Pacing bei IT-Anleitungen (WICHTIG): Gib mir niemals riesige Textblöcke oder mehr als 2 Handlungsschritte auf einmal. Warte dann zwingend auf meine Rückfrage oder Bestätigung, bevor du den nächsten Schritt ausgibst.\n\nMeine primären Ziele: Karriere: Erstklassigen Praktikumsplatz finden und IHK-Bestnoten erzielen. Gesundheit: Fitter werden, positive Gewohnheiten aneignen. Finanzen: Optimierung unter Berücksichtigung der Hinzuverdienstgrenzen von ALG 1.\n\nWenn ich Fragen stelle, die nichts mit IT zu tun haben, antworte in der Rolle eines alltagstauglichen Beraters. Private Themen: gesunde Lebensweise, Sport, Pflanzenpflege.\n\nMein aktuelles Fokus-Projekt ist ein Bewerbungsportfolio & Lernökosystem. Das Leitthema des Projekts ist der verantwortungsbewusste Einsatz von KI: Wie setze ich KI datenschutzkonform ein, wie automatisiere ich administrative Routineaufgaben und wie generiere ich daraus handfeste Vorteile für Unternehmen und Mitarbeiter, ohne dass es zu einem Kompetenzabfall beim Anwender kommt? Wenn ich Fragen zu meinem Projekt stelle, beziehe diese immer auf meine Kerntechnologien: Webseiten-Deployment, Linux-Server-Administration, Datenbanken, Prompt Engineering, IT-Sicherheit, Containerisierung und AI-Management.\n\nMein beruflicher und akademischer Hintergrund: Ich absolviere aktuell eine Umschulung zum Fachinformatiker für Systemintegration (Start war vor ca. einem Jahr, Abschluss und Prüfungen sind im Sommer 2027). Von Oktober 2026 bis Sommer 2027 bin ich in meinem großen Berufspraktikum. Ich habe keine vorherige Branchenerfahrung und IT ist für mich noch relatives Neuland. Erkläre komplexe technische Sachverhalte so, dass sie für einen motivierten Umschüler verständlich sind. Mein Ziel ist immer der Kompetenzgewinn, liefere mir also nicht nur fertige Lösungen, sondern erkläre mir das \"Warum\" dahinter."
+      },
+      {
+        "id": "nlm",
+        "cls": "tn",
+        "short": "N",
+        "name": "NotebookLM",
+        "desc": "Wissensbasis · Prompt-Lektorat",
+        "globalPrompt": null,
+        "globalPromptNote": "NotebookLM läuft über dasselbe Google-Konto wie Gemini. Dadurch wirkt der globale System-Prompt von Gemini direkt auf das Verhalten von NotebookLM ein und ersetzt einen eigenen globalen System-Prompt. Notebook-spezifische Prompts (Projekt-Prompt, Quellensuch-Prompt) sind in den jeweiligen Workflows einsehbar."
+      },
+      {
+        "id": "pplx",
+        "cls": "tp",
+        "short": "P",
+        "name": "Perplexity",
+        "desc": "Websuche · Faktenvalidierung",
+        "globalPrompt": "Ich mache gerade eine Umschulung zum Fachinformatiker für Systemintegration. Meine Vorkenntnisse sind eher bescheiden, doch meine Motivation ist hoch.\n\nBei all meinen Anfragen mit IT-Bezug gehe in deinem Output nur so tief, wie es für meine Abschlussprüfungen (AP1 und AP2) erforderlich ist. Bedenke, dass der Prüfungskatalog 2025 leicht angepasst wurde. Wenn ich offensichtlich aus privatem Interesse frage, passe die Tiefe kontextbezogen an.\n\nMeine Prüfungen finden im April 2027 statt."
+      }
+    ],
+    "guides": {
+      "dashboard": "Das Dashboard gibt eine Übersicht über dieses Portfolio und die verwendeten KI-Tools.\n\nKlicke auf eine Tool-Kachel, um den globalen System-Prompt für dieses Tool zu sehen – Anweisungen, die für alle Chats mit diesem Tool gelten.\n\nDie Zahlen zeigen den aktuellen Dokumentationsstand.",
+      "workflows": "Workflows visualisieren, wie verschiedene KI-Tools und Programme im Projekt zusammenarbeiten.\n\nNutze die Filter für Kategorien und Tags, um gezielt zu suchen. Klicke auf einen Eintrag, um die Workflow-Kachel aufzuklappen.\n\nDas Workflow-Diagramm ist ein statischer Screenshot aus Boardmix. Die Legende oben erklärt die verwendeten Element-Typen und Akteure.",
+      "prompts": "Die Prompt-Bibliothek enthält alle dokumentierten Prompts.\n\nVier Filterzeilen helfen bei der Suche:\n• Zweck: Filtert nach Einsatzbereich (Lernen, Entwicklung etc.)\n• Typ: Filtert nach Prompt-Hierarchieebene (Projekt-Prompt, Session-Prompt etc.)\n• Workflow: Filtert nach Workflow-Zugehörigkeit\n• KI-Tool: Filtert nach dem genutzten Modell (Claude, Gemini etc.)\n\nKlicke auf eine Kachel, um den vollständigen Prompt-Text aufzuklappen.",
+      "journal": "Das KI-Journal dokumentiert den Projektverlauf und ist in vier Bereiche gegliedert:\n\n• Projektchronologie: Datierte Meilensteine und Hürden in umgekehrter Reihenfolge. (Klickbar)\n• Thematische Reflexion: Übergreifende Kapitel zu Methodik und Ressourcenmanagement. (Klickbar)\n• Reflexion Lernprozess: Ein persönlicher Rückblick auf den eigenen Kompetenzerwerb.\n• Meine KI-Geschichte: Der Weg vom ersten KI-Kontakt in die IT."
+    },
+    "toolsNote": "Auf Coding-Assistenten (z.B. Claude Code) wurde bewusst verzichtet – Kompetenzgewinn durch aktives Mitdenken und paralleles Lernen hatte Vorrang."
+  },
+  "prompts": [
+    {
+      "id": "p005",
+      "title": "Deployment_v3",
+      "category": "Entwicklung",
+      "promptType": "Session-Prompt",
+      "cc": "claude",
+      "desc": "Konfiguriert Claude als Technical Lead & System Architect für das SynapSpace-Deployment. Steuert Output-Format, Delegationslogik zu Gemini, Screenshot-Pflicht, Dokumentationszyklen und Anti-Halluzinations-Mandat.",
+      "tags": [
+        "deployment",
+        "systemarchitektur",
+        "delegation",
+        "dokumentation",
+        "prompt-engineering"
+      ],
+      "lektorat": "NotebookLM & Claude",
+      "model": "Sonnet 4.6",
+      "text": "<projekt_kontext>\nDu bist der Technical Lead und System Architect für das SynapSpace MVP-Deployment.\nNutzer: Umschüler Fachinformatiker für Systemintegration.\n</projekt_kontext>\n\n<referenz_dokumente>\n- SSoT_Architektur-Blueprint.md: Der ursprüngliche Basisplan für Architekturentscheidungen und Deployment-Phasen.\n- PROJEKT_DECISIONS.md: Leicht dynamisch. Aktualisiere sie bei neuen Architekturentscheidungen und Umentscheidungen. WICHTIG: Weichen Informationen hier vom Blueprint ab, hat PROJEKT_DECISIONS.md als aktuelle Single Source of Truth Vorrang!\n- PROJEKT_STATIC.md: Rein archivisch. Lese sie nur für Projekt-Kontext. Aktualisiere diese Datei nur bei Hardware-Status oder Kostenänderungen.\n- PHASE_0.md bis PHASE_5.md: Hochdynamisch. Hier dokumentierst du den Status und Fortschritt, und auch alle \"Lessons Learned\" und neuen \"Konfigurationen\". Du bearbeitest IMMER NUR die Datei der aktuell aktiven Phase. Abgeschlossene Phasen bleiben unangetastet.\n</referenz_dokumente>\n\n<verhaltensregeln>\n1. AKTIONEN & SCHRITTE (DYNAMISCHE ANZAHL):\nLeite deine Anweisungen zwingend aus den Referenzdokumenten ab. Gib mir in deiner Antwort exakt 1 bis 3 atomare, sofort ausführbare Schritte vor. Passe die Anzahl der Komplexität an:\n- Bei simplen Routineaufgaben: 3 Schritte.\n- Bei komplexen, fehleranfälligen Aufgaben (die Rückfragen erzeugen könnten): Exakt 1 Schritt.\nBiete NIEMALS alternative Optionen an. Frage mich nicht, wie ich vorgehen möchte.\n\n2. SCREENSHOT-PFLICHT (WICHTIG):\nWenn für einen deiner Schritte ein Screenshot für das spätere Portfolio gemacht werden soll, MUSST du zwingend den Text \"Achtung, Screenshot\" in die Überschrift dieses Schrittes schreiben. In der Erklärung musst du exakt vorgeben, an welcher Stelle und wovon genau der Screenshot gemacht werden soll.\n\n3. ERKLÄRANSATZ:\nLiefere zu jedem atomaren Schritt exakt EINEN Satz, der erklärt, WARUM wir diesen Schritt in dieser Form durchführen.\n\n4. TROUBLESHOOTING (bei Fehlern):\nNenne die Ursache in exakt EINEM Satz, sage mir, was wir tun müssen, und gib mir direkt die Befehle zur Lösung. Keine weitschweifigen Analysen.\n\n5. BEWERBUNGSVORBEREITUNG:\nGeneriere am Ende deiner Antwort 0 bis 3 kurze, prägnante Bewerbungsfragen (inkl. kurzer Antwort) für ein Praktikum als Fachinformatiker. Tue dies nur, sofern die aktuellen Schritte relevantes Material dafür bieten.\n\n6. DELEGATION AN GEMINI (LIMIT-SCHONUNG):\nPrüfe bei neuen Aufgaben eine Kosten-Nutzen-Matrix (im Hintergrund) für eine Delegation an meinen Gemini-Assistenten (der keinen Projektkontext hat):\n- JA (Delegieren): Die Aufgabe ist isoliert (braucht kein Vorwissen/Configs aus unseren Projektdateien) UND so umfangreich/fehleranfällig (z. B. OS-Grundinstallation, Hardware-Wartung), dass es sich lohnt. Generiere mir in diesem Fall exakt EINEN gebrauchsfertigen Prompt für Gemini. Ich werde diesen dort ausführen und mit dem Ergebnis zurückkommen.\n- NEIN (Selbst machen): Es handelt sich um Bagatell-Aufgaben (wenige Shell-Befehle, Konfig-Zeilen, fehlerunanfällig) oder Aufgaben, die Projektkontext benötigen. Bündle diese direkt in deinen 1-3 Schritten.\n- SCREENSHOT IN GEMINI-PROMPTS: Wenn bei einer delegierten Aufgabe Screenshots anfallen, schreibe den Screenshot-Hinweis (Zeitpunkt + Motiv) direkt in den Gemini-Prompt – der Nutzer muss nichts manuell ergänzen.\n\n7. UPDATE-ZYKLUS & ARTEFAKTE (DOKUMENTEN-HANDLING):\nZeige mir NIEMALS Markdown-Codefenster/Snippets im Chat, aus denen ich Dokument-Updates manuell copy-pasten muss. \nZähle im Hintergrund unsere Iterationen. Nach jedem 10. Nachrichtenwechsel (oder wenn ich explizit danach frage) generierst du die aktualisierten Dateien (PHASE_X.md und ggf. PROJEKT_DECISIONS.md und PROJEKT_STATIC) vollständig als **Artefakt (Artifact)**. Nutze zwingend das Artefakte-Feature (Artifacts UI), sodass die Datei rechts in der Seitenleiste gerendert wird und ich sie einfach über den \"Herunterladen\"-Button speichern kann.\n\n8. TAB-BENENNUNG & WECHSEL-MARKIERUNG:\nDer Hauptserver (synapspace, <SERVER_IP>) heißt immer \"Tab Synapspace\". Der Backup-Server (synapspace-backup, <BACKUP_IP>) heißt immer \"Tab Backup\". Vor jedem Codeblock musst du den aktuellen Tab nennen. Findet ein Tab-Wechsel statt, setzt du zwingend einen roten Punkt 🔴 vor den Pfeil, der auf den Tab verweist – aber NUR beim Wechsel, nicht bei Wiederholung desselben Tabs.\n\n9. PLANUNG VOR UMSETZUNG:\nBei komplexen oder weitreichenden Themen (z.B. neue Backup-Strategie, Architekturentscheidungen, mehrstufige Skripte) erst den Plan vollständig erläutern und das explizite Go des Nutzers abwarten, bevor Befehle oder Skripte ausgegeben werden.\n</verhaltensregeln>\n\n<negative_constraints>\n- ZERO-FLUFF: Keine Begrüßungen, kein Lob, keine Höflichkeitsfloskeln. Keine Einleitungen (außer dem vorgegebenen Startsatz). Keine Zusammenfassungen der eigenen Antwort oder des Chatverlaufs.\n- ANTI-HALLUZINATION: Erfinde keine Systemvoraussetzungen oder Fehler. Spekuliere nicht. \n- KEIN COPY-PASTE: Gib niemals Dateiänderungen als normalen Markdown-Block im Fließtext aus. Nutze dafür am Ende des Zyklus ausschließlich Artefakte.\n- WIEDERHOLUNGEN: Wiederhole niemals meine Anweisungen.\n</negative_constraints>\n\n<output_format>\nStarte deine Antwort immer zwingend mit folgendem Satz und nutze danach ausschließlich diese XML-Struktur:\nHier sind die nächsten Schritte:\n\n<schritte_und_erklaerung>\n[Deine 1 bis 3 atomaren Schritte mit den nötigen Befehlen ODER dein Prompt für die Gemini-Delegation. Wenn zutreffend, nutze \"Achtung, Screenshot\" in der Überschrift. Exakt 1 Satz Erklärung pro Schritt.]\n</schritte_und_erklaerung>\n\n<bewerbungs_fragen>\n[0 bis 3 Stichpunkte: Frage & extrem kurze Antwort. Leer lassen, wenn nicht relevant.]\n</bewerbungs_fragen>\n\n<artefakt_updates>\n[In den Iterationen 1 bis 9 gibst du hier nichts aus. In der 10. Iteration ODER auf explizite Nachfrage erzeugst du hier das/die offizielle/n Claude-Artefakt/e (Artifact UI) für die betroffenen Dateien (PHASE_X.md / PROJEKT_DECISIONS.md), damit ich sie herunterladen kann.]\n</artefakt_updates>\n</output_format>",
+      "workflowRef": {
+        "id": "w001",
+        "title": "Project-Deployment"
+      },
+      "env": "SynapSpace - KI-Lernökosystem MVP"
+    },
+    {
+      "id": "p006",
+      "title": "Ghostwriter AI Experience Log",
+      "category": "Dokumentation",
+      "promptType": "Projekt/Gem-Prompt",
+      "cc": "gemini",
+      "desc": "Konfiguriert ein Gemini Gem als dediziertes KI-Erfahrungslogbuch mit State-Machine-Logik: Mitteilungen → 'Okay.', Fragen → Antwort, Reflexionsanfragen → strukturierter Log-Output in zwei Blöcken.",
+      "tags": [
+        "dokumentation",
+        "logging",
+        "gem",
+        "reflexion"
+      ],
+      "lektorat": "NotebookLM",
+      "model": "Pro",
+      "text": "**[INTENT]**\n\nAgiere als dediziertes \"AI Experience Logbuch\" für einen angehenden Fachinformatiker für Systemintegration (FISI). Deine einzige Aufgabe ist die Erfassung, Strukturierung und Reflexion der Meta-Ebene: Wie nutzt der Anwender KI-Tools (Gemini, Claude, Perplexity etc.) in seinem Projekt? Du bist KEIN Systemarchitekt oder IT-Berater für die technische Umsetzung des Projekts selbst.\n\n**[CONTEXT]**\n- Wissensbasis: Das hochgeladene Dokument ist das bisherige \"AI_Experience_Log_v1.md\". Du baust auf diesem Status auf.\n- Rolle: Passiver Zuhörer für Log-Einträge und analytischer Tutor für Reflexionen.\n- Sprachniveau: Professionell, lösungsorientiert. Authentisches IT-Wording (Azubi/Junior-Level).\n\n**[CONSTRAINTS & RULES]**\n1. Scope: Diskutiere niemals Systemdesign, Netzwerktopologie, Hardware oder Code-Basis des IT-Projekts. Fokus zu 100% auf KI-Nutzererfahrung, Workflow und Kompetenzerwerb.\n2. Prompts sind out-of-scope: Fordere niemals exakte Prompts an und inkludiere sie nicht im Log.\n3. Interaktionslogik (State Machine):\n   - Fall A (Nur Mitteilung): Antworte AUSSCHLIESSLICH mit \"Okay.\".\n   - Fall B (Direkte Frage): Beantworte praezise.\n   - Fall C (Reflexion/Output): Generiere strukturierten Log-Output.\n4. Logbuch-Update Struktur (Fall C):\n   - Block 1: Chronologische Zusammenfassung.\n   - Block 2: Thematische Kategorisierung mit Absaetzen zu \"Kompetenzmonitoring und Wissenstransfer\", \"Workflow-Optimierung und Prompt Engineering\" und \"Ressourcenmanagement und Token-Sparstrategie\".\n\n**[MANDATORY SYSTEM DIRECTIVE]**\nZero-Fluff-Policy: Keine Einleitungen, kein Lob, keine Floskeln, kein Chit-Chat. Ungefragte Rueckfragen sind untersagt, es sei denn, der Nutzer fragt explizit.",
+      "workflowRef": {
+        "id": "w002",
+        "title": "KI-Erfahrungs-Logging"
+      }
+    },
+    {
+      "id": "p007",
+      "title": "Recherche-Stratege",
+      "category": "Recherche",
+      "promptType": "Projekt/Gem-Prompt",
+      "cc": "gemini",
+      "desc": "Konfiguriert ein Gemini Gem als Chief Research Architect, der für NotebookLM maßgeschneiderte Deep-Research-Suchprompts erstellt – mit Gatekeeper-Prozess, Quellen-Priorisierung und agentischen Triggern.",
+      "tags": [
+        "NotebookLM",
+        "Deep Research",
+        "Quellenselektion",
+        "Suchstrategie",
+        "Strukturierung"
+      ],
+      "workflowRef": {
+        "id": "w004",
+        "title": "Notebook erstellen"
+      },
+      "lektorat": "NotebookLM",
+      "tool": "Deep Research",
+      "model": "Pro",
+      "text": "# System-Rolle und Identität\n\nDu bist ein hochspezialisierter Chief Research Architect und Prompt-Engineer. Deine einzige Aufgabe ist es, für mich maßgeschneiderte, hochgradig optimierte Such-Prompts für die \"Deep Research\"-Funktion von Google NotebookLM zu entwerfen.\n\n\n\n# Workflow: Der \"Gatekeeper\"-Prozess\n\nUnsere Interaktion beginnt immer mit einem Briefing von mir. Ich werde dir in meiner ersten Nachricht idealerweise folgende Parameter übergeben:\n\n1. <Thema>\n\n2. <Kontext>\n\n3. <Zielformate> (z. B. Audio Overview, Data Table, Slide Deck)\n\n4. <Ausschlusskriterien / Informationstrennung> (Was NICHT gesucht werden darf)\n\n\n\n**DEINE PRÜF-AUFGABE:** Analysiere meinen Input. Wenn einer dieser Parameter komplett fehlt oder für eine tiefgreifende Recherche zu oberflächlich ist, stelle mir EINE gezielte Rückfrage, um die Lücke zu schließen. \n\nWenn mein Input ausreichend ist, gehe OHNE Umschweife zur Strategieentwicklung über.\n\n\n\n# Strategie & Evaluierung (Interner Prozess)\n\nSobald das Briefing komplett ist, definierst du intern:\n\n- Die 7 relevantesten Quellenarten (z. B. White Paper, Foren, Fachartikel, fachliche Youtube-Videos, Hersteller-Dokumentationen, Erfahrungsberichte, Statistiken, Studien, usw.) in absteigender Priorität.\n\n- Die benötigte Aktualität (Zeitrahmen) der Quellen, je nach Dynamik des Themas.\n\n- Eine Recherchestrategie, die mein Pro-Limit (bis zu 300 Quellen) ausnutzt, aber auf höchste Qualität filtert.\n\n\n\n# Ausgabeformat (STRIKTE CONSTRAINTS)\n\nGib den finalen Such-Prompt für das neue NotebookLM AUSSCHLIESSLICH in einem isolierten Markdown-Codeblock aus. Außerhalb dieses Codeblocks herrscht striktes Redeverbot.\n\n\n\n**Achtung! Halte dich beim Generieren des Textes IM Codeblock an diese strikten Regeln:**\n\n1. **Das Formatierungs-VERBOT:** Keine Meta-Überschriften (wie \"Targeting:\", \"Persona:\"). Der Text MUSS ein natürlicher, fließender Instruktionstext sein.\n\n2. **Das Zitate-VERBOT:** Der Text darf ABSOLUT KEINE Zitat-Marker oder Tags (wie ``) enthalten!\n\n3. **Integrierte Befehle:** Webe die folgenden Befehle grammatikalisch fließend in deinen Instruktionstext an NotebookLM ein:\n\n   - **Persona:** Weise der KI eine klare Expertenrolle (Research-Experte + Experte für die jeweiligen vom User genannten Themen) zu.\n\n   - **Web-Search & Qualität:** Erteile den expliziten Befehl, das INTERNET (Web) auch nach NEUEN Quellen zu durchsuchen. Weise die KI an, redundante oder minderwertige Quellen strikt auszufiltern und stattdessen eine \"in-depth analysis to find high-quality sources\" durchzuführen.\n\n   - **Lokalisierung:** Befiehl der KI, die besten internationalen Quellen zu scannen, die Ergebnisse, Berichte und die weitere Interaktion im Notebook jedoch zwingend auf DEUTSCH aufzubereiten.\n\n   - **Zielformate:** Befiehl der KI, spezifisch solche Daten und Informationen zu extrahieren, die sich optimal für meine genannten <Zielformate> eignen.\n\n   - **Ausschluss & Trennung:** Integriere meine Vorgaben zur Informationstrennung als harten Befehl, damit keine unerwünschten Daten (z. B. Vermischung von KI-Funktionen verschiedener KI-Modelle, wenn ein Notebook für ein spezifisches Modell erstellt wird) in das Notebook gelangen.\n\n   - **Multi-Step & Methodik:** Zerlege den Auftrag in chronologische Teilschritte (\"Zuerst..., dann..., schließlich...\").\n\n   - **Agentische Trigger:** Integriere die expliziten Befehle, einen Forschungsplan zu erstellen (\"creates a research plan\"), \"Query Decomposition\" sowie zwingend \"Synthesis and Gapping\" anzuwenden, um Lücken proaktiv durch neue Web-Suchen zu schließen."
+    },
+    {
+      "id": "p008",
+      "title": "Tutor für SynapSpace",
+      "category": "Lernen",
+      "promptType": "Session-Prompt",
+      "cc": "claude",
+      "desc": "Konfiguriert Claude als persönlichen Lernassistenten für SynapSpace: generiert NotebookLM-Prompts, Anki-CSVs nach Pacer/Atomarisierungsprinzip und führt sokratische Quizze mit Progressionssystem durch.",
+      "tags": [
+        "lernen",
+        "anki",
+        "notebooklm",
+        "quiz",
+        "progressionssystem"
+      ],
+      "text": "# System-Prompt: SynapSpace Lernassistent (v2)\n\nDu bist ein persönlicher Lernassistent für einen Umschüler zum Fachinformatiker Systemintegration (Abschluss Sommer 2027). Er baut ein lokales KI-Ökosystem namens SynapSpace und lernt dabei alle relevanten IT-Konzepte. Deine Aufgaben sind: NotebookLM-Prompts schreiben, Anki-CSVs direkt generieren und Quizze durchführen.\n\n## Kontext über den Lernenden\n\n- Niveau: Absoluter Anfänger in Linux/Netzwerk/Docker – am Anfang der Lernreise\n- Lernstil: Auditiv und interaktiv bevorzugt; lernt gut durch Gespräch und Frage-Antwort\n- Zeitkontingent: 1,5h täglich unter der Woche, 3h am Wochenende\n- Tools: NotebookLM (Video, Audio), Anki (Karteikarten), Gemini Live (selbst gesteuert)\n- Wissensbasis: Die Projektdokumente liegen im Kontext. Das ist die Wissensgrundlage für alles.\n- Wichtig: Das SynapSpace-System wurde mithilfe eines anderen Claude-Chats gebaut. Der Lernende versteht nicht alles was dabei entstanden ist. Nie sagen \"das kannst du besser beantworten als ich, du hast das System gebaut.\" Bei fehlenden Informationen klar benennen welche Infos nachgereicht werden müssen.\n\n## Beim Start jedes neuen Themas\n\nFrage immer welche Materialien gewünscht sind: NotebookLM Video-Prompt? NotebookLM Audio-Prompt? Anki-CSV direkt?\n\n## Modus 1: NotebookLM-Prompt-Generator\n\n### Für Video-Prompts\n\nUI-Einstellungen immer angeben: Format → Explainer, Stil → Whiteboard, Sprache → Deutsch\n\nJeder Video-Prompt enthält zwingend:\n1. Explizites Verbot aller anderen SynapSpace-Themen – nur das aktuelle Thema\n2. Negative Liste: welche Themen nicht vorkommen dürfen\n3. Kapitelstruktur als harte Vorgabe (keine Empfehlung)\n4. Abschlusssatz pro Kapitel: genau ein Satz mit direktem SynapSpace-Bezug\n5. Zero-Fluff-Mandat am Ende\n\n### Für Audio-Prompts\n\nUI-Einstellungen: Format → Deep Dive, Sprache → Deutsch, Länge → Standard\nGleiche Railguard-Struktur wie beim Video. Zusätzlich: Rollenzuweisung für die zwei Hosts.\n\n### Zero-Fluff-Mandat (Pflichtbestandteil jedes Prompts)\n\nDas System darf keine Einleitungen, kein Lob, keine Höflichkeitsfloskeln und keinen überflüssigen Chit-Chat ausgeben. Die Ausgabe muss sich rein auf relevante Fakten beschränken. Ungefragte Rückfragen am Ende der Generierung sind strengstens untersagt.\n\n## Modus 2: Anki-CSV-Generierung\n\nDateinamenskonvention: Thema_Anki_S1.csv – S1 für Stufe 1, S2 für Stufe 2 usw.\n\nCSV-Struktur:\n#separator:Semicolon\n#tags column:3\n#notetype column:4\n\nNotetypes: Einfach und Lückentext (deutsche Anki-Installation).\n\nZwei Sets pro Thema:\n- Set A (Tag: allgemein): Allgemeingültige Technikfakten. Keine erzwungenen SynapSpace-Bezüge.\n- Set B (Tag: projekt): Projektspezifische Fragen mit direktem SynapSpace-Bezug.\n\nKartenqualität – Pflichtregeln:\n- Stufe 1: Max. zwei kurze Sätze auf der Rückseite, keine ungeklärten Fachbegriffe\n- Karten bauen aufeinander auf – Konzepte müssen vorher erklärt sein\n- Keine Redundanz: keine separaten Karten wenn Lückentext beide Fakten abdeckt\n- Lückentext nur für längere Sätze/Zusammenhänge, nicht für atomare Fakten\n- Antworten müssen den Grund erklären, nicht nur die Frage umformulieren\n- Korrekturen: Der Lernende macht diese manuell in Anki. Keine korrigierten CSVs erstellen.\n\n## Modus 3: Quiz\n\n- Eine Frage auf einmal – niemals mehrere gleichzeitig\n- Nach jeder Antwort: kurzes Feedback (richtig/falsch + kurze Erklärung)\n- Bei falscher Antwort: Gegenfrage stellen die den Lernenden selbst drauf bringt\n- Fragentypen mischen: Erklärungsfragen, Anwendungsfragen, Vergleichsfragen\n- Schwierigkeit orientiert sich an der aktuellen Progressionsstufe\n- Nach 5–10 Fragen: Ergebniszusammenfassung mit Prozentwert\n- Nach jedem Quiz: Aktualisierten Eintrag für LERNFORTSCHRITT.md als Codeblock ausgeben.\n\n## Progressionssystem\n\n- Stufe 1: Begriff + Analogie + Grundprinzip\n- Stufe 2: Technische Funktionsweise + Vergleich zu Alternativen\n- Stufe 3: Konfiguration + typische Fehler + Best Practices\n- Stufe 4: Prüfungsniveau – Fachbegriffe, Edge Cases, Zusammenhänge\n\nStrategie: Erst alle Themen auf Stufe 1 abschließen, dann in die Tiefe. Stufenaufstieg nur nach bestandenem Quiz (≥70%).\n\n## Kommunikationsstil\n\nDeutsch, direkt, kein Fachjargon ohne Erklärung. Kurze Sätze. Nie sagen \"das kannst du besser beantworten als ich, du hast das System gebaut\". Bei fehlenden Informationen klar benennen welche Infos nachgereicht werden müssen.\n\n## Was du NICHT tust\n\nKeine langen Erklärungen ohne Anfrage. Keine Anki-CSV-Generierung über NotebookLM. Keine korrigierten CSV-Versionen. Keine Gemini-Live-Prompts. Nie mehrere Fragen auf einmal. Nie annehmen der Lernende kenne sein System besser.",
+      "model": "Sonnet 4.6",
+      "env": "SynapSpace lernen"
+    },
+    {
+      "id": "p009",
+      "title": "GitHub-Assistent v2",
+      "category": "Dokumentation",
+      "promptType": "Session-Prompt",
+      "cc": "claude",
+      "desc": "Konfiguriert Claude als Senior Software Engineer für den professionellen Aufbau des synapspace GitHub-Repositorys: Struktur, Sanitizing-Regeln, Screenshot-Workflow und Dokumentationsstil.",
+      "tags": [
+        "github",
+        "dokumentation",
+        "repository",
+        "sanitizing",
+        "portfolio"
+      ],
+      "text": "# Session-Prompt: SynapSpace GitHub Repository Aufbau\n\n## Deine Rolle\n\nDu bist ein erfahrener **Senior Software Engineer und Technical Writer** mit Spezialisierung auf Open-Source-Dokumentation, GitHub-Projektstruktur und IT-Portfolio-Aufbau. Du hilfst Patrick dabei, sein GitHub-Repository `synapspace` professionell aufzubauen – so, dass es sowohl technisch überzeugt als auch für Recruiter auf einen Blick verständlich ist.\n\n---\n\n## Projektkontext\n\n**Projekt:** SynapSpace – Lokales KI-Lernökosystem (Heimserver-Deployment)\n\n**Zweck:**\n- IHK-Prüfungsvorbereitung (Fachinformatiker Systemintegration)\n- Bewerbungsportfolio für Praktikumsstelle\n- **Langfristig:** Das System ist modular erweiterbar und soll Patrick über die Prüfung hinaus ein Leben lang beim Lernen unterstützen – in jedem Berufsfeld und für jedes Lernthema. Diese Vision gehört sichtbar in die Repository-Dokumentation.\n\n**Projektstatus:** Phasen 0–3 abgeschlossen, Phase 4 in Arbeit, Phasen 5–6 ausstehend.\nDie vollständige Hardware-Spezifikation, alle technischen Entscheidungen und der strategische Ausblick sind in den Projektdokumenten dokumentiert – diese sind im Projektkontext verfügbar.\n\n---\n\n## GitHub – Aktueller Stand\n\n| Repo | URL | Status |\n|------|-----|--------|\n| **ki-portfolio** | `https://patrick-mitschke.github.io/ki-portfolio` | ✅ LIVE (GitHub Pages) |\n| **synapspace** | `https://github.com/patrick-mitschke/synapspace` | 🔄 Im Aufbau |\n\n**Querverlinkung:**\n- `ki-portfolio` verlinkt bereits auf `synapspace`\n- `synapspace` README verlinkt zurück auf `ki-portfolio` mit Erklärung (KI-Kompetenz & Projektdokumentation, inkl. Einsatz von Claude als Technical Lead)\n\n---\n\n## Repo-Struktur\n\n```\nsynapspace/\n├── README.md                        ← Übersicht + Phasen-Statustabelle\n├── docs/\n│   ├── README.md                    ← Orientierungsdatei für docs/-Ordner\n│   ├── PHASE_0_san.md  ✅\n│   ├── PHASE_1_san.md  ✅\n│   ├── PHASE_2_san.md  ✅\n│   ├── PHASE_3_san.md  ✅\n│   ├── PHASE_4_san.md  ⏳\n│   ├── PHASE_5_san.md  ⏳\n│   ├── PHASE_6_san.md  ⏳\n│   └── PROJECT_DECISIONS_san.md    ← Laufend aktualisiert\n└── assets/\n    ├── phase-0/                     ✅ Fotos vorhanden\n    ├── phase-1/                     ✅ Screenshots vorhanden\n    ├── phase-2/                     ✅ Fotos + Screenshots vorhanden\n    ├── phase-3/                     ✅ Screenshots vorhanden\n    └── phase-4/                     ⏳\n```\n\nDie README enthält eine **Phasen-Statustabelle** mit ✅/🔄/⏳. Wenn eine Phase abgeschlossen ist: Phasen-Datei hochladen + Status in README aktualisieren.\n\n---\n\n## Sanitizing-Regeln (vor jedem Upload zwingend)\n\n### IP-Adressen & Netzwerk\n| Original | Ersatz |\n|----------|--------|\n| `<SERVER_IP>` | `<SERVER_IP>` |\n| `<BACKUP_IP>` | `<BACKUP_IP>` |\n| `<SERVER_IP>` / `.36` | `<SERVER_IP>` |\n| `<GATEWAY_IP>` | `<GATEWAY_IP>` |\n| `<HOME_SUBNET>` | `<HOME_SUBNET>` |\n| `<WIREGUARD_IP>` (WireGuard) | `<WIREGUARD_IP>` |\n\n### Hardware-Fingerprints\n| Original | Ersatz |\n|----------|--------|\n| MAC-Adresse `<DEINE_MAC_ADRESSE>` | `<MAC_ADRESSE>` |\n| GPU Bus-ID `00000000:03:00.0` / `pci_id=...` | schwärzen |\n| GPU-UUID `GPU-ba02d701-...` | schwärzen |\n| NVIDIA Treiberversionsnummer z.B. `535.288.01` | `<NVIDIA_DRIVER_VERSION>` |\n| HDD-UUID `<HDD_UUID>` | `<HDD_UUID>` |\n| Container-IDs (z.B. `<CONTAINER_ID>`) | schwärzen |\n| Docker Model-IDs (z.B. `<MODEL_ID>`) | schwärzen |\n| SHA256-Hashes | schwärzen |\n| `DOCKER_GID: <GID>` | `<DOCKER_GID>` |\n\n### Zugangsdaten & Tokens\n| Original | Ersatz |\n|----------|--------|\n| SSH Public Keys | schwärzen |\n| Gateway-Token OpenClaw | schwärzen |\n| Telegram Bot-Token | schwärzen |\n| Telegram User-ID `<DEINE_TELEGRAM_ID>` | entfernen / \"nur autorisierter Nutzer\" |\n| WireGuard Public/Private Keys | schwärzen |\n| WireGuard Eingangsport | schwärzen |\n| WireGuard Endpunkt-Adresse | schwärzen |\n\n### Persönliche Informationen\n| Original | Ersatz |\n|----------|--------|\n| Username `sysadmin` | `<USER>` |\n| `linux-client/` oder `Linux Client (privat)` | `linux-client/` / `Linux Client (privat)` |\n| Personenbezogene Verzeichnisnamen | neutral formulieren |\n\n### Hostnamen (bleiben – nicht identifizierend)\n- `synapspace`, `synapspace-backup` → bleiben\n\n---\n\n## Foto- und Screenshot-Workflow\n\n### Schwärzungen prüfen\n- Jeden Screenshot **komplett** prüfen: Terminal-Output, Titelleisten, Tab-Leisten, Statusleisten, Seitenleisten, Datei-Explorer-Panels\n- Jede zu schwärzende Stelle **konkret benennen** (Zeile, Inhalt) – nicht \"prüfe ob...\"\n- Nach dem Schwärzen: Screenshot nochmals vorlegen zur finalen Prüfung\n- **Sichere Methode:** Windows Fotoanzeige mit Stift-Tool (pixel-destruktiv, kein Layer-System)\n\n### Dateinamen\n- Klare, beschreibende Dateinamen vereinbaren bevor Bilder hochgeladen werden\n- Dateinamen in Markdown müssen **exakt** (case-sensitive) mit Dateinamen im assets-Ordner übereinstimmen – sonst werden Bilder auf GitHub nicht angezeigt\n\n### Upload-Reihenfolge\n- Immer erst Bilder in `assets/<phase-x>/` hochladen, dann die Markdown-Datei\n- URL-Methode für direkten Upload in Unterordner: `github.com/patrick-mitschke/synapspace/upload/main/assets/phase-x`\n\n---\n\n## Dokumentationsstil\n\n### Screenshots narrativ einbetten\n- Screenshots gehören direkt zu dem Textabschnitt, dem sie inhaltlich zugeordnet sind\n- Kurzer erklärender Satz **vor** dem Screenshot – was zeigt das Bild, warum ist es relevant\n- Keine Bildergalerien am Ende eines Abschnitts\n- 2 Bilder dürfen direkt aufeinanderfolgen wenn sie inhaltlich zusammengehören\n\n### Ton & Perspektive\n- Durchgängig **erste Person** (ich, mein, meine)\n- Ressourcenorientiert formulieren – Stärken, Lösungen, Eigeninitiative\n- Kein Dritte-Person-Abschnitt außer im \"Über mich\"-Block am Ende\n- Kein Kompetenzversprechen – stattdessen Interesse, Motivation, Lernbereitschaft\n\n---\n\n## Upload-Workflow\n\n**URL-Methode** für alle Uploads (Bilder und Dateien):\n- Ordner anlegen + Datei hochladen: `github.com/patrick-mitschke/synapspace/upload/main/<ZIELPFAD>`\n- GitHub legt den Ordner automatisch an wenn er noch nicht existiert\n- Mehrere Dateien gleichzeitig per Drag & Drop möglich\n\n**Commit-Konvention:**\n- Commit direkt in `main` branch\n- Kurze, beschreibende Commit-Message (z.B. \"Add Phase 3 docs and screenshots\")\n\n---\n\n## Arbeitsweise – Bitte genau einhalten\n\n- **Kein Druck, Patricks Tempo.** Nie ungeduldig werden.\n- **Nie ungefragt Dateien oder Dokumente entwickeln.** Immer erst vorschlagen, auf das Kommando **„Go\"** warten.\n- **Keine Lernhinweise** für IHK oder Bewerbungsgespräche – diese Session ist rein praktisch.\n- **Keine automatischen Logbuch-Updates** nach jeder Antwort. Dokument-Update vorschlagen wenn eine Teilaufgabe abgeschlossen wird oder bevor etwas hochgeladen wird.\n- Antworten: präzise, professionell, klar strukturiert.\n- Wenn etwas unklar ist: Eine gezielte Frage stellen, nicht mehrere auf einmal.\n\n---\n\n## Chat-Wechsel – Anleitung für zukünftige Sessions\n\nWenn Patrick den Chat wechseln möchte, bewertest du die Situation und entscheidest, welcher Prompt-Typ nötig ist:\n\n**Kurz-Prompt reicht** (für einfache Folge-Sessions):\n> \"Schau dir mein synapspace-Repo an: github.com/patrick-mitschke/synapspace – [Phase X] ist abgeschlossen, hilf mir die Doku hochzuladen.\"\n\nKurz-Prompt reicht wenn: nur eine neue Phase hochgeladen wird, keine neuen Entscheidungen anstehen, die Repo-Struktur bereits steht.\n\n**Vollständiger Transfer-Prompt nötig** wenn:\n- Größere neue Aufgaben anstehen (z.B. ki-portfolio erweitern, README komplett überarbeiten)\n- Neue technische Entscheidungen getroffen wurden die Kontext brauchen\n- Der Chat sehr lang geworden ist und relevante Entscheidungen darin getroffen wurden\n\nWenn Patrick sagt „ich möchte den Chat wechseln\": kurz einschätzen was ansteht, dann entweder den Kurz-Prompt formulieren ODER einen vollständigen Transfer-Prompt als Markdown-Datei erstellen – je nach Komplexität der nächsten Aufgabe. Patrick nicht fragen ob kurz oder lang reicht – selbst entscheiden und begründen.",
+      "model": "Sonnet 4.6",
+      "env": "SynapSpace - KI-Lernökosystem MVP"
+    },
+    {
+      "id": "p010",
+      "title": "HTML-Delegation Claude an Gemini v2",
+      "category": "Entwicklung",
+      "promptType": "Session-Prompt",
+      "cc": "gemini",
+      "desc": "Übergabe-Prompt für Gemini im Canvas-Modus (Pro): instruiert Gemini zur Weiterentwicklung der ki-portfolio.html mit Selbst-Check, statischem Screenshot-Konzept und GitHub-Pages-Kompatibilität.",
+      "tags": [
+        "delegation",
+        "gemini",
+        "canvas",
+        "html",
+        "vibe-coding"
+      ],
+      "text": "# Neuer Chat-Start: KI-Portfolio HTML – Weiterentwicklung im Canvas-Modus\n\n## Deine erste Aufgabe: Datei analysieren und Selbst-Check durchführen\n\nIch lade dir gleich die aktuelle Version meiner HTML-Datei hoch. Bevor wir \nirgendetwas weiterentwickeln, führst du bitte eigenständig einen Selbst-Check \ndurch und gibst mir danach einen kurzen Statusbericht. Erst wenn dieser Check \nabgeschlossen ist, machen wir weiter.\n\n---\n\n## Worum es geht\n\n`ki-portfolio.html` ist eine vollständig eigenständige Single-File-HTML-Anwendung.\nSie dient als Bewerbungs-Portfolio und dokumentiert meinen KI-Einsatz im Rahmen \nmeines Projekts SynapSpace. Die Datei hat drei Schichten:\n\n1. CSS im `<style>`-Tag – eigenständiges Design-System, Dark Theme auf Petrol-Basis\n2. JSON-Datenblock im `<script id=\"D\" type=\"application/json\">`-Tag – alle Inhalte\n3. JavaScript im letzten `<script>`-Tag – rendert die UI dynamisch aus dem JSON\n\nBaue auf dem auf, was existiert. Erfinde nichts neu, was bereits funktioniert.\n\n---\n\n## Selbst-Check: Das prüfst du beim Start jedes neuen Chats\n\nGehe die folgenden Punkte durch und berichte mir kurz für jeden, ob er erfüllt ist \noder ob du eine Abweichung gefunden hast:\n\n**1. Kein fetch() für lokale Daten**\nDer JSON-Datenblock muss im `<script id=\"D\" type=\"application/json\">`-Tag \nder HTML-Datei selbst stehen. Daten dürfen nicht per `fetch()` aus externen \nDateien geladen werden. `fetch()` funktioniert lokal ohne HTTP-Server nicht \nund würde GitHub Pages-Kompatibilität gefährden.\n\n**2. Single-File bleibt Priorität**\nDie gesamte Anwendung soll in einer einzigen HTML-Datei leben. CSS, JavaScript \nund JSON-Daten bleiben eingebettet. Keine Aufteilung in externe Dateien, solange \nes keinen zwingenden Grund gibt. Wenn du eine Aufteilung für sinnvoll hältst, \ndiskutiere das zuerst mit mir, bevor du sie umsetzt.\n\n**3. Keine Überreste alter Hotspot-Logik**\nIn früheren Versionen gab es `_hotspots`-Objekte, `openHotspotM`-Funktionen und \nHotspot-Overlay-Mechanismen. Diese werden nicht gebraucht und müssen entfernt sein. \nPrüfe, ob noch Reste davon im Code vorhanden sind und bereinige sie falls nötig.\n\n**4. Alle Pfade sind relativ**\nFür Bilder (Workflow-Screenshots) gilt: ausschließlich relative Pfade wie \n`assets/workflows/w003.png`. Keine absoluten URLs. Keine `http://`-Referenzen \nauf externe Ressourcen, die für die Kernfunktion der Seite nötig wären.\n\n**5. Die Legende im Workflow-Tab ist vorhanden**\nDie Legende mit den Knotentypen (Erklärun der Element-Typen in den \nWorkflow-Diagrammen) soll erhalten bleiben. Sie dient als Lesehilfe für \ndie statischen Screenshots. Bitte nicht entfernen.\n\n---\n\n## Konzept: Workflow-Bereich\n\nJeder Workflow hat eine ausklappbare Kachel. Klappt man sie auf, erscheint \nein statischer Screenshot des Workflows als normales `<img>`-Element. \nKeine Klickflächen, keine Hotspots, keine Interaktivität im Bild selbst.\n\nIst `image` im JSON `null` oder nicht gesetzt, zeigt die Kachel einen \nPlatzhaltertext. Das JSON-Schema für Workflows:\n\n```json\n{\n  \"id\": \"w003\",\n  \"title\": \"Workflow-Titel\",\n  \"category\": \"Kategorie\",\n  \"cc\": \"gemini\",\n  \"desc\": \"Kurzbeschreibung\",\n  \"tags\": [\"tag1\", \"tag2\"],\n  \"image\": \"assets/workflows/w003.png\"\n}\n```\n\n---\n\n## Technische Rahmenbedingungen (unveränderlich)\n\n- Statische Website, läuft auf GitHub Pages\n- Kein Backend, keine Datenbank, keine API, keine Serverlogik\n- Kein Build-Prozess (kein npm, kein webpack, kein Vite)\n- Kein Frontend-Framework (kein React, kein Vue)\n- Muss lokal per `file://` UND auf GitHub Pages identisch funktionieren\n- Saubere Kommentare, gute Benennung, wartbarer Code\n\n---\n\n## Hinweis zum Projektabschluss\n\nWenn wir hier fertig sind, geht die Datei zurück zu Claude für das finale \nDeployment auf GitHub Pages. Damit das reibungslos klappt:\n\n- Alle Bildpfade relativ halten\n- Am Ende kurz dokumentieren, welche Dateien und Ordner für das Deployment \n  benötigt werden (z.B. `index.html`, `assets/workflows/*.png`)\n- Keine Features einbauen, die einen HTTP-Server voraussetzen\n\n---\n\nFühre jetzt den Selbst-Check durch, berichte mir den Status der fünf Punkte \nund warte dann auf meinen nächsten Arbeitsauftrag.",
+      "tool": "Canvas",
+      "model": "Pro",
+      "workflowRef": {
+        "id": "w002",
+        "title": "KI-Erfahrungs-Logging"
+      }
+    },
+    {
+      "id": "p011",
+      "title": "HTML-Delegation Perplexity an Claude",
+      "category": "Entwicklung",
+      "promptType": "Session-Prompt",
+      "cc": "pplx",
+      "desc": "Übergabe-Prompt für Perplexity (Pro): korrigiert das Konzept weg von interaktiven Hotspots hin zu statischen Workflow-Screenshots in ausklappbaren Kacheln und bereitet das finale Claude-Deployment vor.",
+      "tags": [
+        "delegation",
+        "perplexity",
+        "html",
+        "konzeptkorrektur",
+        "vibe-coding"
+      ],
+      "text": "Wichtige Korrektur zu meinem Projektkonzept:\n\nBitte verwerfe die frühere Annahme, dass die Inhalte innerhalb der Workflow-Grafiken auf der Website selbst interaktiv sein müssen oder dass dafür klickbare Hotspots, Koordinaten oder JSON-basierte Overlay-Zonen benötigt werden.\n\nMein tatsächliches Ziel ist dieses:\n\n1. Ich erstelle meine Workflows in Boardmix.\n2. Ich fertige davon statische Screenshots an, zum Beispiel mit dem Snipping Tool.\n3. Diese Screenshots sollen später auf der GitHub-Pages-Website angezeigt werden.\n4. Auf der Website soll es pro Workflow eine ausklappbare Kachel / einen einklappbaren Abschnitt geben.\n5. Wenn man auf den Titel des jeweiligen Workflows klickt, wird einfach der statische Screenshot dieses Workflows angezeigt.\n6. Der Screenshot selbst soll keine interaktiven Elemente enthalten und auch keine Klickflächen, Hotspots oder eingebettete Logik benötigen.\n7. Alles, was früher als interaktiv innerhalb des Workflows gedacht war, werde ich bereits im Boardmix-Screenshot sichtbar machen:\n   - Inhalte von Knoten werden bereits ausgeklappt dargestellt,\n   - zusätzliche Inhalte werden seitlich platziert,\n   - diese seitlich platzierten Inhalte werden mit gestrichelten Linien mit den betreffenden Knoten verbunden,\n   - dadurch bleibt der Flow optisch lesbar,\n   - und alle Informationen sind im Screenshot statisch sichtbar.\n8. Die Website muss also nur statische Bilder in ausklappbaren Bereichen anzeigen, nicht aber die Inhalte innerhalb der Bilder interaktiv machen.\n\nBitte richte ab jetzt alle weiteren Vorschläge an diesem korrigierten Konzept aus.\n\nWichtig für die technische Zielsetzung:\n- Die spätere Website soll als statische Website auf GitHub Pages laufen.\n- Daher bitte nur Lösungen vorschlagen, die mit statischem HTML, CSS und optional clientseitigem JavaScript funktionieren.\n- Kein Backend.\n- Keine Datenbank.\n- Keine Serverlogik.\n- Keine Hotspot-Koordinaten-Lösung, sofern ich sie nicht ausdrücklich später verlange.\n- Am besten soll das Konzept mit einfachen, robusten HTML-Strukturen umsetzbar sein, zum Beispiel mit ausklappbaren Bereichen/Kacheln.\n\nMeine Bitte an dich hat jetzt 2 Teile:\n\nTEIL A:\nBitte fasse zuerst in eigenen Worten zusammen, wie du mein nun korrigiertes Konzept verstanden hast, damit wir sicherstellen, dass kein Missverständnis mehr besteht.\n\nTEIL B:\nSchreibe mir danach einen vollständigen Prompt für Gemini. Dieser Gemini-Prompt soll so formuliert sein, dass ich ihn später zusammen mit meiner bestehenden HTML-Datei an Gemini geben kann, damit Gemini das Projekt im Canvas-Modus mit mir weiterentwickelt.\n\nDieser Prompt für Gemini soll Folgendes klar enthalten:\n\n- Worum es bei der HTML-Datei geht.\n- Dass es sich um eine statische, GitHub-Pages-kompatible Website handeln muss.\n- Dass vorhandener Code weiterentwickelt und nicht unnötig neu erfunden werden soll.\n- Dass Workflow-Screenshots in ausklappbaren Elementen/Kacheln angezeigt werden sollen.\n- Dass die Screenshots selbst rein statisch sind und keinerlei Interaktivität innerhalb des Bildes benötigen.\n- Dass die Inhalte, die früher in den Workflows interaktiv gedacht waren, bereits im Screenshot sichtbar sein werden.\n- Dass die Seite sauber strukturiert, optisch ordentlich und für mehrere Workflows erweiterbar sein soll.\n- Dass möglichst einfache, robuste Webtechniken verwendet werden sollen.\n- Dass keine Datenbank, kein Backend, keine API-Pflicht und keine serverseitigen Funktionen eingebaut werden dürfen.\n- Dass das Ergebnis am Ende lokal speicherbar und später problemlos auf GitHub Pages hochladbar sein muss.\n- Dass Gemini bestehende Dateien respektieren und nur dann neue Dateien aufteilen soll, wenn das wirklich sinnvoll ist.\n- Dass möglichst vermieden werden soll, unnötig Frameworks, Build-Tools oder komplexe Abhängigkeiten einzuführen.\n- Dass auf gute Benennung, klare Struktur, saubere Kommentare und Wartbarkeit geachtet werden soll.\n\nWichtig:\nDer Prompt für Gemini soll so geschrieben sein, dass Gemini die bestehende HTML-Datei analysiert, den aktuellen Stand versteht und darauf aufbauend weiterarbeitet.\n\nZusätzlicher Projektablauf, den du im Gemini-Prompt ebenfalls kurz berücksichtigen sollst:\n- Ich werde das Projekt jetzt mit Gemini weiterbauen.\n- Wenn die HTML-Datei später fertig ist, werde ich sie wieder zu dir zurückbringen.\n- Du sollst mir dann beim finalen Deployment auf GitHub Pages helfen.\n- Formuliere den Gemini-Prompt also so, dass die spätere Rückgabe an dich zum Deployment gut vorbereitet ist.\n\nBitte liefere mir am Ende:\n1. die kurze Zusammenfassung meines korrigierten Konzepts,\n2. danach den fertigen Prompt für Gemini,\n3. und ganz zum Schluss optional noch 5 konkrete Hinweise, worauf ich beim Weiterarbeiten mit Gemini achten sollte, damit die Datei GitHub-Pages-tauglich bleibt.",
+      "model": "Pro"
+    },
+    {
+      "id": "p012",
+      "title": "KI-Portfolio-Page-Assistent",
+      "category": "Entwicklung",
+      "promptType": "Session-Prompt",
+      "cc": "claude",
+      "model": "Sonnet 4.6",
+      "desc": "Startet einen neuen Arbeits-Chat für das ki-portfolio.html Projekt: instruiert Claude zur Go-Regel, zum Lesen beider Übergabedateien und zum Verbot, Inhalte ohne Rückfrage zu entfernen.",
+      "tags": [
+        "handover",
+        "go-regel",
+        "portfolio",
+        "chat-start"
+      ],
+      "text": "Du bist ein erfahrener Frontend-Entwickler mit 10 Jahren Berufserfahrung, spezialisiert auf wartbare, performante Web-Applikationen ohne Framework-Overhead. Du hast in deiner Karriere viele Single-File-Tools, interaktive Dokumentationen und technische Portfolios gebaut – immer mit dem Fokus auf sauberen, lesbaren Code der auch ohne Build-Pipeline funktioniert.\n\nDu arbeitest heute als technischer Assistent für Patrick Mitschke an seinem KI-Portfolio-Projekt. Deine Aufgabe ist die Weiterentwicklung einer bestehenden Single-File-HTML-Anwendung (ki-portfolio.html). Du baust ausschließlich auf dem auf, was existiert – du erfindest nichts neu, was bereits funktioniert.\n\nZwei Arbeitsregeln, die immer gelten:\n\n1. Du veränderst nichts an der Datei, bevor Patrick explizit \"Go\" sagt. Wir können beliebig lange diskutieren und planen – kein Deploy ohne Go.\n2. Du wirfst niemals Inhalte aus Dokumenten oder Dateien raus, ohne vorher explizit gefragt zu haben. Wenn du etwas kürzen oder entfernen willst, schlägst du es vor – Patrick entscheidet.\n\n---\n\nDu startest einen neuen Arbeits-Chat an meinem Projekt `ki-portfolio.html`.\n\nIch lade dir zwei Dateien hoch: die aktuelle HTML-Datei und das Handover-Dokument. Lies beide, leite den aktuellen Stand aus der HTML-Datei ab, und bestätige kurz was du gefunden hast und dass du die Go-Regel verstanden hast.\n\nWichtigste Regel: Du veränderst NICHTS an der Datei, bevor ich explizit \"Go\" sage. Kein Deploy ohne Go.\n\nBeim Überarbeiten von Dokumenten und Dateien gilt außerdem: Du wirfst niemals Inhalte raus, ohne mich vorher explizit gefragt zu haben. Wenn du etwas kürzen oder entfernen willst, schlägst du es vor – ich entscheide.\n\nWarte nach der Bestätigung auf meinen ersten Arbeitsauftrag.",
+      "env": "AI-Experience fürs Portfolio"
+    },
+    {
+      "id": "p013",
+      "title": "PP SynapSpace - KI-Lernökosystem MVP",
+      "category": "Entwicklung, Lernen, Dokumentation",
+      "promptType": "Projekt/Gem-Prompt",
+      "cc": "claude",
+      "model": "Sonnet 4.6",
+      "env": "SynapSpace - KI-Lernökosystem MVP",
+      "desc": "Konfiguriert Claude als technischen Tutor und Projektassistenten für das SynapSpace MVP-Deployment: proaktive IHK-relevante Lernhinweise, strukturiertes Logbuch-Schema und inkrementelle Datei-Updates.",
+      "tags": [
+        "synapspace",
+        "deployment",
+        "logbuch",
+        "lernhinweise",
+        "tutor"
+      ],
+      "workflowRef": {
+        "id": "w001",
+        "title": "Project-Deployment"
+      },
+      "text": "<projekt_kontext>\n- Portfolio-Projekt für Bewerbungen als Fachinformatiker Systemintegration.\n- Deployment eines lokalen LLM-Ökosystems zur Lernunterstützung (SynapSpace).\n- Ziel: Funktionierendes System + Logbuch + Learning by Deploying.\n</projekt_kontext>\n\n<arbeitsweise>\nDu agierst als technischer Tutor und Projektassistent. \n1. LERNHINWEISE: Gib bei jedem Schritt proaktiv Lernhinweise, die für die IHK-Prüfung oder Bewerbungsgespräche relevant sind.\n2. NIVEAU: Erkläre Konzepte auf dem Niveau eines Azubis zum Fachinformatiker Systemintegration (nicht zu simpel, nicht zu komplex).\n3. SICHERHEIT: Empfiehl vor kritischen Änderungen stets LVM-Snapshots.\n</arbeitsweise>\n\n<dokumentations_regeln>\nWir führen eine zentrale Datei: PROJEKT_LOGBUCH.md.\n- Halte die Einträge extrem prägnant, strukturiert und nutze Stichpunkte, um Tokens zu sparen. Die Ausformulierung für das Portfolio geschieht erst ganz am Ende.\n- Dokumentiere Befehle, Konfigurationsänderungen und Troubleshooting-Schritte.\n- SCREENSHOT-PLATZHALTER: Füge proaktiv Platzhalter für Bilder ein, wenn wir etwas visuell Wichtiges tun (Format: \"[SCREENSHOT/FOTO: Beschreibung des Motivs]\").\n</dokumentations_regeln>\n\n<output_format>\nUm mir beim Lernen zu helfen, gleichzeitig aber Tokens für das Logbuch zu sparen, musst du jede deiner Antworten zwingend in zwei XML-Bereiche unterteilen:\n\n<datei_updates>\nGeneriere hier AUSSCHLIESSLICH hochgradig komprimierte, stichpunktartige Updates für das PROJEKT_LOGBUCH.md oder andere Konfigurationsdateien. \nGib NUR den geänderten/neuen Textabschnitt aus (inkrementelles Update), schreibe nicht die gesamte Datei neu. Nutze keine Höflichkeitsfloskeln.\n</datei_updates>\n</output_format>\n\n<negative_constraints>\n- Wiederhole niemals meine Anweisungen in deiner Antwort.\n- Erzeuge keinen redundanten Fließtext in den Datei-Updates; beschränke dich dort auf harte Fakten, Code, Befehle und Screenshot-Platzhalter.\n</negative_constraints>"
+    }
+  ],
+  "workflows": [
+    {
+      "id": "w001",
+      "title": "Project-Deployment",
+      "category": "Entwicklung",
+      "cc": "claude",
+      "desc": "Zentraler iterativer Entwicklungs-Kreislauf: Claude agiert als Technical Lead (gekoppelt mit einer Projekt-Wissensbasis), treibt die Implementierung voran, liefert Erklärungen und generiert Lernfragen. Isolierte Teilaufgaben delegiert Claude per generiertem Prompt an Gemini, welches nach Erledigung einen Bericht-Prompt für Claude zurückgibt. Zu lang gewordene Chats werden in aktualisierten Projektdateien gesichert und neu aufgesetzt.",
+      "tags": [
+        "claude",
+        "gemini",
+        "delegation",
+        "iterativ",
+        "projekt-management"
+      ],
+      "image": "w001.png"
+    },
+    {
+      "id": "w002",
+      "title": "KI-Erfahrungs-Logging",
+      "category": "Dokumentation",
+      "cc": "gemini",
+      "desc": "Erfahrungen per Live Audio in Gemini Gem einsprechen → Log updaten → Portfolio-Übergabe an Claude",
+      "tags": [
+        "audio",
+        "logging",
+        "gemini-gem",
+        "dokumentation"
+      ],
+      "image": "w002.png"
+    }
+  ],
+  "journal": [
+    {
+      "id": "j001",
+      "date": "30.03. – 08.04.2026",
+      "title": "Konzeptionsphase mit [Gemini] & Architektur-Evaluation",
+      "content": "Intensive Konzeptionsphase mit <b>Gemini</b>. Evaluation hybrider Architekturmodelle (lokale vs. Cloud-KI) und technologischer Vergleich der gängigen LLM-Anbieter."
+    },
+    {
+      "id": "j002",
+      "date": "09.04.2026",
+      "title": "Strategische Richtungsentscheidung & Scheitern an [Le Chat]-Support",
+      "content": "- Strategische Richtungsentscheidung für ein primär lokales System.\n- Versuch der Implementierung einer Projektstruktur in <b>Le Chat</b> (Mistral). Aufgrund fehlender Validierung der Education-Mailadresse und ausbleibendem Support wurde dieser Pfad verlassen."
+    },
+    {
+      "id": "j003",
+      "date": "21.04.2026",
+      "title": "Integration von [Claude] in den Entwicklungsprozess",
+      "content": "Integration von <b>Claude</b> in den Entwicklungsprozess aufgrund positiver Erfahrungswerte im Bereich IT-Infrastruktur-Entwicklung."
+    },
+    {
+      "id": "j004",
+      "date": "26.04.2026",
+      "title": "Token-Sparstrategie für [Claude] mittels [NotebookLM]",
+      "content": "Erreichen der Nutzungslimits in der Claude Web-UI. Entwicklung und Implementierung einer Token-Sparstrategie unter Einsatz von <b>NotebookLM</b> (\"Claude-Tutor\"). Start der optimierten Kontext-Steuerung."
+    },
+    {
+      "id": "j005",
+      "date": "27.04.2026",
+      "title": "Validierung der Token-Sparstrategie in [Claude]",
+      "content": "Token-Sparstrategie in Claude geht auf. Selbst zu Stoßzeiten (14 - 20 Uhr MESZ) ist deutlich spürbar mehr Nutzung möglich."
+    },
+    {
+      "id": "j006",
+      "date": "28.04.2026",
+      "title": "Validierung via [Perplexity] & Anki-Workflows mit [Gemini]",
+      "content": "Kontinuierliche Validierung der Arbeitsergebnisse über <b>Perplexity</b> und Überführung von Lernimpulsen in das <b>Anki</b>-Lernsystem via Gemini-Workflows."
+    },
+    {
+      "id": "j007",
+      "date": "30.04.2026",
+      "title": "Auslagerung von Hardware-Tasks an [Gemini]",
+      "content": "Identifikation von Hardware-spezifischen Aufgaben (Laptop-Demontage) als kontextunabhängige Workflows. Bewusste Auslagerung dieser Tasks an Gemini zur Schonung des Claude-Nutzungslimits."
+    },
+    {
+      "id": "j008",
+      "date": "02.05.2026",
+      "title": "Neugestaltung des Development-Prompts durch [NotebookLM]",
+      "content": "Einsatz von NotebookLM (\"Claude-Tutor\") als Meta-Ebene zur architektonischen Neugestaltung des Development-Prompts."
+    },
+    {
+      "id": "j009",
+      "date": "02.05.2026",
+      "title": "Automatisierter Delegations-Mechanismus für [Claude]",
+      "content": "Konzeption eines automatisierten Delegations-Mechanismus: Claude soll künftig eigenständig prüfen, ob Teilaufgaben projektübergreifenden Kontext erfordern oder als isolierte Pakete inklusive generiertem Übergabe-Prompt an Gemini ausgelagert werden können."
+    },
+    {
+      "id": "j010",
+      "date": "02.05.2026",
+      "title": "[Claude] und [Gemini] Validierung hybrider Workflow",
+      "content": "Validierung des hybriden Workflows im Ganztagesbetrieb; Bestätigung der Praxistauglichkeit der Claude-Gemini-Kollaboration."
+    },
+    {
+      "id": "j011",
+      "date": "02.05.2026",
+      "title": "Bidirektionaler Informationsfluss zwischen [Claude] & [Gemini]",
+      "content": "Etablierung eines bidirektionalen Informationsflusses: Claude delegiert Aufgaben via strukturierter Prompts an Gemini, während Gemini nach Abschluss Berichte zur Synchronisation des Projektstands an Claude zurückführt."
+    },
+    {
+      "id": "j012",
+      "date": "04.05.2026",
+      "title": "Automatisierte Learning-Pipeline mit [NotebookLM]",
+      "content": "Nutzung von NotebookLM zur Entwicklung und Optimierung von drei Kern-Prompts für Gemini. Ziel: Aufbau einer automatisierten Learning-Pipeline (CSV-Export für Anki nach Pacer- und Atomarisierungs-Prinzip), Konzeption eines sokratischen Prüfer-Prompts zur Wissensabfrage und Simulation eines verbalen Bewerbungsgesprächs für während einfachen Autofahrten."
+    },
+    {
+      "id": "j013",
+      "date": "04.05.2026",
+      "title": "Limitierungen durch Prompt-Überladung in [Claude]",
+      "content": "Projekt-Feinabstimmung mit Claude. Dabei Feststellung eines qualitativen Abfalls: Die Überladung einzelner Prompts mit zu vielen Anweisungen (zwecks Token-Ersparnis) führte bei Claude zu Kontextverlust und dem Ignorieren von Teilaufgaben."
+    },
+    {
+      "id": "j014",
+      "date": "05.05.2026",
+      "title": "Vibe Coding & Systemanweisung mit [Claude]",
+      "content": "\"Vibe Coding\" einer HTML-Portfolio-Seite mit Claude (für späteres Deployment via GitHub Pages). Erfolgreiche Implementierung einer globalen Systemanweisung an Claude, um das ungefragte und vollständige Überschreiben von Dokumenten bei iterativen Anpassungen zu unterbinden."
+    },
+    {
+      "id": "j015",
+      "date": "06.05.2026",
+      "title": "Strategiewechsel & Limit-Management mit [Claude], [Perplexity] & [Gemini]",
+      "content": "- \"Vibe Coding\" der HTML-Portfolio-Seite mit Claude. Grundgerüst und Design erfolgreich erstellt.\n- Identifikation von Limitierungen bei Claude bezüglich komplexer visueller Darstellungen. Der Nachbau von Workflows via Code scheiterte trotz multimodaler Prompts (Screenshots aus Boardmix plus Textbeschreibung) und verbrauchte unverhältnismäßig viele Token.\n- Strategiewechsel: Workflows werden manuell in Boardmix erstellt und nach Verifizierung der Upload-Möglichkeit durch Claude und Perplexity (Tiefe Recherche) als statische PNGs in GitHub Pages eingebunden.\n- Erkennen inkonsistenter Aussagen von Claude zum eigenen Token-Verbrauch. Etablierung einer eigenen Logik für den Umgang mit Dokumenten im Chat- vs. Projekt-Kontext.\n- Erfolgreiche Erprobung der \"Chat-Wechsel-Strategie\": Auslagerung des aktuellen Kontexts in ein Artefakt-Briefing, Start eines neuen Chats mit diesem Artefakt in den Projektdateien und anschließende Entfernung des Artefakts nach der Initialisierung.\n- Aufgrund wachsender Dateigröße der HTML-Datei und drohendem Token-Limit in Claude: Validierung eines Architekturpunktes (GitHub Pages Deployment) via Perplexity und Generierung eines Übergabe-Prompts.\n- Temporäre Auslagerung der HTML-Entwicklung an Gemini Canvas zur Ressourcenschonung."
+    },
+    {
+      "id": "j016",
+      "date": "07.05.2026",
+      "title": "Ressourcenschonung durch [Gemini] Canvas",
+      "content": "HTML-Entwicklung mit Gemini Canvas funktioniert exakt genausogut wie mit Claude, bei wesentlich höheren Nutzungslimits (des Pro-Modells) und schnellerer Wiederauffrischung im Falle des Erreichens des Limits."
+    }
+  ],
+  "journalThematic": [
+    {
+      "id": "t001",
+      "icon": "🧠",
+      "title": "Kompetenzmonitoring und Wissenstransfer",
+      "hint": "Methodischer Ansatz gegen Kompetenzabfall",
+      "content": "<div class=\"jcont\">Um dem Risiko eines Kompetenzabfalls durch KI-Nutzung entgegenzuwirken, sind folgende Mechanismen aktiv:</div><div class=\"lli\"><div><b>Lieber 2 Kekse später:</b><br>Bewusster Verzicht auf automatisierte Features wie \"Claude Code\", um den eigenen Lerneffekt bei der Entwicklung und dem Systemverständnis nicht zu gefährden.<br><br></div></div><div class=\"lli\"><div><b>Erklärungs-Modus:</b><br>Claude fungiert als Mentor; jeder Entwicklungsschritt wird erklärt. Unklarheiten werden meist sofort oder nachträglich über Gemini oder Perplexity recherchiert.<br><br></div></div><div class=\"lli\"><div><b>Automatisierte Repetition:</b><br>Gemini generiert aus Projektinhalten strukturierte Berichte und CSV-Export-Dateien für Anki. Diese werden täglich zur Festigung des Fachwissens bearbeitet.<br><br></div></div><div class=\"lli\"><div><b>Sokratische Wissensprüfung:</b><br>Während Autofahrt führt Gemini mit mir sprachgestützte Abfragen durch. Wissenslücken werden dabei identifiziert, protokolliert und anschließend als neue Lernkarten in Anki eingepflegt.<br><br></div></div><div class=\"lli\"><div><b>Lernen durch Delegationsabwägungen:</b><br>Überlegungen, welche Aufgabe \"kontext-unabhängig\" genug für Gemini ist, schulen mein fachliches Urteilsvermögen über die Zusammenhänge von Systemkomponenten und deren Dokumentationsbedarfe.<br><br></div></div><div class=\"lli\"><div><b>Learning by Doing:</b><br>Der Umstand, dass ich von Claude ignorierte oder fehlerhaft umgesetzte Anweisungen selbstständig erkenne und Korrektur anweise, belegt einen wachsenden fachlichen Über- und Einblick. Stück für Stück werde ich vom reinen Impulsgeber zum kontrollierenden Projektleiter.<br><br></div></div><div class=\"lli\"><div><b>Lernfortschrittsmessung:</b><br>Die gezielte Entwicklung von Prompts für die Überprüfung des eigenen Wissensstands wandelt die KI von einem Entwicklungs-Tool zu einem Prüfwerkzeug, das das Verständnis der Projekttiefe messbar macht.<br><br></div></div>"
+    },
+    {
+      "id": "t002",
+      "icon": "✏️",
+      "title": "Prompt-Engineering",
+      "hint": "Basis für produktive KI-Nutzung",
+      "content": "<div class=\"jcont\">Die Basis für produktive KI-Nutzung und Output hoher Qualität:</div><div class=\"lli\"><div><b>Zweistufiges Prompting:</b><br>Einsatz von NotebookLM als Meta-Ebene zur Lektorierung und Optimierung von Prompts, bevor diese in den produktiven Chats (Claude/Gemini) eingesetzt werden.<br><br></div></div><div class=\"lli\"><div><b>Kontext-Optimierung:</b><br>Markierung von Dokumentabschnitten mit spezifischen Syntax-Trennern (&lt; &gt;) zur Verbesserung der Modell-Navigation.<br><br></div></div><div class=\"lli\"><div><b>Lernkartenqualität:</b><br>Die direkte Integration pädagogischer und didaktischer Frameworks (Pacer-Framework, Atomarisierungsprinzip) in die Prompts für die Anki-Karten-Generierung führt zu effizienterem Lernen.<br><br></div></div><div class=\"lli\"><div><b>Outputstraffung:</b><br>Die Einführung globaler Verhaltensregeln beim Überarbeiten von Projektdateien (Artefakten) oder beim \"Vibe Coding\" der GitHub-Page mit Claude (Entzug der Erlaubnis, bei kleinen Änderungen den gesamten Code ungefragt neu aufzusetzen) beschleunigt den iterativen Entwicklungsprozess massiv und reduziert Redundanzen.<br><br></div></div><div class=\"lli\"><div><b>Erkenntnis zur multimodalen Verarbeitung:</b><br>LLMs (Gemini, Claude) tun sich bei der Umsetzung spezifischer visueller und geometrischer Relationen (Workflows) in Code häufig sehr schwer. Pragmatische Lösung: Rückkehr zu dedizierten Tools (Boardmix) für visuelle Aufgaben.<br><br></div></div><div class=\"lli\"><div><b>Integrierte Dokumentations-Trigger:</b><br>Implementierung von Workflow-Checkpoints durch Screenshot-Erinnerungen.<br><br></div></div>"
+    },
+    {
+      "id": "t003",
+      "icon": "⟳",
+      "title": "Workflow-Optimierung & Tool-Orchestrierung",
+      "hint": "Prozesse, Strukturen, Tool-Kombinationen",
+      "content": "<div class=\"jcont\">Das volle Potenzial von Werkzeugen ergibt sich erst durch die Kombination dieser:</div><div class=\"lli\"><div><b>Vermeidung von Zeitfallen:</b><br>Fokussierung auf das Ziel: Neue KI-Funktionen (Perplexity Computer Use, Skills, Claude Design) werden zur Vermeidung von Verzögerungen bewusst ignoriert. Das Erforschen neuer Tools wird strikt auf Phasen ohne Projekt-Deadline verschoben.<br><br></div></div><div class=\"lli\"><div><b>Optimierungszyklus:</b><br>NotebookLM wird zur Optimierung von Prompts und der Interaktionslogik verwendet. Die Quellensuche bei der Erstellung eines Notebooks (z.B. Gemini-Tutor, Claude-Tutor) stoße ich durch einen von einem spezialisierten GEM (Recherche-Stratege), generierten und auf diese Aufgabe optimierten Prompt an. Dieses GEM wurde vom Gemini-Tutor-Notebook gepromptet. Ein sich in der Qualität der Ergebnisse verstärkender Kreislauf, der von Zeit zu Zeit wiederholt werden kann.<br><br></div></div><div class=\"lli\"><div><b>Multi-LLM-Delegation:</b><br>Entwicklung einer Logik, bei der Claude als \"Lead-Agent\" fungiert. Er erkennt delegierbare Sub-Tasks und erstellt direkt den passenden Prompt für die Sekundär-KI (Gemini). Dieser Ansatz minimiert den \"Flaschenhals\" der manuellen Schnittstellenbedienung (Kontext wiederholt erklären), indem die KI die Aufbereitung der Transferdaten übernimmt.<br><br></div></div><div class=\"lli\"><div><b>Delegation integrierter Dokumentations-Trigger:</b><br>Claude inkludiert proaktiv Anweisungen in die Delegations-Prompts, die Gemini dazu veranlassen, den Nutzer an spezifischen Stellen zur grafischen Dokumentation aufzufordern.<br><br></div></div><div class=\"lli\"><div><b>Kommunikation zwischen Tools:</b><br>Die Verpflichtung von Gemini zur Erstellung von Ergebnisberichten an das Lead-Modell (Claude) stellt sicher, dass die Projektkohärenz gewahrt bleibt und fachliche Erkenntnisse aus den delegierten Aufgaben wieder in den Hauptkontext einfließen.<br><br></div></div><div class=\"lli\"><div><b>Verifikation und Delegations-Delegation:</b><br>Perplexity fungiert erst zur Verifikation der Umsetzbarkeit von Architekturideen der GitHub-Page und liefert danach, aufgrund schon vorhandenen Kontextes, präzise Übergabe-Prompts für den Wechsel von Claude zu Gemini Canvas. So wissen alle beteiligten Instanzen Bescheid (und Nutzungslimits geschont).<br><br></div></div>"
+    },
+    {
+      "id": "t004",
+      "icon": "📊",
+      "title": "Ressourcenmanagement und Token-Sparstrategie",
+      "hint": "Effiziente Nutzung begrenzter Kontingente",
+      "content": "<div class=\"jcont\">Bei begrenztem Budget ist eine ausgeklügelte und kombinierte Nutzung der Tools unumgänglich.</div><div class=\"lli\"><div><b>Claude effizient nutzen:</b><br>Eine genaue Beobachtung des Interaktionskontingents (s. Einstellungen -&gt; Nutzung), Recherche über und Experimentieren mit Sparstrategien sind daher geboten.<br><br></div></div><div class=\"lli\"><div><b>Kontextökonomie:</b><br>Mehr Kontext führt in Claude zu mehr Tokenverbrauch (spürbar bei mehreren hundert oder tausend Zeilen Projektdokumentation im Projektkontext). Einmalig benötigter Kontext kommt temporär in die Projektdateien und wird nach Verarbeitung entfernt; dauerhaft benötigter Kontext bleibt als Datei oder im Session-Prompt bestehen, regelmäßige Bereinigung redundanter Informationen und Archivierung nicht-kritischer Projektdokumente.<br><br></div></div><div class=\"lli\"><div><b>Outputstraffung:</b><br>Die Einführung globaler Verhaltensregeln beim Überarbeiten von Projektdateien (Artefakten) oder beim \"Vibe Coding\" der GitHub-Page mit Claude (Entzug der Erlaubnis, bei kleinen Änderungen den gesamten Code ungefragt neu aufzusetzen) reduziert den Tokenverbrauch maßgeblich. Um zu verhindern, dass man nicht selbst oder Claude den Faden verliert, gibt es Grenzen beim sinnvollen Einsatz dieser Strategie (maßgeblich wegen meines persönlichen Kontextfensters).<br><br></div></div><div class=\"lli\"><div><b>Aufgaben-Triage:</b><br>Verfeinerung der Strategie durch eine strikte Trennung nach Kontext-Tiefe und Delegation von Aufgaben. Während Claude für komplexe, projektkritische Entwicklungszyklen reserviert bleibt, wird Gemini als produktives Backup für isolierte Hardware- oder Standard-IT-Tasks (z. B. Laptop-Reparatur) oder das Entwickeln der GitHub-Page genutzt. Die Strategie basiert nun nicht mehr nur auf manueller Trennung, sondern auf einem geführten Prozess, bei dem nur die essenziellen Zusammenfassungen in den hochpreisigen Kontext von Claude zurückfließen, was das Token-Kontingent signifikant schont.<br><br></div></div><div class=\"lli\"><div><b>Kritische Evaluation der \"Multi-Instruction-Strategie\":</b><br>Der Versuch, das Nutzungslimit bei Claude durch die Bündelung vieler Anweisungen in einen einzigen, großen Prompt zu schonen, wurde als Fehlerquelle für Kontextverlust (\"Vergessen\" von Teilaufgaben) identifiziert. Ein Ausbalancieren zwischen Token-Ökonomie und Output-Qualität ist erforderlich.<br><br></div></div><div class=\"lli\"><div><b>Iteratives Dokumentenupdate:</b><br>Die globale Anweisung an Claude zum iterativen Update von Projektdokumenten (statt Full-Rewrite) erweist sich als hochgradig wirksame Maßnahme zur Einsparung von Token und zur Schonung der limitierten Interaktionskontingente in der Web-UI. Dies führt aber natürlich zu einem administrativen Mehraufwand.<br><br></div></div><div class=\"lli\"><div><b>Kritischer Umgang mit KI-Selbstaussagen:</b><br>Claude lieferte widersprüchliche Ratschläge zur eigenen Token-Ökonomie.<br><br></div></div><div class=\"lli\"><div><b>Chat-Wiedergeburt:</b><br>Implementierung eines Workflows, bei dem alte (lange) Chats mit der Anweisung der Erweiterung ihres Sessionprompt, um im Verlauf des Chats hinzugekommene Daueranweisungen beendet werden. Diese neue Version des Sessionprompts initialisiert den neuen Chat mit reduzierter laufender Token-Belastung und bei gleichbleibender Qualität.<br><br></div></div><div class=\"lli\"><div><b>Bisher effektivste Sparstrategien:</b><br>- Kontextökonomie<br>- Outputstraffung<br>- Aufgaben-Triage<br><br></div></div>"
+    }
+  ]
+}
+</script>
+
+<script>
+const D=JSON.parse(document.getElementById('D').textContent);
+const TC={
+  claude:{c:'var(--cl)',g:'var(--clg)',b:'var(--clb)'},
+  gemini:{c:'var(--gm)',g:'var(--gmg)',b:'var(--gmb)'},
+  nlm:{c:'var(--nl)',g:'var(--nlg)',b:'var(--nlb)'},
+  pplx:{c:'var(--px)',g:'var(--pxg)',b:'var(--pxb)'},
+  pt:{c:'var(--pt)',g:'var(--ptg)',b:'var(--ptb)'},
+  cl:{c:'var(--cl)',g:'var(--clg)',b:'var(--clb)'},
+  gm:{c:'var(--gm)',g:'var(--gmg)',b:'var(--gmb)'},
+  nl:{c:'var(--nl)',g:'var(--nlg)',b:'var(--nlb)'},
+  px:{c:'var(--px)',g:'var(--pxg)',b:'var(--pxb)'},
+  av:{c:'var(--av)',g:'var(--avg)',b:'var(--avb)'},
+  mi:{c:'#F5A623',g:'rgba(245,166,35,.15)',b:'rgba(245,166,35,.35)'}
+};
+const AICONS={prompt:'✏️',file:'🗒️',cmd:'>_'};
+const ATBLS={prompt:'Prompt',file:'Datei',cmd:'Befehl'};
+const ACLS={prompt:'fn-art-prompt',file:'fn-art-file',cmd:'fn-art-cmd'};
+const ATCS={prompt:'pt',file:'pt',cmd:'pt'};
+const TOOL_LEVELS={
+  claude: [['global','Globaler System-Prompt'],['project','Projekt-Prompt'],['session','Session-Prompt']],
+  nlm:    [['source','Quellensuch-Prompt'],['global','Glob. System-Prompt (Gemini)'],['project','Projekt-Prompt']],
+  gemini: [['global','Globaler System-Prompt'],['gem','Gem-Prompt'],['session','Session-Prompt']],
+  pplx:   [['global','Globaler System-Prompt'],['project','Projekt-Prompt']]
+};
+
+const WIP_BADGE = `<span style="font-family:var(--fm);font-size:.55rem;font-weight:normal;color:var(--pt);background:var(--ptg);border:1px dashed var(--ptb);padding:3px 9px;border-radius:100px;text-transform:uppercase;letter-spacing:.08em;margin-left:14px;line-height:1;position:relative;top:-2px;cursor:help;" title="Diese Sektion ist noch im Entstehen und wird laufend um weitere Inhalte (wie Prompts und Workflows) ergänzt.">Wächst kontinuierlich</span>`;
+
+function show(id,btn){
+  document.querySelectorAll('.sec').forEach(s=>s.classList.remove('a'));
+  document.querySelectorAll('.nt').forEach(t=>t.classList.remove('a'));
+  document.getElementById(id).classList.add('a');
+  btn.classList.add('a');
+}
+
+// MODAL
+function openModal(title,bodyHtml){
+  document.getElementById('mTitle').textContent=title;
+  document.getElementById('mBody').innerHTML=bodyHtml;
+  document.getElementById('modal').classList.add('o');
+}
+function closeMo(e){if(e.target===document.getElementById('modal'))closeMoD()}
+function closeMoD(){document.getElementById('modal').classList.remove('o')}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMoD()});
+function msec(title,content){return`<div class="msec"><div class="msec-t">${title}</div>${content}</div>`}
+function mtxt(t){return`<div class="mtxt">${t}</div>`}
+function mno(t){return`<div class="mno">${t}</div>`}
+
+function openToolM(idx){
+  const t=D.meta.tools[idx];
+  const promptContent=t.globalPromptNote
+    ?`<div style="font-family:var(--fm);font-size:.72rem;color:var(--pt);background:var(--ptg);border:1px solid var(--ptb);border-radius:var(--rs);padding:9px 12px;line-height:1.6">${t.globalPromptNote}</div>`
+    :(t.globalPrompt?mtxt(t.globalPrompt):mno('Kein globaler System-Prompt konfiguriert.'));
+  openModal(`${t.name} · Globaler System-Prompt`,
+    msec('Geltungsbereich',`<div style="font-family:var(--fm);font-size:.7rem;color:var(--di)">Alle Chats mit ${t.name}, unabhängig von Projekten oder Notebooks.</div>`)+
+    msec('Prompt',promptContent)
+  );
+}
+
+function openPM(pid,e){
+  if(e)e.stopPropagation();
+  const p=D.prompts.find(x=>x.id===pid);if(!p)return;
+  openModal(p.title,msec('Prompt',`<div class="ptbox" style="padding:0"><button class="cpbtn" onclick="cpTxt(event,'${pid}')">kopieren</button><pre class="ptxt">${p.text}</pre></div>`));
+}
+
+function openTM(title,text,e){
+  if(e)e.stopPropagation();
+  openModal(title,msec('Prompt',`<div class="ptbox" style="padding:0"><pre class="ptxt">${text}</pre></div>`));
+}
+
+function openGuide(tab){
+  const labels={dashboard:'Dashboard',workflows:'Workflows',prompts:'Prompt-Bibliothek',journal:'Journal'};
+  const lines=D.meta.guides[tab].split('\n');
+  const html=lines.map((l,i)=>{
+    if(!l.trim())return'<div style="height:6px"></div>';
+    if(i===0)return`<div style="font-size:.88rem;font-weight:700;color:var(--tx);margin-bottom:8px">${l}</div>`;
+    return`<div style="font-size:.8rem;color:var(--di);line-height:1.65;margin-bottom:6px">${l}</div>`;
+  }).join('');
+  openModal(`Anleitung · ${labels[tab]}`,`<div class="msec">${html}</div>`);
+}
+
+// RENDER DASHBOARD
+function renderDash(){
+  const m=D.meta;
+  const meth=m.methodology;
+  const cards=meth.principles.map(p=>`<div class="meth-card"><span class="meth-icon">${p.icon}</span><div class="meth-title">${p.title}</div><div class="meth-text">${p.text}</div></div>`).join('');
+  const tools=m.tools.map((t,i)=>`<div class="tool ${t.cls}" onclick="openToolM(${i})">
+<div class="tic">${t.short}</div>
+<div><div class="tnm">${t.name}</div><div class="tds">${t.desc}</div><div class="tci">${t.globalPrompt?'● Glob. Systemprompt hinterlegt':t.globalPromptNote&&t.id==='nlm'?'◈ Beeinflusst durch Gemini-Prompt':t.globalPromptNote?'◈ Prompts pro Notebook':'○ kein globaler Prompt'}</div></div>
+</div>`).join('');
+  document.getElementById('dashboard').innerHTML=`
+<div class="hero">
+  <div class="hero-subtitle">${m.tagline}</div>
+  <h1>${m.name}</h1>
+  <div class="hero-role">// ${m.role}</div>
+  <p class="hero-desc">${m.about}</p>
+  <div style="display:flex;align-items:center;gap:14px;max-width:520px">
+    <div class="proj-block" style="flex:1"><div class="proj-block-title">Projekt: ${m.projectName}</div><div class="proj-block-text">${m.projectNote}</div></div>
+    <a href="https://github.com/patrick-mitschke/synapspace" target="_blank" style="display:flex;flex-direction:column;align-items:center;gap:6px;text-decoration:none;background:var(--ptg);border:1px solid var(--ptb);border-radius:var(--r);padding:12px 16px;color:var(--pt);font-family:var(--fm);font-size:.65rem;letter-spacing:.06em;white-space:nowrap;transition:background .2s;flex-shrink:0" onmouseover="this.style.background='var(--ptb)'" onmouseout="this.style.background='var(--ptg)'">
+      <svg height="22" viewBox="0 0 16 16" width="22" fill="var(--pt)" xmlns="http://www.w3.org/2000/svg"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+      <span>GitHub Repo zu SynapSpace</span>
+    </a>
+  </div>
+</div>
+<div class="meth">
+  <div class="meth-lbl">Meine Arbeitsweise mit KI</div>
+  <p class="meth-intro">${meth.intro}</p>
+  <div class="meth-grid">${cards}</div>
+</div>
+<div class="stats">
+  <div class="stat"><div class="stat-n">${D.workflows.length}</div><div class="stat-l">Workflows</div></div>
+  <div class="stat"><div class="stat-n">${D.prompts.length}</div><div class="stat-l">Prompts</div></div>
+  <div class="stat"><div class="stat-n">${D.journal.length}</div><div class="stat-l">Journal</div></div>
+  <div class="stat"><div class="stat-n">${m.tools.length}</div><div class="stat-l">KI-Tools</div></div>
+</div>
+<div class="slbl">Verwendete KI-Tools <span>— anklicken für Systemanweisungen</span></div>
+<div class="tools">${tools}</div>
+<div class="tools-note">Auf Coding-Assistenten (z.B. Claude Code) wurde bewusst verzichtet – Kompetenzgewinn durch aktives Mitdenken hatte Vorrang.</div>`;
+}
+
+// FLOW RENDERER
+function wfBodyH(w){
+  if(w.image){
+    return `<div class="wf-img-wrap"><img src="${w.image}" class="wf-img" alt="${w.title}" loading="lazy"></div>`;
+  }
+  return `<div class="wf-placeholder"><div class="wf-ph-icon">🗂</div><div class="wf-ph-text">Workflow-Diagramm folgt</div><div class="wf-ph-sub">Screenshot wird nach Boardmix-Export eingefügt</div></div>`;
+}
+
+function renderWorkflows(){
+  // Gather unique Categories and Tags
+  const cats=['Alle', ...new Set(D.workflows.map(w=>w.category))];
+  const allTags = new Set();
+  D.workflows.forEach(w => (w.tags || []).forEach(t => allTags.add(t)));
+  const tags = ['Alle Tags', ...allTags];
+
+  const cfCats=cats.map((c,i)=>`<button class="cb${i===0?' a':''}" onclick="fWF('cat','${c}',this)">${c}</button>`).join('');
+  const cfTags=tags.map((t,i)=>`<button class="cb${i===0?' a':''}" onclick="fWF('tag','${t}',this)">${t}</button>`).join('');
+
+  const wl=D.workflows.map((w,i)=>{
+    const tc_=TC[w.cc]||TC.pt;
+    const wtags = (w.tags || []).map(t => `<span class="wtag">${t}</span>`).join('');
+    const tagsAttr = (w.tags || []).join(',');
+    return`<div class="wc" data-cat="${w.category}" data-tags="${tagsAttr}" id="wf-${w.id}">
+<div class="wh" onclick="tgWF('${w.id}')">
+  <span class="wnum">W${String(i+1).padStart(2,'0')}</span>
+  <div class="wi">
+    <div class="wt">${w.title}</div>
+    <div class="wd">${w.desc}</div>
+    ${wtags ? `<div class="wtags">${wtags}</div>` : ''}
+  </div>
+  <div class="wm"><span class="wcat" style="color:${tc_.c};border-color:${tc_.b};background:${tc_.g}">${w.category}</span><button class="chev">&#9660;</button></div>
+</div>
+<div class="wb">${wfBodyH(w)}</div>
+</div>`;
+  }).join('');
+  
+  const legend=`<div class="legend">
+<div class="legend-title">Legende</div>
+<div class="legend-grid">
+  <div class="legend-item"><div class="li-node circle" style="font-size:.85rem">🧑‍💻</div>Ich</div>
+  <div class="legend-sep"></div>
+  <div class="legend-item"><div class="li-node ai" style="background:var(--clg);border-color:var(--clb);color:var(--cl)">C</div>Claude</div>
+  <div class="legend-item"><div class="li-node ai" style="background:var(--gmg);border-color:var(--gmb);color:var(--gm)">G</div>Gemini</div>
+  <div class="legend-item"><div class="li-node ai" style="background:var(--nlg);border-color:var(--nlb);color:var(--nl)">N</div>NotebookLM</div>
+  <div class="legend-item"><div class="li-node ai" style="background:var(--pxg);border-color:var(--pxb);color:var(--px)">P</div>Perplexity</div>
+  <div class="legend-sep"></div>
+  <div class="legend-item"><div class="li-node prog">A</div>Programm</div>
+  <div class="legend-sep"></div>
+  <div class="legend-item"><div class="li-node art-p">✏️</div>Prompt</div>
+  <div class="legend-item"><div class="li-node art-f">🗒️</div>Datei</div>
+  <div class="legend-sep"></div>
+  <div class="legend-item"><div class="li-node dec"></div>Entscheidung</div>
+  <div class="legend-item"><div style="width:24px;height:5px;background:var(--mu);border-radius:1px;flex-shrink:0"></div>Join / Merge</div>
+  <div class="legend-item"><div class="li-dashed"></div>Projekt / Notebook</div>
+  <div class="legend-item"><div class="li-dashed" style="border-color:rgba(90,157,240,.4)"></div>Gem (Gemini)</div>
+  <div class="legend-item"><div style="width:26px;height:16px;border:1.5px dotted rgba(100,125,138,.45);border-radius:0;flex-shrink:0"></div>Aktion</div>
+</div>
+</div>`;
+
+  document.getElementById('workflows').innerHTML=`
+<div class="sh"><h2 class="spt" style="display:flex;align-items:center;">Workflow-Bibliothek${WIP_BADGE}</h2><button class="guide-btn" onclick="openGuide('workflows')">? Anleitung</button></div>
+${legend}
+<div class="cf-lbl">Kategorie</div><div class="cf" id="wf-cf-cat">${cfCats}</div>
+<div class="cf-lbl">Tags</div><div class="cf" id="wf-cf-tag">${cfTags}</div>
+<div class="wl">${wl}</div>`;
+}
+
+let _wfCat = 'Alle', _wfTag = 'Alle Tags';
+function fWF(type, val, btn) {
+  if (type === 'cat') {
+    _wfCat = val;
+    document.querySelectorAll('#wf-cf-cat .cb').forEach(b => b.classList.remove('a'));
+  } else {
+    _wfTag = val;
+    document.querySelectorAll('#wf-cf-tag .cb').forEach(b => b.classList.remove('a'));
+  }
+  btn.classList.add('a');
+
+  document.querySelectorAll('.wc').forEach(c => {
+    const catOk = _wfCat === 'Alle' || c.dataset.cat === _wfCat;
+    const tagsArr = c.dataset.tags ? c.dataset.tags.split(',') : [];
+    const tagOk = _wfTag === 'Alle Tags' || tagsArr.includes(_wfTag);
+    c.style.display = (catOk && tagOk) ? 'block' : 'none';
+  });
+}
+function tgWF(id){document.getElementById('wf-'+id).classList.toggle('o')}
+
+// PROMPTS
+const FIXED_ZWECK=['Alle','Entwicklung','Lernen','Recherche','Prompt Engineering','Dokumentation'];
+const FIXED_TYP=['Alle Typen','Globaler System-Prompt','Projekt/Gem-Prompt','Session-Prompt','Quellensuch-Prompt'];
+const FIXED_TOOLS=['Alle Tools','Claude','Gemini','NotebookLM','Perplexity'];
+const CC_MAP={claude:'Claude',gemini:'Gemini',nlm:'NotebookLM',pplx:'Perplexity'};
+
+function renderPrompts(){
+  const wfAll=['Alle Workflows',...new Set(D.prompts.filter(p=>p.workflowRef).map(p=>p.workflowRef.title))];
+
+  const cf1=FIXED_ZWECK.map((c,i)=>`<button class="cb${i===0?' a':''}" data-frow="zweck" onclick="fP(event,'zweck','${c}',this)">${c}</button>`).join('');
+  const cf2=FIXED_TYP.map((t,i)=>`<button class="cb${i===0?' a':''}" data-frow="typ" onclick="fP(event,'typ','${t}',this)">${t}</button>`).join('');
+  const cf3=wfAll.map((w,i)=>`<button class="cb${i===0?' a':''}" data-frow="wf" onclick="fP(event,'wf','${w}',this)">${w}</button>`).join('');
+  const cf4=FIXED_TOOLS.map((t,i)=>`<button class="cb${i===0?' a':''}" data-frow="tool" onclick="fP(event,'tool','${t}',this)">${t}</button>`).join('');
+
+  const allTags=['Alle Tags',...new Set(D.prompts.flatMap(p=>p.tags||[]))].sort((a,b)=>a==='Alle Tags'?-1:b==='Alle Tags'?1:a.localeCompare(b));
+  const cf5=allTags.map((t,i)=>`<button class="cb${i===0?' a':''}" data-frow="tag" onclick="fP(event,'tag','${t}',this)">${t}</button>`).join('');
+
+  const cf6=['Alle',...new Set(D.prompts.filter(p=>p.env).map(p=>p.env))].map((t,i)=>`<button class="cb${i===0?' a':''}" data-frow="env" onclick="fP(event,'env','${t}',this)">${t}</button>`).join('');
+
+  const tIconMap = { claude: 'C', gemini: 'G', nlm: 'N', pplx: 'P' };
+  const list=D.prompts.map(p=>{
+    const tc_=TC[p.cc]||TC.pt;
+    const toolName=CC_MAP[p.cc]||p.cc;
+    const tIcon = tIconMap[p.cc] || '?';
+    const tags=p.tags.map(t=>`<span class="ptag">${t}</span>`).join('');
+    const typeTag=p.promptType?`<span class="ptag-type">${p.promptType}</span>`:'';
+    const wfTag=p.workflowRef?`<span class="pwf">&#8599; ${p.workflowRef.title}</span>`:'';
+    const lektoratHtml = '';
+
+    const toolFull = {claude:'Claude',gemini:'Gemini',nlm:'NotebookLM',pplx:'Perplexity'}[p.cc]||p.cc;
+    const envLabel = {claude:'Projekt', nlm:'Notebook'}[p.cc] || null;
+    const envVal   = p.env || '–';
+    const envField = envLabel ? `<div class="pmeta-field"><span class="pmeta-lbl">${envLabel}</span><span class="pmeta-fval${p.env?'':' pmeta-fval-dim'}">${envVal}</span></div>` : '';
+    const wfVal  = p.workflowRef ? p.workflowRef.title : '–';
+    const typVal = p.promptType  || '–';
+    const modVal = p.model       || '–';
+    const toolColField = `<div class="pmeta-field"><span class="pmeta-lbl">Tool</span><span class="pmeta-fval">${p.tool || 'Standard-Chat'}</span></div>`;
+
+    const metaRow = `<div class="pmeta-row">
+  <div class="pmeta-section">
+    <div class="pmeta-section-hdr">Einsatz</div>
+    <div class="pmeta-field"><span class="pmeta-lbl">Zweck</span><span class="pmeta-fval">${p.category}</span></div>
+    ${envField}
+    <div class="pmeta-field"><span class="pmeta-lbl">Workflow</span><span class="pmeta-fval${p.workflowRef?'':' pmeta-fval-dim'}">${wfVal}</span></div>
+  </div>
+  <div class="pmeta-section">
+    <div class="pmeta-section-hdr">Konfiguration</div>
+    <div class="pmeta-field"><span class="pmeta-lbl">KI-Umgebung</span><span class="pmeta-fval" style="color:${tc_.c}">${toolFull}</span></div>
+    <div class="pmeta-field"><span class="pmeta-lbl">Typ</span><span class="pmeta-fval${p.promptType?'':' pmeta-fval-dim'}">${typVal}</span></div>
+    <div class="pmeta-field"><span class="pmeta-lbl">Modell</span><span class="pmeta-fval${p.model?'':' pmeta-fval-dim'}">${modVal}</span></div>
+    ${toolColField}
+  </div>
+</div>`;
+
+    return`<div class="pc" data-zweck="${p.category}" data-typ="${p.promptType||''}" data-wf="${p.workflowRef?p.workflowRef.title:''}" data-tool="${toolName}" data-tags="${(p.tags||[]).join(',')}" data-env="${p.env||''}" id="pc-${p.id}" onclick="tgPC(event,'${p.id}')" style="border-color:${tc_.b}">
+${metaRow}
+<div class="pch" style="padding:13px 18px 10px"><div class="pct">${p.title}</div><div class="pcd">${p.desc}</div></div>
+<div class="ptags-row"><span class="pmeta-lbl" style="min-width:auto;margin-right:4px;color:var(--pt)">Tags</span><div style="display:flex;gap:5px;flex-wrap:wrap;flex:1">${tags}</div><span style="font-family:var(--fm);font-size:.6rem;color:var(--mu)">&#9660; Prompt</span></div>
+<div class="pcb"><div class="ptbox"><pre class="ptxt">${p.text.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}</pre></div></div>
+</div>`;
+  }).join('');
+
+  document.getElementById('prompts').innerHTML=`
+<div class="sh"><h2 class="spt" style="display:flex;align-items:center;">Prompt-Bibliothek${WIP_BADGE}</h2><button class="guide-btn" onclick="openGuide('prompts')">? Anleitung</button></div>
+<div class="cf-lbl">Zweck</div><div class="cf" id="cf1">${cf1}</div>
+<div class="cf-lbl">Typ</div><div class="cf" id="cf2">${cf2}</div>
+<div class="cf-lbl">Workflow</div><div class="cf" id="cf3">${cf3}</div>
+<div class="cf-lbl">KI-Tool</div><div class="cf" id="cf4">${cf4}</div>
+<div class="cf-lbl">Projekt/Notebook</div><div class="cf" id="cf6">${cf6}</div>
+<div class="cf-lbl">Tags</div><div class="cf" id="cf5">${cf5}</div>
+<div class="plist">${list}</div>`;
+}
+
+let _pfZ='Alle',_pfT='Alle Typen',_pfW='Alle Workflows',_pfTool='Alle Tools',_pfTag='Alle Tags',_pfEnv='Alle';
+function fP(e,row,val,btn){
+  if(row==='zweck'){_pfZ=val;document.querySelectorAll('#cf1 .cb').forEach(b=>b.classList.remove('a'));}
+  else if(row==='typ'){_pfT=val;document.querySelectorAll('#cf2 .cb').forEach(b=>b.classList.remove('a'));}
+  else if(row==='wf'){_pfW=val;document.querySelectorAll('#cf3 .cb').forEach(b=>b.classList.remove('a'));}
+  else if(row==='tool'){_pfTool=val;document.querySelectorAll('#cf4 .cb').forEach(b=>b.classList.remove('a'));}
+  else if(row==='tag'){_pfTag=val;document.querySelectorAll('#cf5 .cb').forEach(b=>b.classList.remove('a'));}
+  else if(row==='env'){_pfEnv=val;document.querySelectorAll('#cf6 .cb').forEach(b=>b.classList.remove('a'));}
+  btn.classList.add('a');
+  document.querySelectorAll('.pc').forEach(c=>{
+    const zOk=_pfZ==='Alle'||c.dataset.zweck.split(', ').includes(_pfZ);
+    const tOk=_pfT==='Alle Typen'||c.dataset.typ===_pfT;
+    const wOk=_pfW==='Alle Workflows'||c.dataset.wf===_pfW;
+    const lOk=_pfTool==='Alle Tools'||c.dataset.tool===_pfTool;
+    const gOk=_pfTag==='Alle Tags'||(c.dataset.tags||'').split(',').includes(_pfTag);
+    const eOk=_pfEnv==='Alle'||c.dataset.env===_pfEnv;
+    c.style.display=(zOk&&tOk&&wOk&&lOk&&gOk&&eOk)?'block':'none';
+  });
+}
+function tgPC(e,id){
+  document.getElementById('pc-'+id).classList.toggle('o');
+}
+
+// JOURNAL
+function renderJournal(){
+  const jl=[...D.journal].reverse().map(j=>{
+    let titleHtml = j.title.replace(/\[(Claude|Gemini|NotebookLM|Perplexity|Le Chat)\]/g, (match, tool) => {
+      let tcKey = 'pt';
+      if (tool === 'Claude') tcKey = 'cl';
+      if (tool === 'Gemini') tcKey = 'gm';
+      if (tool === 'NotebookLM') tcKey = 'nl';
+      if (tool === 'Perplexity') tcKey = 'px';
+      if (tool === 'Le Chat') tcKey = 'mi';
+      const tc_ = TC[tcKey] || TC.pt;
+      return `<span class="jtag" style="color:${tc_.c};border-color:${tc_.b};background:${tc_.g}">${tool}</span>`;
+    });
+    const lessons=(j.lessons||[]).map(l=>`<div class="lli">${l}</div>`).join('');
+    return`<div class="je" id="je-${j.id}" onclick="tgJ('${j.id}')">
+<div class="jeh"><div class="jdt">${j.date}</div><div class="ji"><div class="jt">${titleHtml}</div></div><button class="chev">&#9660;</button></div>
+<div class="jeb"><p class="jcont">${j.content.replace(/\n/g,'<br>')}</p>${lessons?`<div class="llt">Lessons Learned</div>${lessons}`:''}</div>
+</div>`;
+  }).join('');
+
+  const tl=(D.journalThematic||[]).map(t=>`<div class="te" id="te-${t.id}" onclick="tgTE('${t.id}')">
+<div class="teh"><div class="te-icon">${t.icon}</div><div class="te-info"><div class="te-title">${t.title}</div><div class="te-hint">${t.hint}</div></div><button class="chev">&#9660;</button></div>
+<div class="teb">${t.content}</div>
+</div>`).join('');
+
+  document.getElementById('journal').innerHTML=`
+<div class="sh"><h2 class="spt" style="display:flex;align-items:center;">KI-Journal${WIP_BADGE}</h2><button class="guide-btn" onclick="openGuide('journal')">? Anleitung</button></div>
+<div class="j-tabs">
+  <button class="j-tab a" onclick="jTab('chrono',this)">Projektchronologie</button>
+  <button class="j-tab" onclick="jTab('thematic',this)">Thematische Reflexion</button>
+  <button class="j-tab" onclick="jTab('reflection',this)">Reflexion Lernprozess</button>
+  <button class="j-tab" onclick="jTab('history',this)">🌱 Meine KI-Geschichte</button>
+</div>
+<div id="j-chrono" class="j-pane a">
+  <div class="j-section-sub">Datierte Einträge · neueste zuerst</div>
+  <div class="jl">${jl}</div>
+</div>
+<div id="j-thematic" class="j-pane">
+  <div class="j-section-sub">Übergreifende Kapitel zu Methodik und Erkenntnissen</div>
+  <div class="tl">${tl}</div>
+</div>
+<div id="j-reflection" class="j-pane">
+  <div class="j-section-sub">Persönliche Reflexion über den Projektablauf</div>
+  <p class="jcont" style="font-size: 1.05rem; line-height: 1.85;">Claude Code hätte die Entwicklung dieses Projekts einfach erheblich beschleunigt, was ich aber ganz bewusst ausgeklammert habe. Warum? Weil es mir um echten Kompetenzgewinn ging und nicht darum, meine Arbeit komplett zu delegieren und nichts zu checken. Also habe ich jeden einzelnen Schritt manuell nachvollzogen, mir von der KI erklären lassen und das Ganze direkt als Lernmaterial aufbereitet.</p>
+  <p class="jcont" style="font-size: 1.05rem; line-height: 1.85;">SynapSpace ist mein erstes Projekt in dieser Komplexität. Die Vision und die Richtungsentscheidungen für Technologien und Architektur habe ich selbst getroffen, die technische Ausführung iterativ mit KI erarbeitet – mit dem festen Anspruch, jeden Schritt zu verstehen. Hat das immer geklappt? Ehrlich gesagt nein. Troubleshooting, ungeplante Hardware-Wartung und der normale Alltag haben ihren Tribut gefordert und manche Details laufen schneller als das Verständnis hinterherkommen kann. Die grundlegenden Architekturentscheidungen und ihre Begründungen verstehe ich. Die tiefere Implementierungsebene vertiefe ich gezielt weiter – denn das Projekt läuft nach der Bewerbungsphase nicht nur weiter, sondern es wird wachsen und mir mein restliches Leben beim Lernen helfen. Warten und sichern werde ich es selbst.</p>
+</div>
+<div id="j-history" class="j-pane">
+  <div class="j-section-sub">Frühjahr 2024 bis Frühjahr 2026</div>
+  <p class="jcont" style="font-size: 1.05rem; line-height: 1.85;">Also, ich bin vor ziemlich genau zwei Jahren, so im März oder April 2024, zum ersten Mal wirklich mit KI in Kontakt gekommen. Mein erstes Tool war damals ChatGPT, das ich anfangs nur privat und kostenlos genutzt habe. Meine damalige Arbeit in der Pflege und Assistenz von schwerbehinderten Menschen hat diese Notwendigkeit für den professionellen Einsatz einfach nicht erzeugt. Aber ich war vom ersten Moment an beeindruckt. Meine ersten Chats habe ich mir für meine Hobbys gebaut, beispielsweise einen gebildeten Cineasten, mit dem ich über Filme diskutieren konnte. Das war halt für mich als Filmfan ein super Einstieg.</p>
+  <p class="jcont" style="font-size: 1.05rem; line-height: 1.85;">Ich muss sagen, ich habe dann recht früh, so im Sommer 2024, ein tieferes Potenzial erkannt. Ich habe der KI Rollen von historischen Persönlichkeiten gegeben, um mir Ratschläge für Karriere, Sport oder Krankheitsprävention zu holen. Natürlich stieß die Technik damals noch an ihre Grenzen, aber ich habe sofort den gewaltigen Impact gesehen. Wenn auch mir schnell bewusst wurde, dass diese Technik, wie jede andere auch, zwei Seiten hat, hatte ich irgendwie nie Angst vor dieser Veränderung. Im Gegenteil fokussierte ich mich auf das enorme positive Potenzial. Und da kam mir der Gedanke: Was bringt es uns, wenn wir eine KI einfach alles fragen können, wir sie aber nicht gezielt und mit Sinn und Verstand für echte Lösungen einsetzen? Ich wollte Apps bauen, die Menschen wirklich helfen.</p>
+  <p class="jcont" style="font-size: 1.05rem; line-height: 1.85;">Dazu muss man wissen: Ich hatte vorher absolut nichts mit IT am Hut. Technik wurde in meiner Familie fast schon verteufelt. Ich war eher ein analoger Schaffer und Tüftler, fernab von Computern und seit Jahren ohne Social Media. Aber dieser Wunsch, sinnvolle KI-Anwendungen zu entwickeln, ließ mich nicht los. Also bin ich zur Agentur für Arbeit, habe mitgeteilt, dass ich in die IT möchte, bekam einen Bildungsgutschein und wollte eigentlich Anwendungsentwickler werden.</p>
+  <p class="jcont" style="font-size: 1.05rem; line-height: 1.85;">Als dann im Oktober 2024 die Vorbereitungskurse für die Umschulung begannen, reifte in mir die Idee für mein Traumprojekt: Ein System, das anderen Menschen beim Lernen hilft und gleichzeitig als individueller Bildungs-Coach fungiert. Kurz nach dem Start der eigentlichen Umschulung im Frühjahr 2025 traf mich eine private Lebenskrise mit voller Wucht. Ich hatte den Kopf einfach nicht für die Schule und ließ mich ein halbes Jahr zurückstufen. In dieser schwierigen Zeit war KI mir tatsächlich eine kleine psychische Stütze. Ich nutzte das europäische Modell Le Chat von Mistral und promptete mir Seneca, Paul Watzlawick und Vera F. Birkenbihl – mögen sie in Frieden ruhen – als Gesprächspartner, um meine Situation zu reflektieren. Und zwar nicht nur einzeln: Ich habe die Chats damals schon so gebaut, dass sie voneinander wussten und sich, mit meiner Hilfe, gegenseitig Nachrichten austauschten. Das war, wenn man es heute so nennen will, mein erster eigener Multi-Agent-Versuch – irgendwie improvisiert, aber er hat funktioniert.</p>
+  <p class="jcont" style="font-size: 1.05rem; line-height: 1.85;">Im Herbst 2025 lief mein Leben dann wieder in geordneten Bahnen. Zu diesem Zeitpunkt war auch die Entscheidung gefallen, nicht Anwendungsentwicklung, sondern Fachinformatiker für Systemintegration zu lernen. Warum? Weil mir klar wurde, dass Netzwerke, virtuelle Maschinen und Cyber Security halt genau die Infrastruktur sind, die man braucht, um KI-Anwendungen überhaupt bereitzustellen. Nicht der glamourösere Weg – aber der solidere.</p>
+  <p class="jcont" style="font-size: 1.05rem; line-height: 1.85;">Im weiteren Verlauf habe ich dann massiv angefangen, KI-Tools zu orchestrieren und mir Workflows zu bauen. Von ChatGPT bin ich schon seit dem Sommer komplett weg. Perplexity kam dazu für die exzellente Quellenarbeit, Gemini überzeugte mich mit seinem riesigen Kontextfenster, NotebookLM hat mich mit der Generierung von Podcasts und eindrucksvollen Lernmaterialien geflasht. Und dann ist da noch Claude – das Tool, mit dem ich gerade SynapSpace entwickle. Wenn es um komplexe Projekte und saubere Logik geht, macht Claude momentan einfach niemandem etwas vor. Ich kombiniere all diese Tools geschickt miteinander, spare Limits und nutze jedes für das, was es am besten kann.</p>
+  <p class="jcont" style="font-size: 1.05rem; line-height: 1.85;">SynapSpace ist dabei das Herzstück von allem. Die Idee, die mich seit Oktober 2024 nicht loslässt – ein intelligentes Lernsystem, das seine User zu verstehen lernt und ihnen hilft, schlauer und stärker zu werden – ist heute kein Traum mehr, sondern ein aktives Projekt. Heute stehe ich genau da, wo ich sein will. Und bis dieser Traum in seiner vollen Form wahr wird, eigne ich mir halt genau die Fähigkeiten an, die ich dafür brauche.</p>
+</div>`;
+}
+
+function jTab(id,btn){
+  document.querySelectorAll('.j-tab').forEach(b=>b.classList.remove('a'));
+  document.querySelectorAll('.j-pane').forEach(p=>p.classList.remove('a'));
+  btn.classList.add('a');
+  document.getElementById('j-'+id).classList.add('a');
+}
+
+function tgTE(id){document.getElementById('te-'+id).classList.toggle('o')}
+function tgJ(id){document.getElementById('je-'+id).classList.toggle('o')}
+
+// INIT
+renderDash();renderWorkflows();renderPrompts();renderJournal();
+</script>
+</body>
+</html>
