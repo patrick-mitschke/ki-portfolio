@@ -64,13 +64,45 @@ body::after{content:'';position:fixed;top:-20%;left:50%;transform:translateX(-50
 /* METHODIK */
 .meth{margin-bottom:36px;padding-bottom:36px;border-bottom:1px solid var(--br)}
 .meth-lbl{font-family:var(--ff);font-size:1.25rem;font-weight:800;color:var(--pt);letter-spacing:-.02em;margin-bottom:10px}
-.meth-intro{font-size:.88rem;color:var(--di);line-height:1.76;margin-bottom:18px;max-width:580px}
-.meth-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:9px}
-.meth-card{background:var(--su);border:1px solid var(--br);border-radius:var(--r);padding:16px;transition:border-color .2s}
+.meth-intro{font-size:.88rem;color:var(--di);line-height:1.76;margin-bottom:20px;max-width:580px}
+.meth-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:11px}
+.meth-card{background:var(--su);border:1px solid var(--br);border-radius:var(--r);padding:18px;transition:border-color .2s;display:flex;flex-direction:column;cursor:pointer;user-select:none}
 .meth-card:hover{border-color:var(--ptb)}
-.meth-icon{font-size:1.1rem;margin-bottom:8px;display:block}
-.meth-title{font-size:.84rem;font-weight:700;color:var(--tx);margin-bottom:6px}
-.meth-text{font-size:.73rem;color:var(--di);font-family:var(--fm);line-height:1.6}
+.meth-card.o{border-color:var(--pt)}
+.meth-card-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px;gap:10px}
+.meth-marker{line-height:0;flex-shrink:0}
+.meth-marker svg{display:block}
+.meth-chev{width:22px;height:22px;border-radius:50%;border:1px solid var(--br);background:none;color:var(--mu);display:flex;align-items:center;justify-content:center;font-size:8px;transition:transform .25s,color .2s,border-color .2s,background .2s;flex-shrink:0;line-height:1;pointer-events:none}
+.meth-card.o .meth-chev{transform:rotate(180deg);color:var(--pt);border-color:var(--ptb);background:var(--ptg)}
+.meth-title{font-size:.95rem;font-weight:700;color:var(--tx);letter-spacing:-.015em;margin-bottom:4px}
+.meth-tag{font-family:var(--ff);font-size:.82rem;color:var(--pt);font-weight:600;letter-spacing:-.005em;line-height:1.4;margin-bottom:13px}
+.meth-text{display:none;font-size:.74rem;color:var(--di);font-family:var(--fm);line-height:1.7;margin-bottom:13px}
+.meth-card.o .meth-text{display:block;animation:fIn .22s ease}
+@keyframes fIn{from{opacity:0;transform:translateY(-2px)}to{opacity:1;transform:translateY(0)}}
+
+/* CARD ANCHORS (Mini-Visuals im Boardmix-Stil) */
+.meth-anchor{margin-top:0}
+.ma-code{background:rgba(0,0,0,.24);border:1px solid var(--br);border-left:2px solid var(--ptb);border-radius:var(--rx);padding:9px 11px;font-family:var(--fm);font-size:.6rem;color:var(--di);line-height:1.65;overflow-x:auto}
+.ma-code-line{display:block;white-space:nowrap}
+.ma-code-indent{padding-left:14px;color:var(--mu)}
+.ma-code-br{color:var(--pt)}
+.ma-code-nm{color:var(--di)}
+.ma-seq{padding:10px;background:rgba(0,0,0,.2);border:1px solid var(--br);border-radius:var(--rx)}
+.ma-seq-row{display:flex;align-items:center;gap:5px;justify-content:center;margin-bottom:7px;flex-wrap:wrap}
+.ma-tool{width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--fm);font-weight:800;font-size:.62rem;border:1px solid;flex-shrink:0}
+.ma-tc{background:var(--clg);border-color:var(--clb);color:var(--cl)}
+.ma-tg{background:var(--gmg);border-color:var(--gmb);color:var(--gm)}
+.ma-tn{background:var(--nlg);border-color:var(--nlb);color:var(--nl)}
+.ma-tp{background:var(--pxg);border-color:var(--pxb);color:var(--px)}
+.ma-tcheck{background:var(--ptg);border-color:var(--ptb);color:var(--pt);font-size:.8rem}
+.ma-arrow{color:var(--mu);font-size:.72rem;line-height:1;flex-shrink:0}
+.ma-seq-lbl{font-family:var(--fm);font-size:.55rem;color:var(--mu);letter-spacing:.03em;text-align:center;line-height:1.5}
+
+/* CARD CTA (Tab-Teaser) — wird durch margin-top:auto an den unteren Card-Rand gedrückt */
+.meth-cta{font-family:var(--fm);font-size:.64rem;color:var(--pt);letter-spacing:.04em;margin-top:auto;padding:13px 0 0 0;border:none;border-top:1px solid var(--br);background:none;text-align:left;width:100%;display:flex;align-items:center;gap:6px;cursor:pointer;transition:color .15s;font-weight:400}
+.meth-cta:hover{color:var(--tx)}
+.meth-cta-arrow{font-size:.85rem;transition:transform .2s;line-height:1}
+.meth-cta:hover .meth-cta-arrow{transform:translateX(3px)}
 
 /* STATS */
 .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(118px,1fr));gap:9px;margin-bottom:32px}
@@ -78,6 +110,34 @@ body::after{content:'';position:fixed;top:-20%;left:50%;transform:translateX(-50
 .stat:hover{border-color:var(--br2)}
 .stat-n{font-size:1.9rem;font-weight:800;color:var(--pt);line-height:1;margin-bottom:3px}
 .stat-l{font-family:var(--fm);font-size:.62rem;color:var(--mu);letter-spacing:.09em;text-transform:uppercase}
+.stat-target{font-family:var(--fm);font-size:.78rem;color:var(--mu);font-weight:500;margin-left:4px;letter-spacing:-.01em}
+.stat-suffix{color:var(--pt);font-weight:800;margin-left:1px}
+
+/* SECTION MARKER (Mono Code-Kommentar-Stil) */
+.sect-marker{font-family:var(--fm);font-size:.62rem;color:var(--mu);letter-spacing:.14em;text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.sect-marker::before{content:'';flex-shrink:0;width:14px;height:1px;background:var(--ptb)}
+.sect-marker-num{color:var(--pt);font-weight:600}
+
+/* PULL QUOTE (Kompetenz-Statement) */
+.pq{margin:0 0 36px;padding:22px 26px;background:var(--ptg);border:1px solid var(--ptb);border-left:3px solid var(--pt);border-radius:0 var(--rs) var(--rs) 0;position:relative}
+.pq-lbl{font-family:var(--fm);font-size:.6rem;color:var(--pt);letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px;display:flex;align-items:center;gap:6px;opacity:.85}
+.pq-lbl::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--pt)}
+.pq-text{font-size:1.02rem;font-weight:700;color:var(--tx);line-height:1.5;letter-spacing:-.015em;max-width:680px}
+
+/* WIP NOTE */
+.wip-note{display:flex;gap:11px;align-items:flex-start;padding:11px 15px;background:var(--su);border:1px solid var(--br);border-left:2px solid var(--ptb);border-radius:0 var(--rs) var(--rs) 0;margin-bottom:36px}
+.wip-note-icon{font-family:var(--fm);color:var(--pt);font-size:.7rem;font-weight:700;letter-spacing:.08em;flex-shrink:0;padding-top:1px}
+.wip-note-text{font-family:var(--fm);font-size:.7rem;color:var(--di);line-height:1.65}
+
+/* HERO PHOTO */
+.hero-photo{position:relative;width:100%;max-width:520px;height:260px;margin-top:18px;border-radius:var(--rs);overflow:hidden;background:var(--su);border:1px solid var(--br)}
+.hero-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;z-index:1}
+.hero-photo-ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;text-align:center;z-index:0;background:linear-gradient(135deg,var(--bg2) 0%,var(--bg3) 100%)}
+.hero-photo-ph::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(27,158,166,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(27,158,166,.04) 1px,transparent 1px);background-size:24px 24px;pointer-events:none}
+.hero-photo-ph-icon{font-size:1.7rem;margin-bottom:11px;color:var(--mu);position:relative}
+.hero-photo-ph-title{font-size:.84rem;font-weight:700;color:var(--tx);margin-bottom:5px;position:relative}
+.hero-photo-ph-sub{font-family:var(--fm);font-size:.64rem;color:var(--mu);line-height:1.6;letter-spacing:.02em;position:relative;max-width:280px}
+.hero-photo-ph-path{font-family:var(--fm);font-size:.58rem;color:var(--pt);background:var(--ptg);border:1px solid var(--ptb);border-radius:var(--rx);padding:3px 8px;margin-top:11px;letter-spacing:.04em;position:relative}
 
 /* TOOL CARDS */
 .hero-subtitle{font-family:var(--ff);font-size:.95rem;font-weight:600;color:var(--pt);margin-bottom:10px;letter-spacing:.01em}
@@ -276,28 +336,42 @@ body::after{content:'';position:fixed;top:-20%;left:50%;transform:translateX(-50
     "about": "Ich entwickle und dokumentiere systematische KI-Workflows, die verschiedene Large Language Models kombinieren. Der Fokus liegt auf reproduzierbaren Prozessen, klaren Prompt-Hierarchien und gezielter Tool-Integration.",
     "projectName": "SynapSpace",
     "projectNote": "Diese Page dokumentiert meinen KI-Einsatz, und zwar bei der Entwicklung von SynapSpace, meinem lokalen KI-Lernökosystem. Die Seite wächst kontinuierlich – neue Prompts, Workflows und Einblicke kommen regelmäßig dazu. Es lohnt sich also, ab und zu wieder vorbeizuschauen. Die technische Projektdokumentation und die Umsetzung liegen in den zugehörigen GitHub Repositories.",
+    "heroPhoto": {
+      "path": "assets/setup/synapspace-hardware.jpg",
+      "alt": "SynapSpace-Hardware: Server unter dem Schreibtisch und Backup-Node am Arbeitsplatz"
+    },
+    "pullQuote": "Kompetenzgewinn statt Auto-Pilot. Kein Coding-Assistent, jeder Baustein wird erklärt, dokumentiert, in Lernmaterial überführt.",
+    "wipNote": "Diese Seite dokumentiert nur projektbezogene Workflows und Prompts (SynapSpace). Sie wächst wöchentlich neben Studium und Deployment — Ziel: ca. ~10 Workflows und ~20 Prompts dokumentiert.",
+    "statsTargets": {
+      "workflows": 10,
+      "prompts": 20
+    },
     "methodology": {
       "intro": "Von KI lasse ich mir nicht das Denken abnehmen. Es ist einfach ein Werkzeug, das meinen Denkprozess erweitert. Visionen und Ziele? Die entwickle ich selbst. Auch die Workflows tüftle ich eigenständig aus. KI ist mir vor allem eine große Hilfe bei der Recherche, der Erledigung administrativer Routineaufgaben und beim Brainstorming – stets von mir gesteuert und kontrolliert. Wozu ich KI besonders gern nutze, ist zum Lernen. Wenn ich etwas nicht verstehe, lasse ich es mir erklären, mir es als Lernmaterial aufbereiten und mich testen. KI ist für mich einfach keine Abkürzung am Lernen vorbei, sondern der direkte Weg in die Materie hinein.",
       "principles": [
         {
-          "icon": "💬",
-          "title": "Kontext-First",
-          "text": "Neue Ideen starte ich mit intensivem, ungefilterten Kontext-Input. Im Dialog forme ich daraus Struktur – Gedanken reifen im Gespräch und werden direkt dokumentiert."
+          "id": "pe",
+          "title": "Prompt Engineering",
+          "tagline": "Vom Chaos zur Ordnung, vom Kontext zum Powerprompt.",
+          "text": "Neue Themen starte ich mit unstrukturiertem, oft eingesprochenem Kontext. Strukturierung, Rollenzuweisung, Format und XML-Tag-Blöcke entstehen erst im Dialog mit einem spezialisierten Prompt-Engineering-Tool (NotebookLM). Der entstehende Prompt wird in der Verwendung iterativ weiterentwickelt.",
+          "cta": "Beispiele in der Prompt-Bibliothek",
+          "ctaTab": "prompts"
         },
         {
-          "icon": "⚙️",
-          "title": "Prompt-Engineering",
-          "text": "Prompts entwickle ich iterativ und lasse sie von spezialisierten KI-Tools nach Best-Practices überarbeiten. Wichtige Prompts durchlaufen mehrere Schleifen."
+          "id": "val",
+          "title": "Validierung",
+          "tagline": "Vertrauen ist gut, Kontrolle ist besser.",
+          "text": "Anti-Halluzinations-Mandate in jedem System-Prompt. Bei kritischen Lerninhalten Cross-Check mit Perplexity und manuelle Gegenprüfung im Netz. Bei sehr spezialisierten oder sicherheitsrelevanten Themen, zu welchen ich regelmäßig valide Infos benötige, baue ich dedizierte NotebookLM-Notebooks mit hochqualitativen Quellen als Grounding (z. B. mein OpenClaw-Notebook).",
+          "cta": "Validierungs-Workflows ansehen",
+          "ctaTab": "workflows"
         },
         {
-          "icon": "✓",
-          "title": "Cross-Validierung",
-          "text": "Kritische Outputs bewerte ich mit mehreren Tools oder gebe sie zur Selbstkritik zurück. Bei sensiblen Fakten ergänze ich händische Recherche, Fachpodcasts, -videos und -literatur."
-        },
-        {
-          "icon": "⟳",
-          "title": "Tool-Orchestrierung",
-          "text": "Verschiedene KI-Tools übernehmen spezialisierte Rollen. Berichte und verschiedene Dokumententypen wandern von Tool zu Tool, Prompts werden cross-tool optimiert."
+          "id": "orch",
+          "title": "Orchestrierung",
+          "tagline": "Stärken nutzen, Schwächen umgehen, Synergien schaffen.",
+          "text": "Jedes Tool für das, was es am besten kann — Deep Research je nach Tempo (Perplexity) oder Tiefe (Gemini). Quellen-Grounding und repetitive Recherche in NotebookLM. Planung und Deployment in Claude, mit Gemini-Unterstützung zur Schonung der Token-Limits. Bei wichtigen Themen durchläuft selbst das Prompt Engineering mehrere Tools.",
+          "cta": "Pipeline-Details im Workflow-Tab",
+          "ctaTab": "workflows"
         }
       ]
     },
@@ -724,6 +798,52 @@ function show(id,btn){
   btn.classList.add('a');
 }
 
+// TAB-NAVIGATION aus Card-CTAs (sucht den passenden Nav-Button und aktiviert ihn)
+function jumpTab(id){
+  const btn=document.querySelector(`.nt[onclick*="show('${id}'"]`);
+  if(btn){show(id,btn);window.scrollTo({top:0,behavior:'smooth'});}
+}
+
+// METHODIK-CARD Toggle (Detail-Text ein-/ausklappen)
+function tgMC(id){
+  document.getElementById('mc-'+id).classList.toggle('o');
+}
+
+// METHODIK-CARD MARKER: SVG-Knoten im Boardmix-Stil, id-basiert
+function cardMarker(id){
+  const wrap=(inner)=>`<span class="meth-marker"><svg viewBox="0 0 32 32" width="34" height="34" xmlns="http://www.w3.org/2000/svg"><circle cx="16" cy="16" r="15" fill="var(--ptg)" stroke="var(--ptb)" stroke-width="1"/>${inner}</svg></span>`;
+  if(id==='pe'){
+    // Brackets < > für Prompt-Strukturierung
+    return wrap(`<path d="M12.5 10.5l-4 5.5 4 5.5" stroke="var(--pt)" stroke-width="1.7" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M19.5 10.5l4 5.5-4 5.5" stroke="var(--pt)" stroke-width="1.7" fill="none" stroke-linecap="round" stroke-linejoin="round"/>`);
+  }
+  if(id==='val'){
+    // Häkchen ✓ für Validierung
+    return wrap(`<path d="M9.5 16.5l4 4 9-9.5" stroke="var(--pt)" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>`);
+  }
+  if(id==='orch'){
+    // Drei vernetzte Knoten für Orchestrierung
+    return wrap(`<line x1="10" y1="11" x2="22" y2="11" stroke="var(--pt)" stroke-width="1.2" opacity=".7"/><line x1="10" y1="11" x2="16" y2="22" stroke="var(--pt)" stroke-width="1.2" opacity=".7"/><line x1="22" y1="11" x2="16" y2="22" stroke="var(--pt)" stroke-width="1.2" opacity=".7"/><circle cx="10" cy="11" r="2.6" fill="var(--pt)"/><circle cx="22" cy="11" r="2.6" fill="var(--pt)"/><circle cx="16" cy="22" r="2.6" fill="var(--pt)"/>`);
+  }
+  return wrap('');
+}
+
+// METHODIK-CARD ANCHOR: visueller Anker je Card-Typ
+function cardAnchor(id){
+  if(id==='pe'){
+    // Code-Snippet: XML-Tag-Block
+    return `<div class="meth-anchor"><div class="ma-code"><span class="ma-code-line"><span class="ma-code-br">&lt;</span><span class="ma-code-nm">projekt_kontext</span><span class="ma-code-br">&gt;</span></span><span class="ma-code-line ma-code-indent">Bewerbung als FISI · SynapSpace …</span><span class="ma-code-line"><span class="ma-code-br">&lt;/</span><span class="ma-code-nm">projekt_kontext</span><span class="ma-code-br">&gt;</span></span></div></div>`;
+  }
+  if(id==='val'){
+    // Sequenz: C → P → ✓
+    return `<div class="meth-anchor"><div class="ma-seq"><div class="ma-seq-row"><span class="ma-tool ma-tc">C</span><span class="ma-arrow">→</span><span class="ma-tool ma-tp">P</span><span class="ma-arrow">→</span><span class="ma-tool ma-tcheck">✓</span></div><div class="ma-seq-lbl">Entwurf · Faktencheck · bestätigt</div></div></div>`;
+  }
+  if(id==='orch'){
+    // Sequenz: N → G → N → C
+    return `<div class="meth-anchor"><div class="ma-seq"><div class="ma-seq-row"><span class="ma-tool ma-tn">N</span><span class="ma-arrow">→</span><span class="ma-tool ma-tg">G</span><span class="ma-arrow">→</span><span class="ma-tool ma-tn">N</span><span class="ma-arrow">→</span><span class="ma-tool ma-tc">C</span></div><div class="ma-seq-lbl">Tutor · Gem · Quellen · Anwendung</div></div></div>`;
+  }
+  return '';
+}
+
 // MODAL
 function openModal(title,bodyHtml){
   document.getElementById('mTitle').textContent=title;
@@ -774,11 +894,47 @@ function openGuide(tab){
 function renderDash(){
   const m=D.meta;
   const meth=m.methodology;
-  const cards=meth.principles.map(p=>`<div class="meth-card"><span class="meth-icon">${p.icon}</span><div class="meth-title">${p.title}</div><div class="meth-text">${p.text}</div></div>`).join('');
+
+  // METHODIK-CARDS: id-basiert, aufklappbar (Tagline+Anker+CTA immer sichtbar, Detail-Text via Chevron)
+  const cards=meth.principles.map(p=>{
+    const marker=cardMarker(p.id);
+    const anchor=cardAnchor(p.id);
+    const cta=p.cta?`<button class="meth-cta" onclick="event.stopPropagation();jumpTab('${p.ctaTab||'workflows'}')"><span>${p.cta}</span><span class="meth-cta-arrow">→</span></button>`:'';
+    const tag=p.tagline?`<div class="meth-tag">${p.tagline}</div>`:'';
+    return `<div class="meth-card" id="mc-${p.id}" onclick="tgMC('${p.id}')">
+<div class="meth-card-top">${marker}<button class="meth-chev" tabindex="-1">&#9660;</button></div>
+<div class="meth-title">${p.title}</div>
+${tag}
+<div class="meth-text">${p.text}</div>
+${anchor}
+${cta}
+</div>`;
+  }).join('');
+
   const tools=m.tools.map((t,i)=>`<div class="tool ${t.cls}" onclick="openToolM(${i})">
 <div class="tic">${t.short}</div>
 <div><div class="tnm">${t.name}</div><div class="tds">${t.desc}</div><div class="tci">${t.globalPrompt?'● Glob. Systemprompt hinterlegt':t.globalPromptNote&&t.id==='nlm'?'◈ Beeinflusst durch Gemini-Prompt':t.globalPromptNote?'◈ Prompts pro Notebook':'○ kein globaler Prompt'}</div></div>
 </div>`).join('');
+
+  // HERO-FOTO: zeigt Bild wenn Pfad gesetzt UND ladbar, sonst dauerhaft Platzhalter
+  const hp = m.heroPhoto || {};
+  const heroPhotoHTML = `<div class="hero-photo">
+${hp.path?`<img src="${hp.path}" alt="${(hp.alt||'').replace(/"/g,'&quot;')}" loading="lazy" onerror="this.style.display='none'">`:''}
+<div class="hero-photo-ph">
+  <div class="hero-photo-ph-icon">📷</div>
+  <div class="hero-photo-ph-title">Setup-Foto folgt</div>
+  <div class="hero-photo-ph-sub">SynapSpace-Server &amp; Backup-Node am Arbeitsplatz</div>
+  ${hp.path?`<div class="hero-photo-ph-path">${hp.path}</div>`:''}
+</div>
+</div>`;
+
+  // STATS mit optionalen Soll-Werten ("/ ~10") und "+"-Suffix für Journal
+  const tgt = m.statsTargets || {};
+  const statWF = `<div class="stat"><div class="stat-n">${D.workflows.length}${tgt.workflows?`<span class="stat-target"> / ~${tgt.workflows}</span>`:''}</div><div class="stat-l">Workflows</div></div>`;
+  const statPR = `<div class="stat"><div class="stat-n">${D.prompts.length}${tgt.prompts?`<span class="stat-target"> / ~${tgt.prompts}</span>`:''}</div><div class="stat-l">Prompts</div></div>`;
+  const statJN = `<div class="stat"><div class="stat-n">${D.journal.length}<span class="stat-suffix">+</span></div><div class="stat-l">Journal</div></div>`;
+  const statTL = `<div class="stat"><div class="stat-n">${m.tools.length}</div><div class="stat-l">KI-Tools</div></div>`;
+
   document.getElementById('dashboard').innerHTML=`
 <div class="hero">
   <div class="hero-subtitle">${m.tagline}</div>
@@ -792,18 +948,19 @@ function renderDash(){
       <span>GitHub Repo zu SynapSpace</span>
     </a>
   </div>
+  ${heroPhotoHTML}
 </div>
+<div class="sect-marker"><span class="sect-marker-num">// 01</span> Methodik</div>
 <div class="meth">
   <div class="meth-lbl">Meine Arbeitsweise mit KI</div>
   <p class="meth-intro">${meth.intro}</p>
   <div class="meth-grid">${cards}</div>
 </div>
-<div class="stats">
-  <div class="stat"><div class="stat-n">${D.workflows.length}</div><div class="stat-l">Workflows</div></div>
-  <div class="stat"><div class="stat-n">${D.prompts.length}</div><div class="stat-l">Prompts</div></div>
-  <div class="stat"><div class="stat-n">${D.journal.length}</div><div class="stat-l">Journal</div></div>
-  <div class="stat"><div class="stat-n">${m.tools.length}</div><div class="stat-l">KI-Tools</div></div>
-</div>
+${m.pullQuote?`<div class="pq"><div class="pq-lbl">Leitprinzip</div><div class="pq-text">${m.pullQuote}</div></div>`:''}
+<div class="sect-marker"><span class="sect-marker-num">// 02</span> Status</div>
+<div class="stats">${statWF}${statPR}${statJN}${statTL}</div>
+${m.wipNote?`<div class="wip-note"><div class="wip-note-icon">WIP</div><div class="wip-note-text">${m.wipNote}</div></div>`:''}
+<div class="sect-marker"><span class="sect-marker-num">// 03</span> Toolstack</div>
 <div class="slbl">Verwendete KI-Tools <span>— anklicken für Systemanweisungen</span></div>
 <div class="tools">${tools}</div>
 <div class="tools-note">Auf Coding-Assistenten (z.B. Claude Code) wurde bewusst verzichtet – Kompetenzgewinn durch aktives Mitdenken hatte Vorrang.</div>`;
