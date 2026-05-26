@@ -104,6 +104,65 @@ body::after{content:'';position:fixed;top:-20%;left:50%;transform:translateX(-50
 .meth-cta-arrow{font-size:.85rem;transition:transform .2s;line-height:1}
 .meth-cta:hover .meth-cta-arrow{transform:translateX(3px)}
 
+/* ORCHESTRIERUNGS-SEKTION (Matrix + Pipeline + Why-Box) */
+.orch{margin-bottom:36px;padding-bottom:36px;border-bottom:1px solid var(--br)}
+.orch-lbl{font-family:var(--ff);font-size:1.25rem;font-weight:800;color:var(--pt);letter-spacing:-.02em;margin-bottom:10px}
+.orch-intro{font-size:.88rem;color:var(--di);line-height:1.76;margin-bottom:22px;max-width:580px}
+
+/* MATRIX */
+.matrix{background:var(--su);border:1px solid var(--br);border-radius:var(--r);padding:18px 18px 14px;margin-bottom:24px;overflow-x:auto}
+.matrix-title{font-family:var(--fm);font-size:.6rem;color:var(--mu);letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px}
+.matrix-tbl{width:100%;border-collapse:collapse;min-width:440px}
+.matrix-tbl th,.matrix-tbl td{padding:9px 6px;text-align:center;border-bottom:1px solid var(--br);vertical-align:middle}
+.matrix-tbl thead th{font-weight:600;padding-bottom:14px}
+.matrix-tbl tbody tr:last-child td{border-bottom:none}
+.matrix-tbl tbody tr td:first-child,.matrix-tbl thead th:first-child{text-align:left}
+.matrix-row-lbl{font-family:var(--fm);font-size:.7rem;color:var(--di);font-weight:500;padding-right:12px;white-space:nowrap}
+.matrix-tool-h{display:flex;flex-direction:column;align-items:center;gap:6px;cursor:default}
+.matrix-tool-ic{width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--fm);font-weight:800;font-size:.65rem;border:1px solid;transition:transform .2s}
+.matrix-cl{background:var(--clg);border-color:var(--clb);color:var(--cl)}
+.matrix-gm{background:var(--gmg);border-color:var(--gmb);color:var(--gm)}
+.matrix-nl{background:var(--nlg);border-color:var(--nlb);color:var(--nl)}
+.matrix-px{background:var(--pxg);border-color:var(--pxb);color:var(--px)}
+.matrix-tool-nm{font-family:var(--fm);font-size:.55rem;color:var(--mu);letter-spacing:.05em;text-transform:uppercase}
+.matrix-cell{position:relative}
+.matrix-dot{display:inline-block;border-radius:50%;background:var(--pt);transition:transform .2s}
+.matrix-d1{width:11px;height:11px}
+.matrix-d2{width:7px;height:7px;opacity:.85}
+.matrix-d3{width:4px;height:4px;opacity:.7}
+.matrix-empty{color:var(--mu);opacity:.45;font-family:var(--fm);font-size:.7rem}
+.matrix-tbl tbody tr:hover{background:rgba(27,158,166,.035)}
+.matrix-tbl tbody tr:hover .matrix-dot{transform:scale(1.15)}
+
+/* LEGENDE */
+.matrix-leg{display:flex;flex-wrap:wrap;gap:18px;justify-content:center;font-family:var(--fm);font-size:.6rem;color:var(--mu);margin-top:14px;padding-top:14px;border-top:1px solid var(--br);letter-spacing:.04em}
+.matrix-leg-item{display:flex;align-items:center;gap:7px}
+
+/* PIPELINE-LAYOUT: Pipeline + Why-Box nebeneinander auf Desktop */
+.pipe-wrap{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:18px;align-items:stretch}
+@media (max-width:780px){.pipe-wrap{grid-template-columns:1fr}}
+.pipe{background:var(--su);border:1px solid var(--br);border-radius:var(--r);padding:20px}
+.pipe-title{font-family:var(--fm);font-size:.6rem;color:var(--mu);letter-spacing:.14em;text-transform:uppercase;margin-bottom:16px}
+.pipe-steps{display:flex;flex-direction:column;gap:2px;position:relative}
+.pipe-step{display:flex;align-items:flex-start;gap:13px;padding:9px 0;position:relative}
+.pipe-step:not(:last-child)::after{content:'';position:absolute;left:14px;top:38px;height:calc(100% - 22px);width:1px;background:var(--ptb);opacity:.55}
+.pipe-step-icon{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--fm);font-weight:800;font-size:.7rem;border:1px solid;flex-shrink:0;background:var(--bg2);position:relative;z-index:1}
+.pipe-tc{background:var(--clg);border-color:var(--clb);color:var(--cl)}
+.pipe-tg{background:var(--gmg);border-color:var(--gmb);color:var(--gm)}
+.pipe-tn{background:var(--nlg);border-color:var(--nlb);color:var(--nl)}
+.pipe-tp{background:var(--pxg);border-color:var(--pxb);color:var(--px)}
+.pipe-step-body{flex:1;padding-top:3px;min-width:0}
+.pipe-step-head{display:flex;align-items:baseline;gap:8px;margin-bottom:3px}
+.pipe-step-num{font-family:var(--fm);font-size:.55rem;color:var(--pt);font-weight:700;letter-spacing:.06em;flex-shrink:0}
+.pipe-step-title{font-size:.78rem;font-weight:700;color:var(--tx);letter-spacing:-.005em}
+.pipe-step-desc{font-family:var(--fm);font-size:.63rem;color:var(--di);line-height:1.6}
+
+/* WHY-BOX: Begründung neben Pipeline */
+.pipe-why{background:var(--ptg);border:1px solid var(--ptb);border-left:3px solid var(--pt);border-radius:0 var(--rs) var(--rs) 0;padding:20px;display:flex;flex-direction:column}
+.pipe-why-title{font-family:var(--fm);font-size:.6rem;color:var(--pt);letter-spacing:.14em;text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:7px;opacity:.9}
+.pipe-why-title::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--pt)}
+.pipe-why-text{font-size:.78rem;color:var(--di);line-height:1.7}
+
 /* STATS */
 .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(118px,1fr));gap:9px;margin-bottom:32px}
 .stat{background:var(--su);border:1px solid var(--br);border-radius:var(--r);padding:16px;transition:border-color .2s}
@@ -130,7 +189,7 @@ body::after{content:'';position:fixed;top:-20%;left:50%;transform:translateX(-50
 .wip-note-text{font-family:var(--fm);font-size:.7rem;color:var(--di);line-height:1.65}
 
 /* HERO PHOTO */
-.hero-photo{position:relative;width:100%;max-width:520px;height:260px;margin-top:18px;border-radius:var(--rs);overflow:hidden;background:var(--su);border:1px solid var(--br)}
+.hero-photo{position:relative;width:100%;max-width:520px;aspect-ratio:4/3;margin-top:18px;border-radius:var(--rs);overflow:hidden;background:var(--su);border:1px solid var(--br)}
 .hero-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;z-index:1}
 .hero-photo-ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;text-align:center;z-index:0;background:linear-gradient(135deg,var(--bg2) 0%,var(--bg3) 100%)}
 .hero-photo-ph::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(27,158,166,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(27,158,166,.04) 1px,transparent 1px);background-size:24px 24px;pointer-events:none}
@@ -138,6 +197,8 @@ body::after{content:'';position:fixed;top:-20%;left:50%;transform:translateX(-50
 .hero-photo-ph-title{font-size:.84rem;font-weight:700;color:var(--tx);margin-bottom:5px;position:relative}
 .hero-photo-ph-sub{font-family:var(--fm);font-size:.64rem;color:var(--mu);line-height:1.6;letter-spacing:.02em;position:relative;max-width:280px}
 .hero-photo-ph-path{font-family:var(--fm);font-size:.58rem;color:var(--pt);background:var(--ptg);border:1px solid var(--ptb);border-radius:var(--rx);padding:3px 8px;margin-top:11px;letter-spacing:.04em;position:relative}
+.hero-photo-cap{font-family:var(--fm);font-size:.6rem;color:var(--mu);line-height:1.6;max-width:520px;margin-top:8px;letter-spacing:.02em}
+.hero-photo-cap b{color:var(--di);font-weight:600}
 
 /* TOOL CARDS */
 .hero-subtitle{font-family:var(--ff);font-size:.95rem;font-weight:600;color:var(--pt);margin-bottom:10px;letter-spacing:.01em}
@@ -338,7 +399,8 @@ body::after{content:'';position:fixed;top:-20%;left:50%;transform:translateX(-50
     "projectNote": "Diese Page dokumentiert meinen KI-Einsatz, und zwar bei der Entwicklung von SynapSpace, meinem lokalen KI-Lernökosystem. Die Seite wächst kontinuierlich – neue Prompts, Workflows und Einblicke kommen regelmäßig dazu. Es lohnt sich also, ab und zu wieder vorbeizuschauen. Die technische Projektdokumentation und die Umsetzung liegen in den zugehörigen GitHub Repositories.",
     "heroPhoto": {
       "path": "assets/setup/synapspace-hardware.jpg",
-      "alt": "SynapSpace-Hardware: Server unter dem Schreibtisch und Backup-Node am Arbeitsplatz"
+      "alt": "SynapSpace-Hardware: Server unter dem Schreibtisch und Backup-Node am Arbeitsplatz",
+      "caption": "<b>Unter dem Tisch:</b> Fujitsu Celsius — SynapSpace-Hauptserver. <b>Hinter Laptop und Lautsprecher:</b> vertikal montierter Laptop als Backup-Node."
     },
     "pullQuote": "Kompetenzgewinn statt Auto-Pilot. Kein Coding-Assistent, jeder Baustein wird erklärt, dokumentiert, in Lernmaterial überführt.",
     "wipNote": "Diese Seite dokumentiert nur projektbezogene Workflows und Prompts (SynapSpace). Sie wächst wöchentlich neben Studium und Deployment — Ziel: ca. ~10 Workflows und ~20 Prompts dokumentiert.",
@@ -374,6 +436,35 @@ body::after{content:'';position:fixed;top:-20%;left:50%;transform:translateX(-50
           "ctaTab": "workflows"
         }
       ]
+    },
+    "orchestration": {
+      "intro": "Wie die vier Tools in der Praxis zusammenspielen — Rollenverteilung als Matrix, ergänzt um eine konkrete Pipeline aus dem Alltag.",
+      "matrix": {
+        "tools": [
+          {"id": "claude", "short": "C", "name": "Claude", "cls": "matrix-cl"},
+          {"id": "gemini", "short": "G", "name": "Gemini", "cls": "matrix-gm"},
+          {"id": "nlm", "short": "N", "name": "NotebookLM", "cls": "matrix-nl"},
+          {"id": "perplexity", "short": "P", "name": "Perplexity", "cls": "matrix-px"}
+        ],
+        "rows": [
+          {"label": "Planung & Coding", "values": [1, 2, 0, 3]},
+          {"label": "Recherche", "values": [3, 2, 1, 2]},
+          {"label": "Validierung & Faktencheck", "values": [0, 0, 1, 2]},
+          {"label": "Prompt Engineering", "values": [3, 2, 1, 3]},
+          {"label": "Lernmaterial & Tests", "values": [1, 2, 1, 3]}
+        ]
+      },
+      "pipeline": {
+        "title": "Beispiel-Pipeline: Wie ein Claude-Prompt entsteht",
+        "steps": [
+          {"tool": "nlm", "title": "NotebookLM-Tutor", "desc": "Master-Notebook über NotebookLM selbst. Schreibt den Prompt für das Gemini-Gem."},
+          {"tool": "gemini", "title": "Gemini „Recherche-Stratege\"-Gem", "desc": "Liefert Recherchestrategie (Weltwissen) und schreibt Quellen-Such-Prompt für NotebookLM."},
+          {"tool": "nlm", "title": "NotebookLM Quellen-Suche", "desc": "Sucht hochwertigste Quellen nach Vorgabe, baut daraus z.B. ein Claude-Tutor-Notebook."},
+          {"tool": "nlm", "title": "Claude-Tutor-Notebook", "desc": "In NotebookLM aufgesetzt — schreibt den finalen, Claude-spezifischen Prompt."},
+          {"tool": "claude", "title": "Claude", "desc": "Nutzt den durchqualifizierten Prompt für Deployment, Lernmaterial, Dokumentation."}
+        ],
+        "why": "Vier Qualitätsstufen vor Claude: NotebookLM bringt Struktur, Gemini bringt Weltwissen und Recherchestrategie, NotebookLM bringt hochwertige Quellen, der NotebookLM-Claude-Tutor bringt Claude-spezifischen Prompt-Stil. Halluzinationen aus einer Stufe werden in der nächsten kompensiert."
+      }
     },
     "tools": [
       {
@@ -615,7 +706,7 @@ body::after{content:'';position:fixed;top:-20%;left:50%;transform:translateX(-50
         "iterativ",
         "projekt-management"
       ],
-      "image": "w001.png"
+      "image": "assets/workflows/w001.png"
     },
     {
       "id": "w002",
@@ -629,7 +720,7 @@ body::after{content:'';position:fixed;top:-20%;left:50%;transform:translateX(-50
         "gemini-gem",
         "dokumentation"
       ],
-      "image": "w002.png"
+      "image": "assets/workflows/w002.png"
     }
   ],
   "journal": [
@@ -890,6 +981,56 @@ function openGuide(tab){
   openModal(`Anleitung · ${labels[tab]}`,`<div class="msec">${html}</div>`);
 }
 
+// ORCHESTRIERUNGS-SEKTION: Matrix + Pipeline + Why-Box
+function renderOrch(o){
+  if(!o)return '';
+  const mx=o.matrix;
+  // Matrix-Header
+  const headers=mx.tools.map(tl=>`<th><div class="matrix-tool-h"><div class="matrix-tool-ic ${tl.cls}">${tl.short}</div><div class="matrix-tool-nm">${tl.name}</div></div></th>`).join('');
+  // Matrix-Rows
+  const dotClass={1:'matrix-d1',2:'matrix-d2',3:'matrix-d3'};
+  const dotTitle={1:'Hauptrolle',2:'Sekundär',3:'Gelegentlich'};
+  const rows=mx.rows.map(r=>{
+    const cells=r.values.map(v=>v===0?`<td class="matrix-cell"><span class="matrix-empty" title="nicht eingesetzt">—</span></td>`:`<td class="matrix-cell"><span class="matrix-dot ${dotClass[v]}" title="${dotTitle[v]}"></span></td>`).join('');
+    return `<tr><td class="matrix-row-lbl">${r.label}</td>${cells}</tr>`;
+  }).join('');
+  // Pipeline
+  const toolCls={claude:'pipe-tc',gemini:'pipe-tg',nlm:'pipe-tn',perplexity:'pipe-tp'};
+  const toolLbl={claude:'C',gemini:'G',nlm:'N',perplexity:'P'};
+  const steps=o.pipeline.steps.map((s,i)=>`<div class="pipe-step">
+<div class="pipe-step-icon ${toolCls[s.tool]||''}">${toolLbl[s.tool]||'?'}</div>
+<div class="pipe-step-body"><div class="pipe-step-head"><span class="pipe-step-num">${String(i+1).padStart(2,'0')}</span><span class="pipe-step-title">${s.title}</span></div><div class="pipe-step-desc">${s.desc}</div></div>
+</div>`).join('');
+
+  return `<div class="orch">
+<div class="orch-lbl">Tool-Orchestrierung</div>
+<p class="orch-intro">${o.intro}</p>
+<div class="matrix">
+  <div class="matrix-title">Rollenverteilung</div>
+  <table class="matrix-tbl">
+    <thead><tr><th></th>${headers}</tr></thead>
+    <tbody>${rows}</tbody>
+  </table>
+  <div class="matrix-leg">
+    <div class="matrix-leg-item"><span class="matrix-dot matrix-d1"></span>Hauptrolle</div>
+    <div class="matrix-leg-item"><span class="matrix-dot matrix-d2"></span>Sekundär</div>
+    <div class="matrix-leg-item"><span class="matrix-dot matrix-d3"></span>Gelegentlich</div>
+    <div class="matrix-leg-item"><span class="matrix-empty">—</span>nicht eingesetzt</div>
+  </div>
+</div>
+<div class="pipe-wrap">
+  <div class="pipe">
+    <div class="pipe-title">${o.pipeline.title}</div>
+    <div class="pipe-steps">${steps}</div>
+  </div>
+  <div class="pipe-why">
+    <div class="pipe-why-title">Warum so viele Stufen?</div>
+    <div class="pipe-why-text">${o.pipeline.why}</div>
+  </div>
+</div>
+</div>`;
+}
+
 // RENDER DASHBOARD
 function renderDash(){
   const m=D.meta;
@@ -926,7 +1067,7 @@ ${hp.path?`<img src="${hp.path}" alt="${(hp.alt||'').replace(/"/g,'&quot;')}" lo
   <div class="hero-photo-ph-sub">SynapSpace-Server &amp; Backup-Node am Arbeitsplatz</div>
   ${hp.path?`<div class="hero-photo-ph-path">${hp.path}</div>`:''}
 </div>
-</div>`;
+</div>${hp.caption?`<div class="hero-photo-cap">${hp.caption}</div>`:''}`;
 
   // STATS mit optionalen Soll-Werten ("/ ~10") und "+"-Suffix für Journal
   const tgt = m.statsTargets || {};
@@ -957,10 +1098,12 @@ ${hp.path?`<img src="${hp.path}" alt="${(hp.alt||'').replace(/"/g,'&quot;')}" lo
   <div class="meth-grid">${cards}</div>
 </div>
 ${m.pullQuote?`<div class="pq"><div class="pq-lbl">Leitprinzip</div><div class="pq-text">${m.pullQuote}</div></div>`:''}
-<div class="sect-marker"><span class="sect-marker-num">// 02</span> Status</div>
+<div class="sect-marker"><span class="sect-marker-num">// 02</span> Orchestrierung</div>
+${renderOrch(m.orchestration)}
+<div class="sect-marker"><span class="sect-marker-num">// 03</span> Status</div>
 <div class="stats">${statWF}${statPR}${statJN}${statTL}</div>
 ${m.wipNote?`<div class="wip-note"><div class="wip-note-icon">WIP</div><div class="wip-note-text">${m.wipNote}</div></div>`:''}
-<div class="sect-marker"><span class="sect-marker-num">// 03</span> Toolstack</div>
+<div class="sect-marker"><span class="sect-marker-num">// 04</span> Toolstack</div>
 <div class="slbl">Verwendete KI-Tools <span>— anklicken für Systemanweisungen</span></div>
 <div class="tools">${tools}</div>
 <div class="tools-note">Auf Coding-Assistenten (z.B. Claude Code) wurde bewusst verzichtet – Kompetenzgewinn durch aktives Mitdenken hatte Vorrang.</div>`;
