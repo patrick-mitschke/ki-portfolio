@@ -112,27 +112,30 @@ body::after{content:'';position:fixed;top:-20%;left:50%;transform:translateX(-50
 /* MATRIX */
 .matrix{background:var(--su);border:1px solid var(--br);border-radius:var(--r);padding:18px 18px 14px;margin-bottom:24px;overflow-x:auto}
 .matrix-title{font-family:var(--fm);font-size:.6rem;color:var(--mu);letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px}
-.matrix-tbl{width:100%;border-collapse:collapse;min-width:440px}
-.matrix-tbl th,.matrix-tbl td{padding:9px 6px;text-align:center;border-bottom:1px solid var(--br);vertical-align:middle}
-.matrix-tbl thead th{font-weight:600;padding-bottom:14px}
+.matrix-tbl{width:100%;border-collapse:collapse;min-width:480px;table-layout:fixed}
+.matrix-col-lbl{width:38%}
+.matrix-col-tool{width:15.5%}
+.matrix-tbl th,.matrix-tbl td{padding:10px 4px;text-align:center;border-bottom:1px solid var(--br);vertical-align:middle}
+.matrix-tbl thead th{font-weight:600;padding-bottom:14px;border-bottom-color:var(--br)}
 .matrix-tbl tbody tr:last-child td{border-bottom:none}
-.matrix-tbl tbody tr td:first-child,.matrix-tbl thead th:first-child{text-align:left}
-.matrix-row-lbl{font-family:var(--fm);font-size:.7rem;color:var(--di);font-weight:500;padding-right:12px;white-space:nowrap}
+.matrix-tbl thead th:first-child,.matrix-tbl tbody td:first-child{text-align:left;border-right:1px solid var(--br);padding-right:14px}
+.matrix-tbl tbody tr:nth-child(even){background:rgba(255,255,255,.018)}
+.matrix-tbl tbody tr:hover{background:rgba(27,158,166,.045)}
+.matrix-tbl tbody tr:hover .matrix-dot{transform:scale(1.12)}
+.matrix-row-lbl{font-family:var(--fm);font-size:.7rem;color:var(--di);font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .matrix-tool-h{display:flex;flex-direction:column;align-items:center;gap:6px;cursor:default}
 .matrix-tool-ic{width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--fm);font-weight:800;font-size:.65rem;border:1px solid;transition:transform .2s}
 .matrix-cl{background:var(--clg);border-color:var(--clb);color:var(--cl)}
 .matrix-gm{background:var(--gmg);border-color:var(--gmb);color:var(--gm)}
 .matrix-nl{background:var(--nlg);border-color:var(--nlb);color:var(--nl)}
 .matrix-px{background:var(--pxg);border-color:var(--pxb);color:var(--px)}
-.matrix-tool-nm{font-family:var(--fm);font-size:.55rem;color:var(--mu);letter-spacing:.05em;text-transform:uppercase}
+.matrix-tool-nm{font-family:var(--fm);font-size:.54rem;color:var(--mu);letter-spacing:.05em;text-transform:uppercase;line-height:1.2}
 .matrix-cell{position:relative}
 .matrix-dot{display:inline-block;border-radius:50%;background:var(--pt);transition:transform .2s}
-.matrix-d1{width:11px;height:11px}
-.matrix-d2{width:7px;height:7px;opacity:.85}
-.matrix-d3{width:4px;height:4px;opacity:.7}
-.matrix-empty{color:var(--mu);opacity:.45;font-family:var(--fm);font-size:.7rem}
-.matrix-tbl tbody tr:hover{background:rgba(27,158,166,.035)}
-.matrix-tbl tbody tr:hover .matrix-dot{transform:scale(1.15)}
+.matrix-d1{width:13px;height:13px}
+.matrix-d2{width:8px;height:8px;opacity:.85}
+.matrix-d3{width:5px;height:5px;opacity:.65}
+.matrix-empty{color:var(--mu);opacity:.4;font-family:var(--fm);font-size:.78rem;font-weight:500}
 
 /* LEGENDE */
 .matrix-leg{display:flex;flex-wrap:wrap;gap:18px;justify-content:center;font-family:var(--fm);font-size:.6rem;color:var(--mu);margin-top:14px;padding-top:14px;border-top:1px solid var(--br);letter-spacing:.04em}
@@ -344,6 +347,29 @@ body::after{content:'';position:fixed;top:-20%;left:50%;transform:translateX(-50
 .te-hint{font-family:var(--fm);font-size:.64rem;color:var(--mu)}
 .teb{display:none;border-top:1px solid var(--br);padding:16px 20px}.te.o .teb{display:block}
 .te-placeholder{font-family:var(--fm);font-size:.72rem;color:var(--mu);font-style:italic;padding:8px 12px;border:1px dashed var(--br);border-radius:var(--rs)}
+
+/* HISTORY-TIMELINE (Boardmix-Stil: Knoten auf vertikaler Linie, aufklappbare Originaltexte) */
+.hist-tl{position:relative;padding-left:34px;margin-top:6px}
+.hist-tl::before{content:'';position:absolute;left:10px;top:18px;bottom:18px;width:1px;background:var(--ptb);opacity:.7}
+.hist-ms{position:relative;margin-bottom:14px}
+.hist-ms:last-child{margin-bottom:0}
+.hist-ms::before{content:'';position:absolute;left:-29px;top:18px;width:13px;height:13px;border-radius:50%;background:var(--bg2);border:2px solid var(--pt);z-index:1;transition:transform .2s,background .2s}
+.hist-ms.last::before{background:var(--pt);box-shadow:0 0 0 3px var(--ptg)}
+.hist-ms:hover::before{transform:scale(1.15)}
+.hist-card{background:var(--su);border:1px solid var(--br);border-radius:var(--r);padding:16px 20px;transition:border-color .2s}
+.hist-card:hover{border-color:var(--ptb)}
+.hist-ms.o .hist-card{border-color:var(--pt)}
+.hist-period{font-family:var(--fm);font-size:.62rem;color:var(--pt);letter-spacing:.09em;text-transform:uppercase;margin-bottom:6px;font-weight:700}
+.hist-hook{font-family:var(--ff);font-size:1.02rem;font-weight:700;color:var(--tx);letter-spacing:-.015em;margin-bottom:8px;line-height:1.4}
+.hist-essence{font-size:.82rem;color:var(--di);line-height:1.72;margin:0}
+.hist-toggle{margin-top:12px;font-family:var(--fm);font-size:.62rem;color:var(--pt);letter-spacing:.05em;cursor:pointer;display:inline-flex;align-items:center;gap:7px;user-select:none;background:none;border:none;padding:0;transition:color .15s}
+.hist-toggle:hover{color:var(--tx)}
+.hist-toggle-arrow{transition:transform .25s;font-size:.7rem;line-height:1}
+.hist-ms.o .hist-toggle-arrow{transform:rotate(180deg)}
+.hist-ms.o .hist-toggle-text::after{content:' schließen'}
+.hist-orig{display:none;margin-top:14px;padding-top:14px;border-top:1px solid var(--br)}
+.hist-ms.o .hist-orig{display:block;animation:fIn .25s ease}
+.hist-orig p{font-size:.84rem;color:var(--di);line-height:1.88;margin:0}
 
 /* MODAL */
 .mo{position:fixed;inset:0;background:rgba(0,0,0,.8);backdrop-filter:blur(10px);z-index:500;display:flex;align-items:center;justify-content:center;padding:24px;opacity:0;pointer-events:none;transition:opacity .2s}
@@ -821,6 +847,57 @@ body::after{content:'';position:fixed;top:-20%;left:50%;transform:translateX(-50
       "content": "HTML-Entwicklung mit Gemini Canvas funktioniert exakt genausogut wie mit Claude, bei wesentlich höheren Nutzungslimits (des Pro-Modells) und schnellerer Wiederauffrischung im Falle des Erreichens des Limits."
     }
   ],
+  "aiHistory": [
+    {
+      "id": "h1",
+      "period": "Frühjahr 2024",
+      "hookline": "Erster Chat, erste Faszination.",
+      "essence": "ChatGPT privat genutzt, kostenlos. Ein gebildeter Cineast als erster Custom-Chat — Ausgangspunkt der ganzen Reise.",
+      "original": "Also, ich bin vor ziemlich genau zwei Jahren, so im März oder April 2024, zum ersten Mal wirklich mit KI in Kontakt gekommen. Mein erstes Tool war damals ChatGPT, das ich anfangs nur privat und kostenlos genutzt habe. Meine damalige Arbeit in der Pflege und Assistenz von schwerbehinderten Menschen hat diese Notwendigkeit für den professionellen Einsatz einfach nicht erzeugt. Aber ich war vom ersten Moment an beeindruckt. Meine ersten Chats habe ich mir für meine Hobbys gebaut, beispielsweise einen gebildeten Cineasten, mit dem ich über Filme diskutieren konnte. Das war halt für mich als Filmfan ein super Einstieg."
+    },
+    {
+      "id": "h2",
+      "period": "Sommer 2024",
+      "hookline": "Vom Frage-Tool zum Werkzeug für echte Lösungen.",
+      "essence": "Rollen-Prompts mit historischen Persönlichkeiten für Karriere, Sport, Prävention. Erkenntnis: KI braucht gezielten Einsatz, nicht beliebige Fragen.",
+      "original": "Ich muss sagen, ich habe dann recht früh, so im Sommer 2024, ein tieferes Potenzial erkannt. Ich habe der KI Rollen von historischen Persönlichkeiten gegeben, um mir Ratschläge für Karriere, Sport oder Krankheitsprävention zu holen. Natürlich stieß die Technik damals noch an ihre Grenzen, aber ich habe sofort den gewaltigen Impact gesehen. Wenn auch mir schnell bewusst wurde, dass diese Technik, wie jede andere auch, zwei Seiten hat, hatte ich irgendwie nie Angst vor dieser Veränderung. Im Gegenteil fokussierte ich mich auf das enorme positive Potenzial. Und da kam mir der Gedanke: Was bringt es uns, wenn wir eine KI einfach alles fragen können, wir sie aber nicht gezielt und mit Sinn und Verstand für echte Lösungen einsetzen? Ich wollte Apps bauen, die Menschen wirklich helfen."
+    },
+    {
+      "id": "h3",
+      "period": "2024",
+      "hookline": "Vom analogen Tüftler in die IT.",
+      "essence": "Keine IT-Vorerfahrung, in der Familie eher technikfern. Bildungsgutschein, ursprüngliches Ziel: Anwendungsentwicklung.",
+      "original": "Dazu muss man wissen: Ich hatte vorher absolut nichts mit IT am Hut. Technik wurde in meiner Familie fast schon verteufelt. Ich war eher ein analoger Schaffer und Tüftler, fernab von Computern und seit Jahren ohne Social Media. Aber dieser Wunsch, sinnvolle KI-Anwendungen zu entwickeln, ließ mich nicht los. Also bin ich zur Agentur für Arbeit, habe mitgeteilt, dass ich in die IT möchte, bekam einen Bildungsgutschein und wollte eigentlich Anwendungsentwickler werden."
+    },
+    {
+      "id": "h4",
+      "period": "Oktober 2024 – Frühjahr 2025",
+      "hookline": "Multi-Agent-Improvisation aus der Krise.",
+      "essence": "Umschulungsstart, dann eine private Lebenskrise. Erste improvisierte Multi-Agent-Konstruktion mit Seneca, Watzlawick und Birkenbihl als reflektierende Gesprächspartner.",
+      "original": "Als dann im Oktober 2024 die Vorbereitungskurse für die Umschulung begannen, reifte in mir die Idee für mein Traumprojekt: Ein System, das anderen Menschen beim Lernen hilft und gleichzeitig als individueller Bildungs-Coach fungiert. Kurz nach dem Start der eigentlichen Umschulung im Frühjahr 2025 traf mich eine private Lebenskrise mit voller Wucht. Ich hatte den Kopf einfach nicht für die Schule und ließ mich ein halbes Jahr zurückstufen. In dieser schwierigen Zeit war KI mir tatsächlich eine kleine psychische Stütze. Ich nutzte das europäische Modell Le Chat von Mistral und promptete mir Seneca, Paul Watzlawick und Vera F. Birkenbihl – mögen sie in Frieden ruhen – als Gesprächspartner, um meine Situation zu reflektieren. Und zwar nicht nur einzeln: Ich habe die Chats damals schon so gebaut, dass sie voneinander wussten und sich, mit meiner Hilfe, gegenseitig Nachrichten austauschten. Das war, wenn man es heute so nennen will, mein erster eigener Multi-Agent-Versuch – irgendwie improvisiert, aber er hat funktioniert."
+    },
+    {
+      "id": "h5",
+      "period": "Herbst 2025",
+      "hookline": "Solider Weg statt glamourös: Systemintegration.",
+      "essence": "Wechsel von Anwendungsentwicklung zu Fachinformatiker Systemintegration. Begründung: Netzwerke und Infrastruktur sind die Basis jeder KI-Anwendung.",
+      "original": "Im Herbst 2025 lief mein Leben dann wieder in geordneten Bahnen. Zu diesem Zeitpunkt war auch die Entscheidung gefallen, nicht Anwendungsentwicklung, sondern Fachinformatiker für Systemintegration zu lernen. Warum? Weil mir klar wurde, dass Netzwerke, virtuelle Maschinen und Cyber Security halt genau die Infrastruktur sind, die man braucht, um KI-Anwendungen überhaupt bereitzustellen. Nicht der glamourösere Weg – aber der solidere."
+    },
+    {
+      "id": "h6",
+      "period": "2025 / 2026",
+      "hookline": "Vier Tools, eine bewusste Pipeline.",
+      "essence": "ChatGPT durch Perplexity, Gemini, NotebookLM und Claude ersetzt. Jedes Tool für das, was es am besten kann — Tool-Orchestrierung wird Methode.",
+      "original": "Im weiteren Verlauf habe ich dann massiv angefangen, KI-Tools zu orchestrieren und mir Workflows zu bauen. Von ChatGPT bin ich schon seit dem Sommer komplett weg. Perplexity kam dazu für die exzellente Quellenarbeit, Gemini überzeugte mich mit seinem riesigen Kontextfenster, NotebookLM hat mich mit der Generierung von Podcasts und eindrucksvollen Lernmaterialien geflasht. Und dann ist da noch Claude – das Tool, mit dem ich gerade SynapSpace entwickle. Wenn es um komplexe Projekte und saubere Logik geht, macht Claude momentan einfach niemandem etwas vor. Ich kombiniere all diese Tools geschickt miteinander, spare Limits und nutze jedes für das, was es am besten kann."
+    },
+    {
+      "id": "h7",
+      "period": "Heute · 2026",
+      "hookline": "SynapSpace: Vom Gedanken zum aktiven Projekt.",
+      "essence": "Die Idee von Oktober 2024 ist heute Realität. Bewerbung als Fachinformatiker Systemintegration ist der nächste logische Schritt.",
+      "original": "SynapSpace ist dabei das Herzstück von allem. Die Idee, die mich seit Oktober 2024 nicht loslässt – ein intelligentes Lernsystem, das seine User zu verstehen lernt und ihnen hilft, schlauer und stärker zu werden – ist heute kein Traum mehr, sondern ein aktives Projekt. Heute stehe ich genau da, wo ich sein will. Und bis dieser Traum in seiner vollen Form wahr wird, eigne ich mir halt genau die Fähigkeiten an, die ich dafür brauche."
+    }
+  ],
   "journalThematic": [
     {
       "id": "t001",
@@ -1008,6 +1085,13 @@ function renderOrch(o){
 <div class="matrix">
   <div class="matrix-title">Rollenverteilung</div>
   <table class="matrix-tbl">
+    <colgroup>
+      <col class="matrix-col-lbl">
+      <col class="matrix-col-tool">
+      <col class="matrix-col-tool">
+      <col class="matrix-col-tool">
+      <col class="matrix-col-tool">
+    </colgroup>
     <thead><tr><th></th>${headers}</tr></thead>
     <tbody>${rows}</tbody>
   </table>
@@ -1339,16 +1423,27 @@ function renderJournal(){
   <p class="jcont" style="font-size: 1.05rem; line-height: 1.85;">SynapSpace ist mein erstes Projekt in dieser Komplexität. Die Vision und die Richtungsentscheidungen für Technologien und Architektur habe ich selbst getroffen, die technische Ausführung iterativ mit KI erarbeitet – mit dem festen Anspruch, jeden Schritt zu verstehen. Hat das immer geklappt? Ehrlich gesagt nein. Troubleshooting, ungeplante Hardware-Wartung und der normale Alltag haben ihren Tribut gefordert und manche Details laufen schneller als das Verständnis hinterherkommen kann. Die grundlegenden Architekturentscheidungen und ihre Begründungen verstehe ich. Die tiefere Implementierungsebene vertiefe ich gezielt weiter – denn das Projekt läuft nach der Bewerbungsphase nicht nur weiter, sondern es wird wachsen und mir mein restliches Leben beim Lernen helfen. Warten und sichern werde ich es selbst.</p>
 </div>
 <div id="j-history" class="j-pane">
-  <div class="j-section-sub">Frühjahr 2024 bis Frühjahr 2026</div>
-  <p class="jcont" style="font-size: 1.05rem; line-height: 1.85;">Also, ich bin vor ziemlich genau zwei Jahren, so im März oder April 2024, zum ersten Mal wirklich mit KI in Kontakt gekommen. Mein erstes Tool war damals ChatGPT, das ich anfangs nur privat und kostenlos genutzt habe. Meine damalige Arbeit in der Pflege und Assistenz von schwerbehinderten Menschen hat diese Notwendigkeit für den professionellen Einsatz einfach nicht erzeugt. Aber ich war vom ersten Moment an beeindruckt. Meine ersten Chats habe ich mir für meine Hobbys gebaut, beispielsweise einen gebildeten Cineasten, mit dem ich über Filme diskutieren konnte. Das war halt für mich als Filmfan ein super Einstieg.</p>
-  <p class="jcont" style="font-size: 1.05rem; line-height: 1.85;">Ich muss sagen, ich habe dann recht früh, so im Sommer 2024, ein tieferes Potenzial erkannt. Ich habe der KI Rollen von historischen Persönlichkeiten gegeben, um mir Ratschläge für Karriere, Sport oder Krankheitsprävention zu holen. Natürlich stieß die Technik damals noch an ihre Grenzen, aber ich habe sofort den gewaltigen Impact gesehen. Wenn auch mir schnell bewusst wurde, dass diese Technik, wie jede andere auch, zwei Seiten hat, hatte ich irgendwie nie Angst vor dieser Veränderung. Im Gegenteil fokussierte ich mich auf das enorme positive Potenzial. Und da kam mir der Gedanke: Was bringt es uns, wenn wir eine KI einfach alles fragen können, wir sie aber nicht gezielt und mit Sinn und Verstand für echte Lösungen einsetzen? Ich wollte Apps bauen, die Menschen wirklich helfen.</p>
-  <p class="jcont" style="font-size: 1.05rem; line-height: 1.85;">Dazu muss man wissen: Ich hatte vorher absolut nichts mit IT am Hut. Technik wurde in meiner Familie fast schon verteufelt. Ich war eher ein analoger Schaffer und Tüftler, fernab von Computern und seit Jahren ohne Social Media. Aber dieser Wunsch, sinnvolle KI-Anwendungen zu entwickeln, ließ mich nicht los. Also bin ich zur Agentur für Arbeit, habe mitgeteilt, dass ich in die IT möchte, bekam einen Bildungsgutschein und wollte eigentlich Anwendungsentwickler werden.</p>
-  <p class="jcont" style="font-size: 1.05rem; line-height: 1.85;">Als dann im Oktober 2024 die Vorbereitungskurse für die Umschulung begannen, reifte in mir die Idee für mein Traumprojekt: Ein System, das anderen Menschen beim Lernen hilft und gleichzeitig als individueller Bildungs-Coach fungiert. Kurz nach dem Start der eigentlichen Umschulung im Frühjahr 2025 traf mich eine private Lebenskrise mit voller Wucht. Ich hatte den Kopf einfach nicht für die Schule und ließ mich ein halbes Jahr zurückstufen. In dieser schwierigen Zeit war KI mir tatsächlich eine kleine psychische Stütze. Ich nutzte das europäische Modell Le Chat von Mistral und promptete mir Seneca, Paul Watzlawick und Vera F. Birkenbihl – mögen sie in Frieden ruhen – als Gesprächspartner, um meine Situation zu reflektieren. Und zwar nicht nur einzeln: Ich habe die Chats damals schon so gebaut, dass sie voneinander wussten und sich, mit meiner Hilfe, gegenseitig Nachrichten austauschten. Das war, wenn man es heute so nennen will, mein erster eigener Multi-Agent-Versuch – irgendwie improvisiert, aber er hat funktioniert.</p>
-  <p class="jcont" style="font-size: 1.05rem; line-height: 1.85;">Im Herbst 2025 lief mein Leben dann wieder in geordneten Bahnen. Zu diesem Zeitpunkt war auch die Entscheidung gefallen, nicht Anwendungsentwicklung, sondern Fachinformatiker für Systemintegration zu lernen. Warum? Weil mir klar wurde, dass Netzwerke, virtuelle Maschinen und Cyber Security halt genau die Infrastruktur sind, die man braucht, um KI-Anwendungen überhaupt bereitzustellen. Nicht der glamourösere Weg – aber der solidere.</p>
-  <p class="jcont" style="font-size: 1.05rem; line-height: 1.85;">Im weiteren Verlauf habe ich dann massiv angefangen, KI-Tools zu orchestrieren und mir Workflows zu bauen. Von ChatGPT bin ich schon seit dem Sommer komplett weg. Perplexity kam dazu für die exzellente Quellenarbeit, Gemini überzeugte mich mit seinem riesigen Kontextfenster, NotebookLM hat mich mit der Generierung von Podcasts und eindrucksvollen Lernmaterialien geflasht. Und dann ist da noch Claude – das Tool, mit dem ich gerade SynapSpace entwickle. Wenn es um komplexe Projekte und saubere Logik geht, macht Claude momentan einfach niemandem etwas vor. Ich kombiniere all diese Tools geschickt miteinander, spare Limits und nutze jedes für das, was es am besten kann.</p>
-  <p class="jcont" style="font-size: 1.05rem; line-height: 1.85;">SynapSpace ist dabei das Herzstück von allem. Die Idee, die mich seit Oktober 2024 nicht loslässt – ein intelligentes Lernsystem, das seine User zu verstehen lernt und ihnen hilft, schlauer und stärker zu werden – ist heute kein Traum mehr, sondern ein aktives Projekt. Heute stehe ich genau da, wo ich sein will. Und bis dieser Traum in seiner vollen Form wahr wird, eigne ich mir halt genau die Fähigkeiten an, die ich dafür brauche.</p>
+  <div class="j-section-sub">Frühjahr 2024 bis heute · Hookline und Essenz sichtbar, Originaltext aufklappbar</div>
+  <div class="hist-tl">${renderHistory()}</div>
 </div>`;
 }
+
+function renderHistory(){
+  return (D.aiHistory||[]).map((h,i,arr)=>{
+    const last = i === arr.length - 1;
+    const orig = h.original ? `<button class="hist-toggle" onclick="tgH('${h.id}')"><span class="hist-toggle-arrow">▼</span><span class="hist-toggle-text">Original lesen</span></button><div class="hist-orig"><p>${h.original}</p></div>` : '';
+    return `<div class="hist-ms ${last?'last':''}" id="hms-${h.id}">
+  <div class="hist-card">
+    <div class="hist-period">${h.period}</div>
+    <div class="hist-hook">${h.hookline}</div>
+    <p class="hist-essence">${h.essence}</p>
+    ${orig}
+  </div>
+</div>`;
+  }).join('');
+}
+
+function tgH(id){document.getElementById('hms-'+id).classList.toggle('o')}
 
 function jTab(id,btn){
   document.querySelectorAll('.j-tab').forEach(b=>b.classList.remove('a'));
